@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/cdtrefactoring/wiki/CommentAssignment by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:41:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      CommentAssignment – CDT Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="CommentAssignment56e6.html?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search CDT Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/style.html" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="../../cdtrefactoring.html">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="../../trac.html">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="../../cute.html">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/logo.png" alt="" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/cdtrefactoring/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="TracGuide.html">Help/Guide</a></li><li><a href="../about.html">About Trac</a></li><li class="last"><a href="../prefs.html">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Wiki</a></li><li><a href="../report.html">View Tickets</a></li><li class="last"><a href="../search.html">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="../wiki.html">wiki:</a><a class="pathentry" href="CommentAssignment.html" title="View CommentAssignment">CommentAssignment</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li class="last"><a href="CommentAssignmentd9df.html?action=history">History</a></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="CommentHandlingIdeas">Comment Handling Ideas</h1>
+<h2 id="Proxies">Proxies</h2>
+<ul><li>(Visitor) Own traversal mechanism
+</li><li>Creation of a new AST
+</li><li>Each node gets a clone with comment capabilities
+</li><li>Indirection when accessing
+</li><li>Own Visitor Strategy
+</li></ul><h2 id="JITCommentAssignment">JIT Comment Assignment</h2>
+<ul><li>For every node where a comment would be interesting the comment list is searched for matching comments
+</li><li>Visitor for assignment
+</li><li>Bad Scaling
+</li></ul><h2 id="NodeFactoryforASTGeneration">Node Factory for AST Generation</h2>
+<ul><li>Change in CDT - Factory for Nodes while AST generation
+</li><li>Node Factory for Commented Nodes
+<ul><li>Extention of ASTNode
+</li><li>Implementation of own structure
+</li></ul></li><li>Direct assignment and access to comments in nodes
+</li></ul><h2 id="CommentHashMap">Comment Hash Map</h2>
+<ul><li>Map with nodes as key and a list of comments as value
+</li><li>Created by a visitor before refactoring
+</li><li>Dynamic comment determination when needed
+</li></ul><h2 id="BuildOurOwnCodeModel">Build Our Own Code Model</h2>
+<ul><li>Visit the AST and create a separate model of the code, which we could then augment with more information, like comments
+<ul><li>- lots of duplication and rewriting :(
+</li><li>+ we can do whatever we want with it, like moving functionality from the countless helper classes into the model. :)
+</li></ul></li></ul></div>
+          
+          <div class="trac-modifiedby">
+            <span><a href="CommentAssignment5389.html?action=diff&amp;version=3" title="Version 3 by guido">Last modified</a> <a class="timeline" href="../timelinea46f.html?from=2007-12-19T16%3A52%3A32%2B01%3A00&amp;precision=second" title="See timeline at 12/19/07 16:52:32">7 years ago</a></span>
+            <span class="trac-print">Last modified on 12/19/07 16:52:32</span>
+          </div>
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="CommentAssignment56e6.html?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="../about.html"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/cdtrefactoring/wiki/CommentAssignment by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:41:01 GMT -->
+</html>

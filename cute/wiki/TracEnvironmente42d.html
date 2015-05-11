@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/cute/wiki/TracEnvironment?version=1 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:45:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracEnvironment – CUTE
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://r2.ifs.hsr.ch/cute/wiki/TracEnvironment?version=1&amp;format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="TracEnvironment.html" title="View latest version" />
+        <link rel="next" href="TracEnvironment67d9.html?version=2" title="Version 2" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search CUTE" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/cute/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/cute"><img src="http://r2.ifs.hsr.ch/cute/chrome/site/logo.png" alt="" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/cute/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/cute/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/cute/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/cute/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/cute/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/cute/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/cute/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/cute/roadmap">Roadmap</a></li><li><a href="http://r2.ifs.hsr.ch/cute/report">View Tickets</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/cute/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://r2.ifs.hsr.ch/cute/wiki">wiki:</a><a class="pathentry" href="http://r2.ifs.hsr.ch/cute/wiki/TracEnvironment" title="View TracEnvironment">TracEnvironment</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span class="missing">&larr; Previous Version</span></li><li><a href="http://r2.ifs.hsr.ch/cute/wiki/TracEnvironment" title="View latest version">View Latest Version</a></li><li class="last"><span><a class="next" href="http://r2.ifs.hsr.ch/cute/wiki/TracEnvironment?version=2" title="Version 2">Next Version</a> &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+        <br />
+        <table id="info" summary="Revision info">
+          <tbody>
+            <tr><th scope="row">Version 1 (modified by trac, <a class="timeline" href="http://r2.ifs.hsr.ch/cute/timeline?from=2007-07-06T13%3A21%3A48%2B02%3A00&amp;precision=second" title="See timeline at 07/06/07 13:21:48">8 years ago</a>)
+               (<a href="http://r2.ifs.hsr.ch/cute/wiki/TracEnvironment?action=diff&amp;version=1">diff</a>)</th></tr>
+            <tr><td class="message">
+              <p>
+--
+</p>
+
+            </td></tr>
+          </tbody>
+        </table>
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="TheTracEnvironment">The Trac Environment</h1>
+<p>
+Trac uses a directory structure and a database for storing project data. The directory is referred to as the “environment”.
+</p>
+<h2 id="CreatinganEnvironment">Creating an Environment</h2>
+<p>
+A new Trac environment is created using <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracAdmin">trac-admin</a>:
+</p>
+<pre class="wiki">$ trac-admin /path/to/projectenv initenv
+</pre><p>
+<a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracAdmin">trac-admin</a> will ask you for the name of the project, the
+database connection string (explained below), and the type and path to
+your source code repository.
+</p>
+<p>
+<em>Note: The web server user will require file system write permission to 
+the environment directory and all the files inside. Please remember to set
+the appropriate permissions. The same applies to the Subversion repository 
+Trac is eventually using, although Trac will only require read access as long 
+as you're not using the BDB file system.</em>
+</p>
+<h2 id="DatabaseConnectionStrings">Database Connection Strings</h2>
+<p>
+Since version 0.9, Trac supports both <a class="ext-link" href="http://sqlite.org/"><span class="icon">​</span>SQLite</a>,
+<a class="ext-link" href="http://www.postgresql.org/"><span class="icon">​</span>PostgreSQL</a> and <a class="ext-link" href="http://mysql.com/"><span class="icon">​</span>MySQL</a> as
+database backends.  The default is to use SQLite, which is probably sufficient
+for most projects. The database file is then stored in the environment
+directory, and can easily be <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracBackup">backed up</a> together with the
+rest of the environment.
+</p>
+<p>
+The connection string for an embedded SQLite database is:
+</p>
+<pre class="wiki">sqlite:db/trac.db
+</pre><p>
+If you want to use PostgreSQL or MySQL instead, you'll have to use a
+different connection string. For example, to connect to a PostgreSQL
+database on the same machine called <tt>trac</tt>, that allows access to the
+user <tt>johndoe</tt> with the password <tt>letmein</tt>, use:
+</p>
+<pre class="wiki">postgres://johndoe:letmein@localhost/trac
+</pre><p>
+If PostgreSQL is running on a non-standard port (for example 9342), use:
+</p>
+<pre class="wiki">postgres://johndoe:letmein@localhost:9342/trac
+</pre><p>
+Note that with PostgreSQL you will have to create the database before running
+<tt>trac-admin initenv</tt>.
+</p>
+<p>
+And make sure PostgreSQl DB name is "trac". What worked for me:
+And didn't work uppercase trac-user-name
+</p>
+<pre class="wiki">sudo su - postgres -c createdb trac
+sudo su - postgres -c psql trac
+CREATE USER trac-user-name WITH PASSWORD 'trac-pass-name';
+</pre><p>
+(Just to remind you, if you don't have a sudo/su setup, you just need to do the createdb and psql statements. That threw me the first couple of times I read this.)
+</p>
+<h2 id="SourceCodeRepository">Source Code Repository</h2>
+<p>
+You'll first have to provide the <em>type</em> of your repository (e.g. <tt>svn</tt> for Subversion,
+which is the default), then the <em>path</em> where the repository is located.
+</p>
+<p>
+If you don't want to use Trac with a source code repository, simply leave the <em>path</em> empty
+(the <em>type</em> information doesn't matter, then).
+</p>
+<p>
+For some systems, it is possible to specify not only the path to the repository,
+but also a <em>scope</em> within the repository. Trac will then only show information
+related to the files and changesets below that scope. The Subversion backend for
+Trac supports this; for other types, check the corresponding plugin's documentation.
+</p>
+<p>
+Example of a configuration for a Subversion repository:
+</p>
+<pre class="wiki">[trac]
+repository_type = svn
+repository_dir = /path/to/your/repository
+</pre><p>
+The configuration for a scoped Subversion repository would be:
+</p>
+<pre class="wiki">[trac]
+repository_type = svn
+repository_dir = /path/to/your/repository/scope/within/repos
+</pre><h2 id="DirectoryStructure">Directory Structure</h2>
+<p>
+An environment directory will usually consist of the following files and directories:
+</p>
+<ul><li><tt>README</tt> - Brief description of the environment.
+</li><li><tt>VERSION</tt> - Contains the environment version identifier.
+</li><li><tt>attachments</tt> - Attachments to wiki pages and tickets are stored here.
+</li><li><tt>conf</tt>
+<ul><li><tt>trac.ini</tt> - Main configuration file. See <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracIni">TracIni</a>.
+</li></ul></li><li><tt>db</tt>
+<ul><li><tt>trac.db</tt> - The SQLite database (if you're using SQLite).
+</li></ul></li><li><tt>plugins</tt> - Environment-specific <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracPlugins">plugins</a> (Python eggs)
+</li><li><tt>templates</tt> - Custom environment-specific templates.
+<ul><li><tt>site_css.cs</tt> - Custom CSS rules.
+</li><li><tt>site_footer.cs</tt> - Custom page footer.
+</li><li><tt>site_header.cs</tt> - Custom page header.
+</li></ul></li><li><tt>wiki-macros</tt> - Environment-specific <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/WikiMacros">Wiki macros</a>.
+</li></ul><blockquote>
+<blockquote>
+<p>
+<strong>Note: don't confuse a Trac environment directory with the source code repository directory.
+</strong></p>
+</blockquote>
+</blockquote>
+<p>
+It happens that the above structure is loosely modelled after the Subversion repository directory 
+structure, but they are not and <em>must not</em> be located at the same place.<strong>
+</strong></p>
+<hr />
+<p>
+See also: <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracAdmin">TracAdmin</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracBackup">TracBackup</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracIni">TracIni</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracGuide">TracGuide</a>
+</p>
+</div>
+          
+          
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://r2.ifs.hsr.ch/cute/wiki/TracEnvironment?version=1&amp;format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/cute/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/cute/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/cute/wiki/TracEnvironment?version=1 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:45:59 GMT -->
+</html>

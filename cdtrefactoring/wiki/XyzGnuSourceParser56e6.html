@@ -1,0 +1,7 @@
+package org.eclipse.cdt.internal.core.dom.parser;
+* AbstractGNUSourceCode
+* GNUCSourceParser
+* GNUCPPSourceParser
+
+Add parameters to createBinaryExpression() so that this methods can create the object with suitable constructors instead of setting all attributes with setMethods.
+Maybe it is even possible to get rid of the buildBinaryExpressionMethod by directly calling the createBinaryExpression.

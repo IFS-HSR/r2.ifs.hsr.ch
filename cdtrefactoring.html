@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/cdtrefactoring by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:40:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      CDT Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="cdtrefactoring/search.html" />
+        <link rel="help" href="cdtrefactoring/wiki/TracGuide.html" />
+        <link rel="alternate" href="cdtrefactoring/wiki/WikiStart56e6.html?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="cdtrefactoring/wiki.html" />
+        <link rel="stylesheet" href="cdtrefactoring/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="cdtrefactoring/chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="cdtrefactoring/chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="cdtrefactoring/chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="cdtrefactoring/search/opensearch" title="Search CDT Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="cdtrefactoring/chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="cdtrefactoring/chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="cdtrefactoring/chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="cdtrefactoring/chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="cdtrefactoring/chrome/common/js/folding.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="cdtrefactoring/chrome/site/style.html" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="cdtrefactoring.html">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="trac.html">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="cute.html">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="cdtrefactoring/index.html"><img src="cdtrefactoring/chrome/site/logo.png" alt="" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/cdtrefactoring/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="cdtrefactoring/login.html">Login</a></li><li><a href="cdtrefactoring/wiki/TracGuide.html">Help/Guide</a></li><li><a href="cdtrefactoring/about.html">About Trac</a></li><li class="last"><a href="cdtrefactoring/prefs.html">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="cdtrefactoring/wiki.html">Wiki</a></li><li><a href="cdtrefactoring/report.html">View Tickets</a></li><li class="last"><a href="cdtrefactoring/search.html">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="cdtrefactoring/wiki.html">wiki:</a><a class="pathentry" href="cdtrefactoring/wiki/WikiStart.html" title="View WikiStart">WikiStart</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><a href="cdtrefactoring/wiki/WikiStart.html">Start Page</a></li><li><a href="cdtrefactoring/wiki/TitleIndex.html">Index</a></li><li class="last"><a href="cdtrefactoring/wiki/WikiStartd9df.html?action=history">History</a></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="CDTRefactoringWiki">CDT Refactoring Wiki</h1>
+<p>
+Welcome to the CDT Refactoring project website. We are developing a C++ Refactoring Plug-in for <a class="ext-link" href="http://www.eclipse.org/cdt/"><span class="icon">​</span>CDT</a>. 
+</p>
+<strong><span style="color: #FF0000">Please note that this project is no longer active.</span></strong> Most of the refactorings are now part of the regular Eclipse CDT distribution and require not separate installation. If you want to track our latest developments, please take a look at our <a href="http://cute-test.com/">CUTE project</a>.
+<p>
+After the realization of one term project and two diploma theses and a lot of work we finally have a plug-in which provides the following refactorings:
+</p>
+<ul><li>Declare Method
+</li><li>Extract Baseclass
+</li><li>Extract Constant
+</li><li>Extract Method
+</li><li>Extract Subclass
+</li><li>Hide Method
+</li><li><a class="wiki" href="cdtrefactoring/wiki/ImplementMethod.html">Implement Method</a>
+</li><li>Move Field / Method
+</li><li>Replace Number
+</li><li>Separate Class
+</li><li><a class="wiki" href="cdtrefactoring/wiki/GenerateGettersAndSetters.html">Generate Getters and Setters</a>
+</li></ul><p>
+If you have any wishes, don't hesitate to contact us. We are also <strong>looking for sponsors</strong>, please contact Peter Sommerlad if you'd like to support our work.
+</p>
+<h2 id="History">History</h2>
+<ul><li>Cerp (Cavegn, Zgraggen)
+</li><li>C++ Refactoring (Büttiker, Graf)
+</li></ul><h2 id="PotentialImprovementofCDTcode">Potential Improvement of CDT code</h2>
+<ul><li><a class="wiki" href="cdtrefactoring/wiki/CDTRefactoringSuggestions.html">CDT Refactoring Suggestions</a>
+</li><li><a class="wiki" href="cdtrefactoring/wiki/CommentAssignment.html">Comment Handling Improvement</a>
+</li></ul></div>
+          
+          <div class="trac-modifiedby">
+            <span><a href="cdtrefactoring/wiki/WikiStartbb6c.html?action=diff&amp;version=40" title="Version 40 by mirko">Last modified</a> <a class="timeline" href="cdtrefactoring/timeline2f8f.html?from=2014-03-17T09%3A48%3A23%2B01%3A00&amp;precision=second" title="See timeline at 03/17/14 09:48:23">14 months ago</a></span>
+            <span class="trac-print">Last modified on 03/17/14 09:48:23</span>
+          </div>
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="cdtrefactoring/wiki/WikiStart56e6.html?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="cdtrefactoring/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="cdtrefactoring/about.html"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/cdtrefactoring by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:40:53 GMT -->
+</html>

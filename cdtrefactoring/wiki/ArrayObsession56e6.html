@@ -1,0 +1,13 @@
+In many places within the parsers Java arrays are used as a type safe container
+
+With Java 5 this is no longer a requirement to obtain type-safety for containers.
+
+In addition the code complexity with explicit array allocation, etc, is often obscuring a method's intent.
+
+My suggestion would be to try to eliminate all unnecessary usage of Java Arrays.
+
+Potential change in performance could result (both faster or slower), depending on how the Arrays are used.
+
+e.g. a hashed- or sorted container might search much faster than a linear search, if the array tends to be large
+
+re-allocation of an array if its size is too small or too large could also be a problem.

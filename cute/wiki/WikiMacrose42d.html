@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/cute/wiki/WikiMacros?version=1 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:45:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      WikiMacros – CUTE
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://r2.ifs.hsr.ch/cute/wiki/WikiMacros?version=1&amp;format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="WikiMacros.html" title="View latest version" />
+        <link rel="next" href="WikiMacros67d9.html?version=2" title="Version 2" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search CUTE" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/cute/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/cute"><img src="http://r2.ifs.hsr.ch/cute/chrome/site/logo.png" alt="" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/cute/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/cute/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/cute/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/cute/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/cute/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/cute/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/cute/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/cute/roadmap">Roadmap</a></li><li><a href="http://r2.ifs.hsr.ch/cute/report">View Tickets</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/cute/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://r2.ifs.hsr.ch/cute/wiki">wiki:</a><a class="pathentry" href="http://r2.ifs.hsr.ch/cute/wiki/WikiMacros" title="View WikiMacros">WikiMacros</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span class="missing">&larr; Previous Version</span></li><li><a href="http://r2.ifs.hsr.ch/cute/wiki/WikiMacros" title="View latest version">View Latest Version</a></li><li class="last"><span><a class="next" href="http://r2.ifs.hsr.ch/cute/wiki/WikiMacros?version=2" title="Version 2">Next Version</a> &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+        <br />
+        <table id="info" summary="Revision info">
+          <tbody>
+            <tr><th scope="row">Version 1 (modified by trac, <a class="timeline" href="http://r2.ifs.hsr.ch/cute/timeline?from=2007-07-06T13%3A21%3A48%2B02%3A00&amp;precision=second" title="See timeline at 07/06/07 13:21:48">8 years ago</a>)
+               (<a href="http://r2.ifs.hsr.ch/cute/wiki/WikiMacros?action=diff&amp;version=1">diff</a>)</th></tr>
+            <tr><td class="message">
+              <p>
+--
+</p>
+
+            </td></tr>
+          </tbody>
+        </table>
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="WikiMacros">Wiki Macros</h1>
+<p>
+Trac macros are plugins to extend the Trac engine with custom 'functions' written in Python. A macro inserts dynamic HTML data in any context supporting <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/WikiFormatting">WikiFormatting</a>.
+</p>
+<p>
+Another kind of macros are <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/WikiProcessors">WikiProcessors</a>. They typically deal with alternate markup formats and representation of larger blocks of information (like source code highlighting).
+</p>
+<h2 id="UsingMacros">Using Macros</h2>
+<p>
+Macro calls are enclosed in two <em>square brackets</em>. Like Python functions, macros can also have arguments, a comma separated list within parentheses. 
+</p>
+<h3 id="Examples">Examples</h3>
+<pre class="wiki"> [[Timestamp]]
+</pre><p>
+Display:
+</p>
+<blockquote>
+<p>
+<a class="missing wiki">Timestamp?</a>
+</p>
+</blockquote>
+<pre class="wiki"> [[HelloWorld(Testing)]]
+</pre><p>
+Display:
+</p>
+<blockquote>
+<p>
+<a class="missing wiki">HelloWorld(Testing)?</a>
+</p>
+</blockquote>
+<h2 id="AvailableMacros">Available Macros</h2>
+<p>
+<em>Note that the following list will only contain the macro documentation if you've not enabled <tt>-OO</tt> optimizations, or not set the <tt>PythonOptimize</tt> option for <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracModPython">mod_python</a>.</em>
+</p>
+<p>
+</p><div class="trac-macrolist"><h3 id="Image-macro"><code>[[Image]]</code></h3><p>
+Embed an image in wiki-formatted text.
+</p>
+<p>
+The first argument is the file specification. The file specification may
+reference attachments in three ways:
+</p>
+<ul><li><tt>module:id:file</tt>, where module can be either <strong>wiki</strong> or <strong>ticket</strong>,
+to refer to the attachment named <em>file</em> of the specified wiki page or
+ticket.
+</li><li><tt>id:file</tt>: same as above, but id is either a ticket shorthand or a Wiki
+page name.
+</li><li><tt>file</tt> to refer to a local attachment named 'file'. This only works from
+within that wiki page or a ticket.
+</li></ul><p>
+Also, the file specification may refer to repository files, using the
+<tt>source:file</tt> syntax (<tt>source:file@rev</tt> works also).
+</p>
+<p>
+Files can also be accessed with a direct URLs; <tt>/file</tt> for a
+project-relative, <tt>//file</tt> for a server-relative, or <tt>http://server/file</tt>
+for absolute location of the file.
+</p>
+<p>
+The remaining arguments are optional and allow configuring the attributes
+and style of the rendered <tt>&lt;img&gt;</tt> element:
+</p>
+<ul><li>digits and unit are interpreted as the size (ex. 120, 25%)
+for the image
+</li><li><tt>right</tt>, <tt>left</tt>, <tt>center</tt>, <tt>top</tt>, <tt>bottom</tt> and <tt>middle</tt> are interpreted
+as the alignment for the image (alternatively, the first three can be
+specified using <tt>align=...</tt> and the last three using <tt>valign=...</tt>)
+</li><li><tt>link=some TracLinks...</tt> replaces the link to the image source by the
+one specified using a <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracLinks">TracLinks</a>. If no value is specified, the link is
+simply removed.
+</li><li><tt>nolink</tt> means without link to image source (deprecated, use <tt>link=</tt>)
+</li><li><tt>key=value</tt> style are interpreted as HTML attributes or CSS style
+indications for the image. Valid keys are:
+<ul><li>align, valign, border, width, height, alt, title, longdesc, class,
+margin, margin-(left,right,top,bottom), id and usemap
+</li><li><tt>border</tt>, <tt>margin</tt>, and <tt>margin-</tt>* can only be a single number
+</li><li><tt>margin</tt> is superseded by <tt>center</tt> which uses auto margins
+</li></ul></li></ul><p>
+Examples:
+</p>
+<pre class="wiki">    [[Image(photo.jpg)]]                           # simplest
+    [[Image(photo.jpg, 120px)]]                    # with image width size
+    [[Image(photo.jpg, right)]]                    # aligned by keyword
+    [[Image(photo.jpg, nolink)]]                   # without link to source
+    [[Image(photo.jpg, align=right)]]              # aligned by attribute
+</pre><p>
+You can use image from other page, other ticket or other module.
+</p>
+<pre class="wiki">    [[Image(OtherPage:foo.bmp)]]    # if current module is wiki
+    [[Image(base/sub:bar.bmp)]]     # from hierarchical wiki page
+    [[Image(#3:baz.bmp)]]           # if in a ticket, point to #3
+    [[Image(ticket:36:boo.jpg)]]
+    [[Image(source:/images/bee.jpg)]] # straight from the repository!
+    [[Image(htdocs:foo/bar.png)]]   # image file in project htdocs dir.
+</pre><p>
+<em>Adapted from the Image.py macro created by Shun-ichi Goto
+&lt;gotoh@…&gt;</em>
+</p>
+<h3 id="InterTrac-macro"><code>[[InterTrac]]</code></h3><p>
+Provide a list of known <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/InterTrac">InterTrac</a> prefixes.
+</p>
+<h3 id="InterWiki-macro"><code>[[InterWiki]]</code></h3><p>
+Provide a description list for the known <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/InterWiki">InterWiki</a> prefixes.
+</p>
+<h3 id="KnownMimeTypes-macro"><code>[[KnownMimeTypes]]</code></h3><p>
+List all known mime-types which can be used as <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/WikiProcessors">WikiProcessors</a>.
+</p>
+<p>
+Can be given an optional argument which is interpreted as mime-type filter.
+</p>
+<h3 id="MacroList-macro"><code>[[MacroList]]</code></h3><p>
+Display a list of all installed Wiki macros, including documentation if
+available.
+</p>
+<p>
+Optionally, the name of a specific macro can be provided as an argument. In
+that case, only the documentation for that macro will be rendered.
+</p>
+<p>
+Note that this macro will not be able to display the documentation of
+macros if the <tt>PythonOptimize</tt> option is enabled for mod_python!
+</p>
+<h3 id="PageOutline-macro"><code>[[PageOutline]]</code></h3><p>
+Display a structural outline of the current wiki page, each item in the
+outline being a link to the corresponding heading.
+</p>
+<p>
+This macro accepts four optional parameters:
+</p>
+<ul><li>The first is a number or range that allows configuring the minimum and
+maximum level of headings that should be included in the outline. For
+example, specifying "1" here will result in only the top-level headings
+being included in the outline. Specifying "2-3" will make the outline
+include all headings of level 2 and 3, as a nested list. The default is
+to include all heading levels.
+</li><li>The second parameter can be used to specify a custom title (the default
+is no title).
+</li><li>The third parameter selects the style of the outline. This can be
+either <tt>inline</tt> or <tt>pullout</tt> (the latter being the default). The
+<tt>inline</tt> style renders the outline as normal part of the content, while
+<tt>pullout</tt> causes the outline to be rendered in a box that is by default
+floated to the right side of the other content.
+</li><li>The fourth parameter specifies whether the outline is numbered or not.
+It can be either <tt>numbered</tt> or <tt>unnumbered</tt> (the former being the
+default). This parameter only has an effect in <tt>inline</tt> style.
+</li></ul><h3 id="RecentChanges-macro"><code>[[RecentChanges]]</code></h3><p>
+List all pages that have recently been modified, ordered by the
+time they were last modified.
+</p>
+<p>
+This macro accepts two ordered arguments and a named argument. The named
+argument can be placed in any position within the argument list.
+</p>
+<p>
+The first parameter is a prefix string: if provided, only pages with names
+that start with the prefix are included in the resulting list. If this
+parameter is omitted, all pages are included in the list.
+</p>
+<p>
+The second parameter is the maximum number of pages to include in the
+list.
+</p>
+<p>
+The <tt>group</tt> parameter determines how the list is presented:
+<dl class="wiki"><dt><tt>group=date</tt></dt><dd>The pages are presented in bulleted lists that are
+grouped by date (default).
+</dd><dt><tt>group=none</tt></dt><dd>The pages are presented in a single bulleted list.
+</p>
+</dd></dl>
+<p>
+Tip: if you only want to specify a maximum number of entries and
+don't want to filter by prefix, specify an empty first parameter,
+e.g. <tt>[[RecentChanges(,10,group=none)]]</tt>.
+</p>
+<h3 id="RepositoryIndex-macro"><code>[[RepositoryIndex]]</code></h3><p>
+Display the list of available repositories.
+</p>
+<p>
+Can be given the following named arguments:
+</p>
+<dl class="wiki"><dt><em>format</em></dt><dd>
+Select the rendering format:
+<ul><li><em>compact</em> produces a comma-separated list of repository prefix
+names (default)
+</li><li><em>list</em> produces a description list of repository prefix names 
+</li><li><em>table</em> produces a table view, similar to the one visible in
+the <em>Browse View</em> page
+</li></ul></dd><dt><em>glob</em></dt><dd>
+Do a glob-style filtering on the repository names (defaults to '*')
+</dd><dt><em>order</em></dt><dd>
+Order repositories by the given column (one of "name", "date" or
+"author")
+</dd><dt><em>desc</em></dt><dd>
+When set to 1, order by descending order
+</dd></dl>
+<p>
+(<em>since 0.12</em>)
+</p>
+<h3 id="TicketQuery-macro"><code>[[TicketQuery]]</code></h3><p>
+Wiki macro listing tickets that match certain criteria.
+</p>
+<p>
+This macro accepts a comma-separated list of keyed parameters,
+in the form "key=value".
+</p>
+<p>
+If the key is the name of a field, the value must use the syntax 
+of a filter specifier as defined in <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracQuery#QueryLanguage">TracQuery#QueryLanguage</a>.
+Note that this is <em>not</em> the same as the simplified URL syntax 
+used for <tt>query:</tt> links starting with a <tt>?</tt> character. Commas (<tt>,</tt>)
+can be included in field values by escaping them with a backslash (<tt>\</tt>).
+</p>
+<p>
+Groups of field constraints to be OR-ed together can be separated by a
+litteral <tt>or</tt> argument.
+</p>
+<p>
+In addition to filters, several other named parameters can be used
+to control how the results are presented. All of them are optional.
+</p>
+<p>
+The <tt>format</tt> parameter determines how the list of tickets is
+presented: 
+</p>
+<ul><li><strong>list</strong> -- the default presentation is to list the ticket ID next
+to the summary, with each ticket on a separate line.
+</li><li><strong>compact</strong> -- the tickets are presented as a comma-separated
+list of ticket IDs. 
+</li><li><strong>count</strong> -- only the count of matching tickets is displayed
+</li><li><strong>table</strong>  -- a view similar to the custom query view (but without
+the controls)
+</li><li><strong>progress</strong> -- a view similar to the milestone progress bars
+</li></ul><p>
+The <tt>max</tt> parameter can be used to limit the number of tickets shown
+(defaults to <strong>0</strong>, i.e. no maximum).
+</p>
+<p>
+The <tt>order</tt> parameter sets the field used for ordering tickets
+(defaults to <strong>id</strong>).
+</p>
+<p>
+The <tt>desc</tt> parameter indicates whether the order of the tickets
+should be reversed (defaults to <strong>false</strong>).
+</p>
+<p>
+The <tt>group</tt> parameter sets the field used for grouping tickets
+(defaults to not being set).
+</p>
+<p>
+The <tt>groupdesc</tt> parameter indicates whether the natural display
+order of the groups should be reversed (defaults to <strong>false</strong>).
+</p>
+<p>
+The <tt>verbose</tt> parameter can be set to a true value in order to
+get the description for the listed tickets. For <strong>table</strong> format only.
+<em>deprecated in favor of the <tt>rows</tt> parameter</em>
+</p>
+<p>
+The <tt>rows</tt> parameter can be used to specify which field(s) should 
+be viewed as a row, e.g. <tt>rows=description|summary</tt>
+</p>
+<p>
+For compatibility with Trac 0.10, if there's a last positional parameter
+given to the macro, it will be used to specify the <tt>format</tt>.
+Also, using "&amp;" as a field separator still works (except for <tt>order</tt>)
+but is deprecated.
+</p>
+<h3 id="TitleIndex-macro"><code>[[TitleIndex]]</code></h3><p>
+Insert an alphabetic list of all wiki pages into the output.
+</p>
+<p>
+Accepts a prefix string as parameter: if provided, only pages with names
+that start with the prefix are included in the resulting list. If this
+parameter is omitted, all pages are listed.
+If the prefix is specified, a second argument of value <tt>hideprefix</tt>
+can be given as well, in order to remove that prefix from the output.
+</p>
+<p>
+Alternate <tt>format</tt> and <tt>depth</tt> named parameters can be specified:
+</p>
+<ul><li><tt>format=compact</tt>: The pages are displayed as comma-separated links.
+</li><li><tt>format=group</tt>: The list of pages will be structured in groups
+according to common prefix. This format also supports a <tt>min=n</tt>
+argument, where <tt>n</tt> is the minimal number of pages for a group.
+</li><li><tt>format=hierarchy</tt>: The list of pages will be structured according
+to the page name path hierarchy. This format also supports a <tt>min=n</tt>
+argument, where higher <tt>n</tt> flatten the display hierarchy
+</li><li><tt>depth=n</tt>: limit the depth of the pages to list. If set to 0,
+only toplevel pages will be shown, if set to 1, only immediate
+children pages will be shown, etc. If not set, or set to -1,
+all pages in the hierarchy will be shown.
+</li><li><tt>include=page1:page*2</tt>: include only pages that match an item in the
+colon-separated list of pages. If the list is empty, or if no <tt>include</tt>
+argument is given, include all pages.
+</li><li><tt>exclude=page1:page*2</tt>: exclude pages that match an item in the colon-
+separated list of pages.
+</li></ul><p>
+The <tt>include</tt> and <tt>exclude</tt> lists accept shell-style patterns.
+</p>
+<h3 id="TracAdminHelp-macro"><code>[[TracAdminHelp]]</code></h3><p>
+Display help for trac-admin commands.
+</p>
+<p>
+Examples:
+</p>
+<pre class="wiki">[[TracAdminHelp]]               # all commands
+[[TracAdminHelp(wiki)]]         # all wiki commands
+[[TracAdminHelp(wiki export)]]  # the "wiki export" command
+[[TracAdminHelp(upgrade)]]      # the upgrade command
+</pre><h3 id="TracGuideToc-macro"><code>[[TracGuideToc]]</code></h3><p>
+Display a table of content for the Trac guide.
+</p>
+<p>
+This macro shows a quick and dirty way to make a table-of-contents
+for the <a class="missing wiki">Help/Guide?</a>. The table of contents will contain the Trac* and
+<a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/WikiFormatting">WikiFormatting</a> pages, and can't be customized. Search for <a class="missing wiki">TocMacro?</a> for a
+a more customizable table of contents.
+</p>
+<h3 id="TracIni-macro"><code>[[TracIni]]</code></h3><p>
+Produce documentation for the Trac configuration file.
+</p>
+<p>
+Typically, this will be used in the <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracIni">TracIni</a> page.
+Optional arguments are a configuration section filter,
+and a configuration option name filter: only the configuration
+options whose section and name start with the filters are output.
+</p>
+<h3 id="Workflow-macro"><code>[[Workflow]]</code></h3><p>
+Render a workflow graph.
+</p>
+<p>
+This macro accepts a <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracWorkflow">TracWorkflow</a> configuration and renders the states
+and transitions as a directed graph. If no parameters are given, the
+current ticket workflow is rendered. In <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/WikiProcessors">WikiProcessors</a> mode the <tt>width</tt>
+and <tt>height</tt> arguments can be specified.
+</p>
+<p>
+(Defaults: <tt>width = 800</tt> and <tt>heigth = 600</tt>)
+</p>
+<p>
+Examples:
+</p>
+<pre class="wiki">    [[Workflow()]]
+    
+    [[Workflow(go = here -&gt; there; return = there -&gt; here)]]
+    
+    {{{
+    #!Workflow width=700 height=700
+    leave = * -&gt; *
+    leave.operations = leave_status
+    leave.default = 1
+
+    accept = new,assigned,accepted,reopened -&gt; accepted
+    accept.permissions = TICKET_MODIFY
+    accept.operations = set_owner_to_self
+
+    resolve = new,assigned,accepted,reopened -&gt; closed
+    resolve.permissions = TICKET_MODIFY
+    resolve.operations = set_resolution
+
+    reassign = new,assigned,accepted,reopened -&gt; assigned
+    reassign.permissions = TICKET_MODIFY
+    reassign.operations = set_owner
+
+    reopen = closed -&gt; reopened
+    reopen.permissions = TICKET_CREATE
+    reopen.operations = del_resolution
+    }}}
+</pre></div><p>
+</p>
+<h2 id="Macrosfromaroundtheworld">Macros from around the world</h2>
+<p>
+The <a class="ext-link" href="http://trac-hacks.org/"><span class="icon">​</span>Trac Hacks</a> site provides a wide collection of macros and other Trac <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracPlugins">plugins</a> contributed by the Trac community. If you're looking for new macros, or have written one that you'd like to share with the world, please don't hesitate to visit that site.
+</p>
+<h2 id="DevelopingCustomMacros">Developing Custom Macros</h2>
+<p>
+Macros, like Trac itself, are written in the <a class="ext-link" href="http://www.python.org/"><span class="icon">​</span>Python programming language</a>. They are very simple modules, identified by the filename and should contain a single <tt>execute()</tt> function. Trac will display the returned data inserted into the HTML representation of the Wiki page where the macro is called.
+</p>
+<p>
+It's easiest to learn from an example:
+</p>
+<div class="code"><pre># MyMacro.py -- The world's simplest macro
+
+def execute(hdf, args, env):
+    return "Hello World called with args: %s" % args
+</pre></div><p>
+You can also use the environment (<tt>env</tt>) object, for example to access configuration data and the database, for example:
+</p>
+<div class="code"><pre>def execute(hdf, txt, env):
+    return env.config.get('trac', 'repository_dir')
+</pre></div><p>
+Note that since version 0.9, wiki macros can also be written as <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracPlugins">TracPlugins</a>. This gives them some capabilities that “classic” macros do not have, such as being able to directly access the HTTP request.
+</p>
+<p>
+For more information about developing macros, see the <a class="ext-link" href="http://projects.edgewall.com/trac/wiki/TracDev"><span class="icon">​</span>development resources</a> on the main project site.
+</p>
+<hr />
+<p>
+See also:  <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/WikiProcessors">WikiProcessors</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/WikiFormatting">WikiFormatting</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/cute/wiki/TracGuide">TracGuide</a>
+</p>
+</div>
+          
+          
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://r2.ifs.hsr.ch/cute/wiki/WikiMacros?version=1&amp;format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/cute/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/cute/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/cute/wiki/WikiMacros?version=1 by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:45:59 GMT -->
+</html>

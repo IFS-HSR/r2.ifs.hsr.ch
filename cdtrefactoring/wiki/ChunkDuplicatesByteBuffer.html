@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/cdtrefactoring/wiki/ChunkDuplicatesByteBuffer by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:41:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      ChunkDuplicatesByteBuffer – CDT Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="ChunkDuplicatesByteBuffer56e6.html?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search CDT Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/style.html" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="../../cdtrefactoring.html">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="../../trac.html">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="../../cute.html">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/logo.png" alt="" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/cdtrefactoring/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="TracGuide.html">Help/Guide</a></li><li><a href="../about.html">About Trac</a></li><li class="last"><a href="../prefs.html">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Wiki</a></li><li><a href="../report.html">View Tickets</a></li><li class="last"><a href="../search.html">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="../wiki.html">wiki:</a><a class="pathentry" href="ChunkDuplicatesByteBuffer.html" title="View ChunkDuplicatesByteBuffer">ChunkDuplicatesByteBuffer</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li class="last"><a href="ChunkDuplicatesByteBufferd9df.html?action=history">History</a></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><pre class="wiki">package org.eclipse.cdt.internal.core.pdom.db;
+
+final class Chunk {
+	final private byte[] fBuffer= new byte[Database.CHUNK_SIZE];
+</pre><p>
+the fBuffer variable is often wrappte by a <a class="missing wiki">ByteBuffer?</a> object, however, it is also accessed like a byte array.
+</p>
+<p>
+<a class="missing wiki">ByteBuffer?</a> would provide functionality to access all Java primitive bytes from the buffer directly, but Chunk implements its own methods such as getByte(), getChar(), getInt() and corresponding put methods which all would be available from <a class="missing wiki">ByteBuffer?</a> directly.
+</p>
+<p>
+Another unnecessary complex code is the following:
+</p>
+<pre class="wiki">	public void setReadOnly(final boolean flush) throws CoreException {
+		if (fWritable) {
+			fWritable= false;
+			
+			ArrayList dirtyChunks= new ArrayList();
+			synchronized (fCache) {
+				for (int i= chunks.length-1; i &gt;= 0 ; i--) {
+					Chunk chunk= chunks[i];
+					if (chunk != null) {
+						if (chunk.fCacheIndex &lt; 0) {
+							chunk.fLocked= false;
+							chunks[i]= null;
+							if (chunk.fDirty) {
+								dirtyChunks.add(chunk);
+							}
+						}
+						else if (chunk.fLocked) {
+							if (!chunk.fDirty) {
+								chunk.fLocked= false;
+							}
+							else if (flush) {
+								chunk.fLocked= false;
+								dirtyChunks.add(chunk);
+							}
+						}
+						else if (flush &amp;&amp; chunk.fDirty) {
+							dirtyChunks.add(chunk);
+						}
+					}
+				}
+			}
+			
+			if (!dirtyChunks.isEmpty()) {
+				for (Iterator it = dirtyChunks.iterator(); it.hasNext();) {
+					Chunk chunk = (Chunk) it.next();
+					chunk.flush();
+				}
+			}
+		}
+	}
+</pre><p>
+it all decides to flush a chunk only based on information that is part of each individual chunk. It would be better to just iterate all chunks, flush each and decide within Chunk.flush() if flushing is really needed. --&gt; 50 lines of code less. OK, I see the cache synchronization is the reason, but even then the Chunk object should decide and not the other class.
+</p>
+<p>
+But at least the if logic could be simplified a lot. but I wonder what happens in the missing else parts.
+</p>
+<p>
+There is duplicated logic in setReadOnly and flush and I wonder if that is intentional.
+</p>
+</div>
+          
+          <div class="trac-modifiedby">
+            <span><a href="ChunkDuplicatesByteBuffer1271.html?action=diff&amp;version=2" title="Version 2 by psommerl">Last modified</a> <a class="timeline" href="../timeline6544.html?from=2007-09-06T15%3A37%3A22%2B02%3A00&amp;precision=second" title="See timeline at 09/06/07 15:37:22">8 years ago</a></span>
+            <span class="trac-print">Last modified on 09/06/07 15:37:22</span>
+          </div>
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="ChunkDuplicatesByteBuffer56e6.html?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="../about.html"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/cdtrefactoring/wiki/ChunkDuplicatesByteBuffer by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:41:22 GMT -->
+</html>

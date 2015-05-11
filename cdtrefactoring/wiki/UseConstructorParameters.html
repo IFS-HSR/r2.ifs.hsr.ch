@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/cdtrefactoring/wiki/UseConstructorParameters by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:41:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      UseConstructorParameters – CDT Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="UseConstructorParameters56e6.html?format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search CDT Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../chrome/site/style.html" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="../../cdtrefactoring.html">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="../../trac.html">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="../../cute.html">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../index.html"><img src="../chrome/site/logo.png" alt="" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/cdtrefactoring/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="../login.html">Login</a></li><li><a href="TracGuide.html">Help/Guide</a></li><li><a href="../about.html">About Trac</a></li><li class="last"><a href="../prefs.html">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="../wiki.html">Wiki</a></li><li><a href="../report.html">View Tickets</a></li><li class="last"><a href="../search.html">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="../wiki.html">wiki:</a><a class="pathentry" href="UseConstructorParameters.html" title="View UseConstructorParameters">UseConstructorParameters</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><a href="WikiStart.html">Start Page</a></li><li><a href="TitleIndex.html">Index</a></li><li class="last"><a href="UseConstructorParametersd9df.html?action=history">History</a></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><p>
+In some classes of CPPAST* such as CPPASTVisibilityLabel there are no defined constructors. All fields are set after an "empty" object is created using set-methods. This results in code bloat at usage and promotes the danger of incorrectly initialized objects.
+The base reason for that seems to be the abstract and parameterless createXXX() methods in AbstractGNUSourceCodeParser. Those better use parameters that can then be passes as constructor parameters, instead of setting fields "by-hand" in all methods within the parsers that use those createXXX() methods.
+</p>
+<p>
+Example code of construction site:
+</p>
+<pre class="wiki">ICPPASTVisiblityLabel label = createVisibilityLabel();
+                    ((ASTNode) label).setOffsetAndLength(key.getOffset(), l
+                            - key.getOffset());
+                    label.setVisibility(token2Visibility(key.getType()));
+                    astClassSpecifier.addMemberDeclaration(label);
+                    label.setParent(astClassSpecifier);
+                    label.setPropertyInParent(ICPPASTCompositeTypeSpecifier.VISIBILITY_LABEL);
+</pre><hr />
+<p>
+Other classes with the same problem:
+</p>
+<p>
+package org.eclipse.cdt.internal.core.dom.parser.cpp: 
+</p>
+<ul><li>CPPASTBaseDeclSpecifier
+<ul><li>CPPASTSimpleDeclSpecifier
+</li></ul></li><li>CPPASTBaseSpecifier
+</li><li>CPPASTPointer
+</li><li>CPPASTPointerToMember (constructor available, but makes not much sense) Don't post in bugzilla
+</li><li>CPPASTVisibilityLabel
+</li><li>GPPASTExplicitTemplateInstantiation
+</li><li>GPPASTPointer
+</li><li>GPPASTPointerToMember
+</li></ul><p>
+By solving this... look also at the other creation methods in the GNUCPPSourceParser.java. There
+are several useless creation methods 
+</p>
+<p>
+<em>Noch nicht auf Bugzilla gepostet
+</em></p>
+<ul><li>CPPASTName (Create better constructors)
+</li><li>CPPASTNamedTypeSpecifier (Create better constructors)
+</li></ul><hr />
+<p>
+Another Idea:
+Should this public set Methods which are only used by the constructor not be protected?
+Sometimes the anonym constructor is still used in combination with the set methods which does not make sense.
+Needs further investigation see: 
+</p>
+<ul><li>org.eclipse.cdt.internal.core.dom.parser.cpp.GNUCPPSourceParser (Line 3290 ff)
+<ul><li>Attention the constructor is concealed in a create method
+</li></ul></li></ul></div>
+          
+          <div class="trac-modifiedby">
+            <span><a href="UseConstructorParameters31c1.html?action=diff&amp;version=12" title="Version 12 by guido">Last modified</a> <a class="timeline" href="../timeline478e.html?from=2007-12-06T12%3A59%3A26%2B01%3A00&amp;precision=second" title="See timeline at 12/06/07 12:59:26">7 years ago</a></span>
+            <span class="trac-print">Last modified on 12/06/07 12:59:26</span>
+          </div>
+        
+        
+      </div>
+      
+    <div id="attachments">
+        <h3 class="foldable">Attachments <span class="trac-count">(1)</span></h3>
+        <div>
+          <ul>
+              <li>
+    <a href="../attachment/wiki/UseConstructorParameters/patch.html" title="View attachment">patch.txt</a><a href="../raw-attachment/wiki/UseConstructorParameters/patch.txt" class="trac-rawlink" title="Download">​</a>
+       (<span title="13029 bytes">12.7 KB</span>) -
+      added by <em>guido</em> <a class="timeline" href="../timeline868c.html?from=2008-01-07T15%3A59%3A59%2B01%3A00&amp;precision=second" title="See timeline at 01/07/08 15:59:59">7 years ago</a>.
+                <q>some Improvements</q>
+              </li>
+          </ul>
+          <p>
+            Download all attachments as: <a rel="nofollow" href="../zip-attachment/wiki/UseConstructorParameters/index.html">.zip</a>
+          </p>
+        </div>
+    </div>
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="UseConstructorParameters56e6.html?format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="../chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="../about.html"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/cdtrefactoring/wiki/UseConstructorParameters by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2015 09:41:21 GMT -->
+</html>

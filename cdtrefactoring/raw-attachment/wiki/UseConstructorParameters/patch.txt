@@ -1,0 +1,286 @@
+### Eclipse Workspace Patch 1.0
+#P org.eclipse.cdt.core
+Index: parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTVisibilityLabel.java
+===================================================================
+RCS file: /cvsroot/tools/org.eclipse.cdt/all/org.eclipse.cdt.core/parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTVisibilityLabel.java,v
+retrieving revision 1.6
+diff -u -r1.6 CPPASTVisibilityLabel.java
+--- parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTVisibilityLabel.java	6 Nov 2007 16:02:07 -0000	1.6
++++ parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTVisibilityLabel.java	7 Jan 2008 14:58:55 -0000
+@@ -20,11 +20,18 @@
+ 
+     private int visibility;
+ 
++    public CPPASTVisibilityLabel() {
++	}
++    
++    public CPPASTVisibilityLabel(int visibility) {
++        this.visibility = visibility;
++	}
+ 
+     public int getVisibility() {
+         return visibility;
+     }
+ 
++    @Deprecated
+     public void setVisibility(int visibility) {
+         this.visibility = visibility;
+     }
+Index: parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTCastExpression.java
+===================================================================
+RCS file: /cvsroot/tools/org.eclipse.cdt/all/org.eclipse.cdt.core/parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTCastExpression.java,v
+retrieving revision 1.9
+diff -u -r1.9 CPPASTCastExpression.java
+--- parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTCastExpression.java	2 Jan 2008 15:55:06 -0000	1.9
++++ parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTCastExpression.java	7 Jan 2008 14:58:55 -0000
+@@ -23,9 +23,6 @@
+ 
+ 	private IASTTypeId typeId;
+     
+-    public CPPASTCastExpression() {
+-	}
+-    
+     public CPPASTCastExpression(int operator, IASTTypeId typeId, IASTExpression operand) {
+     	super(operator, operand);
+ 		setTypeId(typeId);
+Index: parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTBinaryExpression.java
+===================================================================
+RCS file: /cvsroot/tools/org.eclipse.cdt/all/org.eclipse.cdt.core/parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTBinaryExpression.java,v
+retrieving revision 1.10
+diff -u -r1.10 CPPASTBinaryExpression.java
+--- parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTBinaryExpression.java	6 Nov 2007 16:02:07 -0000	1.10
++++ parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTBinaryExpression.java	7 Jan 2008 14:58:55 -0000
+@@ -27,9 +27,6 @@
+     private IASTExpression operand1;
+     private IASTExpression operand2;
+ 
+-    public CPPASTBinaryExpression() {
+-	}
+-
+ 	public CPPASTBinaryExpression(int op, IASTExpression operand1, IASTExpression operand2) {
+ 		this.op = op;
+ 		setOperand1(operand1);
+Index: parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTUnaryExpression.java
+===================================================================
+RCS file: /cvsroot/tools/org.eclipse.cdt/all/org.eclipse.cdt.core/parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTUnaryExpression.java,v
+retrieving revision 1.9
+diff -u -r1.9 CPPASTUnaryExpression.java
+--- parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTUnaryExpression.java	6 Nov 2007 16:02:06 -0000	1.9
++++ parser/org/eclipse/cdt/internal/core/dom/parser/cpp/CPPASTUnaryExpression.java	7 Jan 2008 14:58:55 -0000
+@@ -26,10 +26,6 @@
+     private int operator;
+     private IASTExpression operand;
+ 
+-    
+-    public CPPASTUnaryExpression() {
+-	}
+-
+ 	public CPPASTUnaryExpression(int operator, IASTExpression operand) {
+ 		this.operator = operator;
+ 		setOperand(operand);
+Index: parser/org/eclipse/cdt/internal/core/dom/parser/cpp/GNUCPPSourceParser.java
+===================================================================
+RCS file: /cvsroot/tools/org.eclipse.cdt/all/org.eclipse.cdt.core/parser/org/eclipse/cdt/internal/core/dom/parser/cpp/GNUCPPSourceParser.java,v
+retrieving revision 1.138
+diff -u -r1.138 GNUCPPSourceParser.java
+--- parser/org/eclipse/cdt/internal/core/dom/parser/cpp/GNUCPPSourceParser.java	21 Dec 2007 09:35:48 -0000	1.138
++++ parser/org/eclipse/cdt/internal/core/dom/parser/cpp/GNUCPPSourceParser.java	7 Jan 2008 14:58:55 -0000
+@@ -1820,23 +1820,21 @@
+         consume(IToken.tLPAREN);
+         IASTExpression lhs = expression();
+         int l = consume(IToken.tRPAREN).getEndOffset();
+-        IASTCastExpression result = createCastExpression();
+-        ((ASTNode) result).setOffsetAndLength(startingOffset, l - startingOffset);
+-        result.setTypeId(typeID);
+-        result.setOperand(lhs);
+ 
++        int operator = IASTCastExpression.op_cast;
+         if (op.toString().equals(DYNAMIC_CAST)) {
+-            result.setOperator(ICPPASTCastExpression.op_dynamic_cast);
++        	operator = ICPPASTCastExpression.op_dynamic_cast;
+         } else if (op.toString().equals(STATIC_CAST)) {
+-            result.setOperator(ICPPASTCastExpression.op_static_cast);
++            operator = ICPPASTCastExpression.op_static_cast;
+         } else if (op.toString().equals(REINTERPRET_CAST)) {
+-            result.setOperator(ICPPASTCastExpression.op_reinterpret_cast);
++        	operator = ICPPASTCastExpression.op_reinterpret_cast;
+         } else if (op.toString().equals(CONST_CAST)) {
+-            result.setOperator(ICPPASTCastExpression.op_const_cast);
+-        } else {
+-            result.setOperator(IASTCastExpression.op_cast);
++        	operator = ICPPASTCastExpression.op_const_cast;
+         }
+-
++        
++        IASTCastExpression result = createCastExpression(operator, typeID, lhs);
++        ((ASTNode) result).setOffsetAndLength(startingOffset, l - startingOffset);
++        
+         return result;
+     }
+ 
+@@ -4013,9 +4011,8 @@
+                 case IToken.t_private: {
+                     IToken key = consume();
+                     int l = consume(IToken.tCOLON).getEndOffset();
+-                    ICPPASTVisiblityLabel label = createVisibilityLabel();
++                    ICPPASTVisiblityLabel label = new CPPASTVisibilityLabel(token2Visibility(key.getType()));
+                     ((ASTNode) label).setOffsetAndLength(key.getOffset(), l - key.getOffset());
+-                    label.setVisibility(token2Visibility(key.getType()));
+                     astClassSpecifier.addMemberDeclaration(label);
+                     label.setParent(astClassSpecifier);
+                     // this overrides the MEMBER_DECLARATION property
+@@ -4057,12 +4054,6 @@
+         return new CPPASTCompositeTypeSpecifier();
+     }
+ 
+-
+-    protected ICPPASTVisiblityLabel createVisibilityLabel() {
+-        return new CPPASTVisibilityLabel();
+-    }
+-
+-
+     protected int token2Visibility(int type) {
+         switch (type) {
+         case IToken.t_public:
+@@ -4392,16 +4383,16 @@
+         return new CPPASTCompoundStatement();
+     }
+ 
+-    protected IASTBinaryExpression createBinaryExpression() {
+-        return new CPPASTBinaryExpression();
++    protected IASTBinaryExpression createBinaryExpression(int op, IASTExpression operand1, IASTExpression operand2) {
++        return new CPPASTBinaryExpression(op, operand1, operand2);
+     }
+ 
+     protected IASTConditionalExpression createConditionalExpression() {
+         return new CPPASTConditionalExpression();
+     }
+ 
+-    protected IASTUnaryExpression createUnaryExpression() {
+-        return new CPPASTUnaryExpression();
++    protected IASTUnaryExpression createUnaryExpression(int operator, IASTExpression operand) {
++        return new CPPASTUnaryExpression(operator, operand);
+     }
+ 
+     protected IGNUASTCompoundStatementExpression createCompoundStatementExpression() {
+@@ -4523,8 +4514,8 @@
+         return new CPPASTASMDeclaration();
+     }
+ 
+-    protected IASTCastExpression createCastExpression() {
+-        return new CPPASTCastExpression();
++    protected IASTCastExpression createCastExpression(int operator, IASTTypeId typeId, IASTExpression operand) {
++        return new CPPASTCastExpression(operator, typeId, operand);
+     }
+ 
+     protected IASTStatement statement() throws EndOfFileException,
+Index: parser/org/eclipse/cdt/internal/core/dom/parser/AbstractGNUSourceCodeParser.java
+===================================================================
+RCS file: /cvsroot/tools/org.eclipse.cdt/all/org.eclipse.cdt.core/parser/org/eclipse/cdt/internal/core/dom/parser/AbstractGNUSourceCodeParser.java,v
+retrieving revision 1.91
+diff -u -r1.91 AbstractGNUSourceCodeParser.java
+--- parser/org/eclipse/cdt/internal/core/dom/parser/AbstractGNUSourceCodeParser.java	21 Dec 2007 09:35:51 -0000	1.91
++++ parser/org/eclipse/cdt/internal/core/dom/parser/AbstractGNUSourceCodeParser.java	7 Jan 2008 14:58:54 -0000
+@@ -792,19 +792,16 @@
+     protected IASTExpression buildBinaryExpression(int operator,
+             IASTExpression firstExpression, IASTExpression secondExpression,
+             int lastOffset) {
+-        IASTBinaryExpression result = createBinaryExpression();
+-        result.setOperator(operator);
++        IASTBinaryExpression result = createBinaryExpression(operator, firstExpression, secondExpression);
+         int o = ((ASTNode) firstExpression).getOffset();
+         ((ASTNode) result).setOffsetAndLength(o, lastOffset - o);
+-        result.setOperand1(firstExpression);
+-        result.setOperand2(secondExpression);
+         return result;
+     }
+ 
+     /**
+      * @return
+      */
+-    protected abstract IASTBinaryExpression createBinaryExpression();
++    protected abstract IASTBinaryExpression createBinaryExpression(int op, IASTExpression operand1, IASTExpression operand2);
+ 
+     /**
+      * @param expression
+@@ -905,17 +902,15 @@
+      */
+     protected IASTExpression buildUnaryExpression(int operator,
+             IASTExpression operand, int offset, int lastOffset) {
+-        IASTUnaryExpression result = createUnaryExpression();
++        IASTUnaryExpression result = createUnaryExpression(operator, operand);
+         ((ASTNode) result).setOffsetAndLength(offset, lastOffset - offset);
+-        result.setOperator(operator);
+-        result.setOperand(operand);
+         return result;
+     }
+ 
+     /**
+      * @return
+      */
+-    protected abstract IASTUnaryExpression createUnaryExpression();
++    protected abstract IASTUnaryExpression createUnaryExpression(int operator, IASTExpression operand);
+ 
+     /**
+      * @return
+@@ -1460,19 +1455,13 @@
+     protected IASTExpression buildTypeIdUnaryExpression(int op,
+             IASTTypeId typeId, IASTExpression subExpression,
+             int startingOffset, int lastOffset) {
+-        IASTCastExpression result = createCastExpression();
+-        result.setOperator(op);
++        IASTCastExpression result = createCastExpression(op, typeId, subExpression);
+         ((ASTNode) result).setOffsetAndLength(startingOffset, lastOffset - startingOffset);
+-        result.setTypeId(typeId);
+-        if (subExpression != null) { // which it can be in a completion
+-            result.setOperand(subExpression);
+-        }
+-        
+         return result;
+     }
+ 
+ 
+-    protected abstract IASTCastExpression createCastExpression();
++    protected abstract IASTCastExpression createCastExpression(int operator, IASTTypeId typeId, IASTExpression operand);
+ 
+     /**
+      * @return
+Index: parser/org/eclipse/cdt/internal/core/dom/parser/c/GNUCSourceParser.java
+===================================================================
+RCS file: /cvsroot/tools/org.eclipse.cdt/all/org.eclipse.cdt.core/parser/org/eclipse/cdt/internal/core/dom/parser/c/GNUCSourceParser.java,v
+retrieving revision 1.98
+diff -u -r1.98 GNUCSourceParser.java
+--- parser/org/eclipse/cdt/internal/core/dom/parser/c/GNUCSourceParser.java	21 Dec 2007 09:35:52 -0000	1.98
++++ parser/org/eclipse/cdt/internal/core/dom/parser/c/GNUCSourceParser.java	7 Jan 2008 14:58:55 -0000
+@@ -2164,16 +2164,16 @@
+         return new CASTCompoundStatement();
+     }
+ 
+-    protected IASTBinaryExpression createBinaryExpression() {
+-        return new CASTBinaryExpression();
++    protected IASTBinaryExpression createBinaryExpression(int op, IASTExpression operand1, IASTExpression operand2) {
++        return new CASTBinaryExpression(op, operand1, operand2);
+     }
+ 
+     protected IASTConditionalExpression createConditionalExpression() {
+         return new CASTConditionalExpression();
+     }
+ 
+-    protected IASTUnaryExpression createUnaryExpression() {
+-        return new CASTUnaryExpression();
++    protected IASTUnaryExpression createUnaryExpression(int operator, IASTExpression operand) {
++        return new CASTUnaryExpression(operator, operand);
+     }
+ 
+     protected IGNUASTCompoundStatementExpression createCompoundStatementExpression() {
+@@ -2256,8 +2256,8 @@
+         return new CASTEnumerationSpecifier();
+     }
+ 
+-    protected IASTCastExpression createCastExpression() {
+-        return new CASTCastExpression();
++    protected IASTCastExpression createCastExpression(int operator, IASTTypeId typeId, IASTExpression operand) {
++        return new CASTCastExpression(typeId, operand);
+     }
+ 
+     protected IASTStatement statement() throws EndOfFileException,
