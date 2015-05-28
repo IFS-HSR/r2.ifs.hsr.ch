@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/TracQuery?action=diff&version=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracQuery (diff) – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="up" href="TracQueryd9df.html?action=history" title="Page history" />
+        <link rel="next" href="TracQuery5389.html?action=diff&amp;version=3" title="Version 3" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/diff.css" type="text/css" />
+        <link rel="prev" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?action=diff&amp;version=1" title="Version 1" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/diff.js"></script>
+    <link rel="stylesheet" type="text/css" href="../chrome/common/css/diff.css" />
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?action=diff&amp;version=1" title="Version 1">Previous Change</a></span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?action=history" title="Page history">Wiki History</a></li><li class="last"><span><a class="next" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?action=diff&amp;version=3" title="Version 3">Next Change</a> &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <h1>
+        Changes between
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=1">Version 1</a> and
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2">Version 2</a> of
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2">TracQuery</a>
+      </h1>
+      <form method="post" id="prefs" action="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2"><div><input type="hidden" name="__FORM_TOKEN" value="f70e578c8d0ac0cf3bb197c8" /></div>
+        <div>
+          <input type="hidden" name="action" value="diff" />
+          <input type="hidden" name="version" value="2" />
+          <input type="hidden" name="old_version" value="1" />
+          
+  <label for="style">View differences</label>
+  <select id="style" name="style">
+    <option selected="selected" value="inline">inline</option>
+    <option value="sidebyside">side by side</option>
+  </select>
+  <div class="field">
+    <label><input type="radio" name="contextall" value="0" checked="checked" />
+             Show</label>
+      <label><input type="text" name="contextlines" id="contextlines" size="2" maxlength="3" value="2" />
+             lines around each change</label><br />
+    <label><input type="radio" name="contextall" value="1" />
+           Show the changes in full context</label>
+  </div>
+  <fieldset id="ignore">
+    <legend>Ignore:</legend>
+    <div class="field">
+      <input type="checkbox" id="ignoreblanklines" name="ignoreblanklines" />
+      <label for="ignoreblanklines">Blank lines</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="ignorecase" name="ignorecase" />
+      <label for="ignorecase">Case changes</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="ignorewhitespace" name="ignorewhitespace" />
+      <label for="ignorewhitespace">White space changes</label>
+    </div>
+  </fieldset>
+  <div class="buttons">
+    <input type="submit" name="update" value="Update" />
+  </div>
+
+        </div>
+      </form>
+      <dl id="overview">
+        <dt class="property time">Timestamp:</dt>
+        <dd class="time">
+            10/27/06 18:46:07 (<a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-10-27T18%3A46%3A07%2B02%3A00&amp;precision=second" title="See timeline at 10/27/06 18:46:07">9 years</a> ago)
+        </dd>
+        <dt class="property author">Author:</dt>
+        <dd class="author">
+          anonymous
+        </dd>
+        <dt class="property message">Comment:</dt>
+        <dd class="message">
+          
+          <p>
+--
+</p>
+
+        </dd>
+      </dl>
+      <div class="diff">
+        <div class="legend" id="diff-legend">
+          <h3>Legend:</h3>
+          <dl>
+            <dt class="unmod"></dt><dd>Unmodified</dd>
+            <dt class="add"></dt><dd>Added</dd>
+            <dt class="rem"></dt><dd>Removed</dd>
+            <dt class="mod"></dt><dd>Modified</dd>
+          </dl>
+        </div>
+        <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2 id="file0">
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2">TracQuery</a>
+        </h2>
+        <table class="trac-diff inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="Version 1">
+                    <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=1#L1">
+                      v1</a>
+                  </th>
+                  <th title="Version 2">
+                    <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2#L1">
+                      v2</a>
+                  </th>
+                  <td> </td>
+                </tr>
+              </thead>
+            <tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>1</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>1</th><th>2</th><td class="l"><span>= Trac Ticket Queries =</span> </td>
+                  </tr><tr>
+                          <th>2</th><th>3</th><td class="l"><span>[[TracGuideToc]]</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=1#L84">…</a></th>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2#L85">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>84</th><th>85</th><td class="l"><span>----</span> </td>
+                  </tr><tr>
+                          <th>85</th><th>86</th><td class="l"><span>See also: TracTickets, TracReports, TracGuide</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>87</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>88</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>89</th><td class="r"><ins>{{{</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>90</th><td class="r"><ins>#!html</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>91</th><td class="r"><ins>&lt;div style="position:absolute;left:-54345px;height:1px;"&gt;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>92</th><td class="r"><ins>Also information about &lt;a href=http://a2z-about-rss.com/arabia/&gt;Arabia&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/belize/&gt;Belize&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/china/&gt;China&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/denmark/&gt;Denmark&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/greenland/&gt;Greenland&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/iceland/&gt;Iceland&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/iran/&gt;Iran&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/lithuania/&gt;Lithuania&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/nicaragua/&gt;Nicaragua&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/palestine/&gt;Palestine&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/sweden/&gt;Sweden&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/cameroon/&gt;Cameroon&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/chad/&gt;Chad&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/georgia/&gt;Georgia&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/guyana/&gt;Guyana&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/iraq/&gt;Iraq&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/mali/&gt;Mali&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/nauru/&gt;Nauru&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/norway/&gt;Norway&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/panama/&gt;Panama&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/samoa/&gt;Samoa&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/united-kingdom/&gt;United kingdom&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/britain/&gt;Britain&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/comoros/&gt;Comoros&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/dominica/&gt;Dominica&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/ecuador/&gt;Ecuador&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/france/&gt;France&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/gambia/&gt;Gambia&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/laos/&gt;Laos&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/libya/&gt;Libya&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/netherlands/&gt;Netherlands&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/romania/&gt;Romania&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/suriname/&gt;Suriname&lt;/a&gt;, &lt;a href=http://articlemembership.net/azerbaijan/&gt;Azerbaijan&lt;/a&gt;, &lt;a href=http://articlemembership.net/bolivia/&gt;Bolivia&lt;/a&gt;, &lt;a href=http://articlemembership.net/burundi/&gt;Burundi&lt;/a&gt;, &lt;a href=http://articlemembership.net/mauritania/&gt;Mauritania&lt;/a&gt;, &lt;a href=http://articlemembership.net/new-zealand/&gt;New zealand&lt;/a&gt;, &lt;a href=http://articlemembership.net/nicaragua/&gt;Nicaragua&lt;/a&gt;, &lt;a href=http://articlemembership.net/puerto-rico/&gt;Puerto rico&lt;/a&gt;, &lt;a href=http://articlemembership.net/romania/&gt;Romania&lt;/a&gt;, &lt;a href=http://articlemembership.net/slovakia/&gt;Slovakia&lt;/a&gt;, &lt;a href=http://articlemembership.net/thailand/&gt;Thailand&lt;/a&gt;, &lt;a href=http://articlemembership.net/vanuatu/&gt;Vanuatu&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/austria/&gt;Austria&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/brazil/&gt;Brazil&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/cambodia/&gt;Cambodia&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/cuba/&gt;Cuba&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/cyprus/&gt;Cyprus&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/egypt/&gt;Egypt&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/france/&gt;France&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/georgia/&gt;Georgia&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/korea/&gt;Korea&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/namibia/&gt;Namibia&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/suriname/&gt;Suriname&lt;/a&gt;, &lt;a href=http://informationoverload.info/belarus/&gt;Belarus&lt;/a&gt;, &lt;a href=http://informationoverload.info/caledonia/&gt;Caledonia&lt;/a&gt;, &lt;a href=http://informationoverload.info/cambodia/&gt;Cambodia&lt;/a&gt;, &lt;a href=http://informationoverload.info/congo/&gt;Congo&lt;/a&gt;, &lt;a href=http://informationoverload.info/iraq/&gt;Iraq&lt;/a&gt;, &lt;a href=http://informationoverload.info/malawi/&gt;Malawi&lt;/a&gt;, &lt;a href=http://informationoverload.info/nepal/&gt;Nepal&lt;/a&gt;, &lt;a href=http://informationoverload.info/nigeria/&gt;Nigeria&lt;/a&gt;, &lt;a href=http://informationoverload.info/sweden/&gt;Sweden&lt;/a&gt;, &lt;a href=http://informationoverload.info/ukraine/&gt;Ukraine&lt;/a&gt;, &lt;a href=http://informationoverload.info/yemen/&gt;Yemen&lt;/a&gt;, &lt;a href=http://notepopups.net/colombia/&gt;Colombia&lt;/a&gt;, &lt;a href=http://notepopups.net/cuba/&gt;Cuba&lt;/a&gt;, &lt;a href=http://notepopups.net/finland/&gt;Finland&lt;/a&gt;, &lt;a href=http://notepopups.net/guatemala/&gt;Guatemala&lt;/a&gt;, &lt;a href=http://notepopups.net/hungary/&gt;Hungary&lt;/a&gt;, &lt;a href=http://notepopups.net/ireland/&gt;Ireland&lt;/a&gt;, &lt;a href=http://notepopups.net/nauru/&gt;Nauru&lt;/a&gt;, &lt;a href=http://notepopups.net/qatar/&gt;Qatar&lt;/a&gt;, &lt;a href=http://notepopups.net/serbia/&gt;Serbia&lt;/a&gt; and &lt;a href=http://notepopups.net/syria/&gt;Syria&lt;/a&gt; still available for you.</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>93</th><td class="r"><ins>&lt;/div&gt;</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>94</th><td class="r"><ins>}}}</ins> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+      </div>
+  </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/TracQuery?action=diff&version=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+</html>

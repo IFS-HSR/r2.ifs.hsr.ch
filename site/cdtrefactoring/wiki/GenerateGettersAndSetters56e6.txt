@@ -1,0 +1,14 @@
+What we need:
+ * Tree of all members with getter and setter children (where applicable). Should show real names, live preview.
+ * Configure style: `getXyz()` or `xyz()`
+ * Implement in header, cpp
+ * Always pass as `const &`
+ * Getters are `const`
+ * Access modifiers
+ * 4 buttons to select ~~all~~, none, all of a kind
+ * option to filter `m_` and `_`
+
+Nice to have:
+ * Insertion point
+ * booleans use `isXyz`
+ * static getters and setter *urgh*

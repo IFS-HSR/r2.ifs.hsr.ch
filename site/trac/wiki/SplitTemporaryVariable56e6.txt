@@ -1,0 +1,22 @@
+= Name =
+Split Temporary Variable
+
+
+= Beschreibung =
+Für mehrere unabhängige Zuweisungen einer temporären Variablen, werden mehrere einzelne Variablen erstellt.
+
+
+= Vorgehen =
+ 1. Es wird bestimmt, wieviele unterschiedliche Zuweisungen für die Variable existieren.
+ 2. Der Benutzer wählt aus, für welche Zuweisungen eigene Variablen erstellt werden sollen.
+ 3. Die neuen Variablen werden mit gewünschtem Namen erstellt.
+
+= Abhängigkeiten =
+ * Einer temporäre Variablen muss mehrmals etwas Zugewiesen werden.
+
+
+= Inspiration =
+[http://www.refactoring.com/catalog/splitTemporaryVariable.html Split Temporary Variable]
+
+
+= Beispiel =

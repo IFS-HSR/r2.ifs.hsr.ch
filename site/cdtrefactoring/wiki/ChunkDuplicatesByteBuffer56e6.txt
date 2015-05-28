@@ -1,0 +1,59 @@
+{{{
+package org.eclipse.cdt.internal.core.pdom.db;
+
+final class Chunk {
+	final private byte[] fBuffer= new byte[Database.CHUNK_SIZE];
+}}}
+the fBuffer variable is often wrappte by a ByteBuffer object, however, it is also accessed like a byte array.
+
+ByteBuffer would provide functionality to access all Java primitive bytes from the buffer directly, but Chunk implements its own methods such as getByte(), getChar(), getInt() and corresponding put methods which all would be available from ByteBuffer directly.
+
+Another unnecessary complex code is the following:
+
+{{{
+	public void setReadOnly(final boolean flush) throws CoreException {
+		if (fWritable) {
+			fWritable= false;
+			
+			ArrayList dirtyChunks= new ArrayList();
+			synchronized (fCache) {
+				for (int i= chunks.length-1; i >= 0 ; i--) {
+					Chunk chunk= chunks[i];
+					if (chunk != null) {
+						if (chunk.fCacheIndex < 0) {
+							chunk.fLocked= false;
+							chunks[i]= null;
+							if (chunk.fDirty) {
+								dirtyChunks.add(chunk);
+							}
+						}
+						else if (chunk.fLocked) {
+							if (!chunk.fDirty) {
+								chunk.fLocked= false;
+							}
+							else if (flush) {
+								chunk.fLocked= false;
+								dirtyChunks.add(chunk);
+							}
+						}
+						else if (flush && chunk.fDirty) {
+							dirtyChunks.add(chunk);
+						}
+					}
+				}
+			}
+			
+			if (!dirtyChunks.isEmpty()) {
+				for (Iterator it = dirtyChunks.iterator(); it.hasNext();) {
+					Chunk chunk = (Chunk) it.next();
+					chunk.flush();
+				}
+			}
+		}
+	}
+}}}
+it all decides to flush a chunk only based on information that is part of each individual chunk. It would be better to just iterate all chunks, flush each and decide within Chunk.flush() if flushing is really needed. --> 50 lines of code less. OK, I see the cache synchronization is the reason, but even then the Chunk object should decide and not the other class.
+
+But at least the if logic could be simplified a lot. but I wonder what happens in the missing else parts.
+
+There is duplicated logic in setReadOnly and flush and I wonder if that is intentional.

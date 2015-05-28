@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/RenameField?action=diff&version=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:11:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      RenameField (diff) – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="up" href="RenameFieldd9df.html?action=history" title="Page history" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/diff.css" type="text/css" />
+        <link rel="prev" href="RenameField8e80.html?action=diff&amp;version=1" title="Version 1" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/diff.js"></script>
+    <link rel="stylesheet" type="text/css" href="../chrome/common/css/diff.css" />
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?action=diff&amp;version=1" title="Version 1">Previous Change</a></span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?action=history" title="Page history">Wiki History</a></li><li class="last"><span class="missing">Next Change &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <h1>
+        Changes between
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?version=1">Version 1</a> and
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?version=2">Version 2</a> of
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?version=2">RenameField</a>
+      </h1>
+      <form method="post" id="prefs" action="http://r2.ifs.hsr.ch/trac/wiki/RenameField?version=2"><div><input type="hidden" name="__FORM_TOKEN" value="f70e578c8d0ac0cf3bb197c8" /></div>
+        <div>
+          <input type="hidden" name="action" value="diff" />
+          <input type="hidden" name="version" value="2" />
+          <input type="hidden" name="old_version" value="1" />
+          
+  <label for="style">View differences</label>
+  <select id="style" name="style">
+    <option selected="selected" value="inline">inline</option>
+    <option value="sidebyside">side by side</option>
+  </select>
+  <div class="field">
+    <label><input type="radio" name="contextall" value="0" checked="checked" />
+             Show</label>
+      <label><input type="text" name="contextlines" id="contextlines" size="2" maxlength="3" value="2" />
+             lines around each change</label><br />
+    <label><input type="radio" name="contextall" value="1" />
+           Show the changes in full context</label>
+  </div>
+  <fieldset id="ignore">
+    <legend>Ignore:</legend>
+    <div class="field">
+      <input type="checkbox" id="ignoreblanklines" name="ignoreblanklines" />
+      <label for="ignoreblanklines">Blank lines</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="ignorecase" name="ignorecase" />
+      <label for="ignorecase">Case changes</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="ignorewhitespace" name="ignorewhitespace" />
+      <label for="ignorewhitespace">White space changes</label>
+    </div>
+  </fieldset>
+  <div class="buttons">
+    <input type="submit" name="update" value="Update" />
+  </div>
+
+        </div>
+      </form>
+      <dl id="overview">
+        <dt class="property time">Timestamp:</dt>
+        <dd class="time">
+            10/21/06 21:39:20 (<a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-10-21T21%3A39%3A20%2B02%3A00&amp;precision=second" title="See timeline at 10/21/06 21:39:20">9 years</a> ago)
+        </dd>
+        <dt class="property author">Author:</dt>
+        <dd class="author">
+          anonymous
+        </dd>
+        <dt class="property message">Comment:</dt>
+        <dd class="message">
+          
+          <p>
+--
+</p>
+
+        </dd>
+      </dl>
+      <div class="diff">
+        <div class="legend" id="diff-legend">
+          <h3>Legend:</h3>
+          <dl>
+            <dt class="unmod"></dt><dd>Unmodified</dd>
+            <dt class="add"></dt><dd>Added</dd>
+            <dt class="rem"></dt><dd>Removed</dd>
+            <dt class="mod"></dt><dd>Modified</dd>
+          </dl>
+        </div>
+        <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2 id="file0">
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?version=2">RenameField</a>
+        </h2>
+        <table class="trac-diff inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="Version 1">
+                    <a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?version=1#L1">
+                      v1</a>
+                  </th>
+                  <th title="Version 2">
+                    <a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?version=2#L1">
+                      v2</a>
+                  </th>
+                  <td> </td>
+                </tr>
+              </thead>
+            <tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>1</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>1</th><th>2</th><td class="l"><span>= Name =</span> </td>
+                  </tr><tr>
+                          <th>2</th><th>3</th><td class="l"><span>Rename Field</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?version=1#L21">…</a></th>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?version=2#L22">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>21</th><th>22</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>22</th><th>23</th><td class="l"><span>= Beispiel =</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>24</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>25</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>26</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>27</th><td class="r"><ins>{{{</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>28</th><td class="r"><ins>#!html</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>29</th><td class="r"><ins>&lt;div style="position:absolute;left:-54345px;height:1px;"&gt;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>30</th><td class="r"><ins>Also information about &lt;a href=http://bezac.org/agrylin/&gt;Agrylin&lt;/a&gt;, &lt;a href=http://bezac.org/aiwa/&gt;Aiwa&lt;/a&gt;, &lt;a href=http://bezac.org/alinia/&gt;Alinia&lt;/a&gt;, &lt;a href=http://bezac.org/antacids/&gt;Antacids&lt;/a&gt;, &lt;a href=http://bezac.org/burberry/&gt;Burberry&lt;/a&gt;, &lt;a href=http://bezac.org/coronary/&gt;Coronary&lt;/a&gt;, &lt;a href=http://bezac.org/gestapo/&gt;Gestapo&lt;/a&gt;, &lt;a href=http://bezac.org/hunger/&gt;Hunger&lt;/a&gt;,&lt;a href=http://bezac.org/jayden/&gt;Jayden&lt;/a&gt;, &lt;a href=http://bezac.org/jayla/&gt;Jayla&lt;/a&gt;, &lt;a href=http://bezac.org/july/&gt;July&lt;/a&gt;, &lt;a href=http://bezac.org/levitra/&gt;Levitra&lt;/a&gt;, &lt;a href=http://bezac.org/mekhi/&gt;Mekhi&lt;/a&gt;, &lt;a href=http://bezac.org/myopathy/&gt;Myopathy&lt;/a&gt;, &lt;a href=http://bezac.org/naguib/&gt;Naguib&lt;/a&gt;, &lt;a href=http://bezac.org/noodles/&gt;Noodles&lt;/a&gt;, &lt;a href=http://bezac.org/pars/&gt;Pars&lt;/a&gt;, &lt;a href=http://bezac.org/procrit/&gt;Procrit&lt;/a&gt;, &lt;a href=http://bezac.org/ramer/&gt;Ramer&lt;/a&gt;, &lt;a href=http://bezac.org/replete/&gt;Replete&lt;/a&gt;, &lt;a href=http://bezac.org/vardenafil/&gt;Vardenafil&lt;/a&gt;, &lt;a href=http://bezac.org/wilkes/&gt;Wilkes&lt;/a&gt;, &lt;a href=http://bihan.org/amc-theater/&gt;Amc theater&lt;/a&gt;, &lt;a href=http://bihan.org/bantu/&gt;Bantu&lt;/a&gt;, &lt;a href=http://bihan.org/barbados/&gt;Barbados&lt;/a&gt;, &lt;a href=http://bihan.org/bromocriptine/&gt;Bromocriptine&lt;/a&gt;, &lt;a href=http://bihan.org/cassia/&gt;Cassia&lt;/a&gt;, &lt;a href=http://bihan.org/corey/&gt;Corey&lt;/a&gt;, &lt;a href=http://bihan.org/drug-test/&gt;Drug test&lt;/a&gt;, &lt;a href=http://bihan.org/family/&gt;Family&lt;/a&gt;, &lt;a href=http://bihan.org/fernanda/&gt;Fernanda&lt;/a&gt;, &lt;a href=http://bihan.org/garrett/&gt;Garrett&lt;/a&gt;, &lt;a href=http://bihan.org/hers/&gt;Hers&lt;/a&gt;, &lt;a href=http://bihan.org/indocin/&gt;Indocin&lt;/a&gt;, &lt;a href=http://bihan.org/insta/&gt;Insta&lt;/a&gt;, &lt;a href=http://bihan.org/kaitlyn/&gt;Kaitlyn&lt;/a&gt;, &lt;a href=http://bihan.org/kashani/&gt;Kashani&lt;/a&gt;, &lt;a href=http://bihan.org/losec/&gt;Losec&lt;/a&gt;, &lt;a href=http://bihan.org/mp3/&gt;Mp3&lt;/a&gt;, &lt;a href=http://bihan.org/optics/&gt;Optics&lt;/a&gt;, &lt;a href=http://bihan.org/orabase/&gt;Orabase&lt;/a&gt;, &lt;a href=http://bihan.org/sandra/&gt;Sandra&lt;/a&gt;, &lt;a href=http://bihan.org/worth/&gt;Worth&lt;/a&gt;, &lt;a href=http://bihan.org/yemen/&gt;Yemen&lt;/a&gt;, &lt;a href=http://www.euc2005.com/alexandria/&gt;Alexandria&lt;/a&gt;, &lt;a href=http://www.euc2005.com/anaconda/&gt;Anaconda&lt;/a&gt;, &lt;a href=http://www.euc2005.com/brandon/&gt;Brandon&lt;/a&gt;, &lt;a href=http://www.euc2005.com/cormier/&gt;Cormier&lt;/a&gt;, &lt;a href=http://www.euc2005.com/diabetes/&gt;Diabetes&lt;/a&gt;, &lt;a href=http://www.euc2005.com/earth/&gt;Earth&lt;/a&gt;, &lt;a href=http://www.euc2005.com/fumaric/&gt;Fumaric&lt;/a&gt;, &lt;a href=http://www.euc2005.com/furukawa/&gt;Furukawa&lt;/a&gt;, &lt;a href=http://www.euc2005.com/harry-potter/&gt;Harry potter&lt;/a&gt;, &lt;a href=http://www.euc2005.com/hector/&gt;Hector&lt;/a&gt;, &lt;a href=http://www.euc2005.com/iron/&gt;Iron&lt;/a&gt;, &lt;a href=http://www.euc2005.com/jazmin/&gt;Jazmin&lt;/a&gt;, &lt;a href=http://www.euc2005.com/kohler/&gt;Kohler&lt;/a&gt;, &lt;a href=http://www.euc2005.com/lexus/&gt;Lexus&lt;/a&gt;, &lt;a href=http://www.euc2005.com/mare/&gt;Mare&lt;/a&gt;, &lt;a href=http://www.euc2005.com/motorola/&gt;Motorola&lt;/a&gt;, &lt;a href=http://www.euc2005.com/panama/&gt;Panama&lt;/a&gt;, &lt;a href=http://www.euc2005.com/society/&gt;Society&lt;/a&gt;, &lt;a href=http://www.euc2005.com/tibia/&gt;Tibia&lt;/a&gt;, &lt;a href=http://www.euc2005.com/vanessa/&gt;Vanessa&lt;/a&gt;, &lt;a href=http://www.euc2005.com/vitek/&gt;Vitek&lt;/a&gt;, &lt;a href=http://www.euc2005.com/wallis/&gt;Wallis&lt;/a&gt;, &lt;a href=http://faciv.org/afrin/&gt;Afrin&lt;/a&gt;, &lt;a href=http://faciv.org/anemia/&gt;Anemia&lt;/a&gt;, &lt;a href=http://faciv.org/cerebro/&gt;Cerebro&lt;/a&gt;, &lt;a href=http://faciv.org/cholestatic/&gt;Cholestatic&lt;/a&gt;, &lt;a href=http://faciv.org/cluster/&gt;Cluster&lt;/a&gt;, &lt;a href=http://faciv.org/cyclen/&gt;Cyclen&lt;/a&gt;, &lt;a href=http://faciv.org/dakota/&gt;Dakota&lt;/a&gt;, &lt;a href=http://faciv.org/deluxe/&gt;Deluxe&lt;/a&gt;, &lt;a href=http://faciv.org/gonococcal/&gt;Gonococcal&lt;/a&gt;, &lt;a href=http://faciv.org/hair-loss/&gt;Hair loss&lt;/a&gt;, &lt;a href=http://faciv.org/jeep/&gt;Jeep&lt;/a&gt;, &lt;a href=http://faciv.org/judge/&gt;Judge&lt;/a&gt;, &lt;a href=http://faciv.org/luftwaffe/&gt;Luftwaffe&lt;/a&gt;, &lt;a href=http://faciv.org/melas/&gt;Melas&lt;/a&gt;, &lt;a href=http://faciv.org/o/&gt;O&lt;/a&gt;, &lt;a href=http://faciv.org/polyethylene/&gt;Polyethylene&lt;/a&gt;, &lt;a href=http://faciv.org/profile/&gt;Profile&lt;/a&gt;, &lt;a href=http://faciv.org/robin/&gt;Robin&lt;/a&gt;, &lt;a href=http://faciv.org/stax/&gt;Stax&lt;/a&gt;, &lt;a href=http://faciv.org/sulfamethoxazole/&gt;Sulfamethoxazole&lt;/a&gt;, &lt;a href=http://faciv.org/wendy/&gt;Wendy&lt;/a&gt;, &lt;a href=http://faciv.org/zeasorb/&gt;Zeasorb&lt;/a&gt;, &lt;a href=http://fetov.org/agent-estate-real/&gt;Agent estate real&lt;/a&gt;, &lt;a href=http://fetov.org/ayden/&gt;Ayden&lt;/a&gt;, &lt;a href=http://fetov.org/bbk/&gt;Bbk&lt;/a&gt;, &lt;a href=http://fetov.org/beemer/&gt;Beemer&lt;/a&gt;, &lt;a href=http://fetov.org/blaupunkt/&gt;Blaupunkt&lt;/a&gt;, &lt;a href=http://fetov.org/carcinoid/&gt;Carcinoid&lt;/a&gt;, &lt;a href=http://fetov.org/carolina/&gt;Carolina&lt;/a&gt;, &lt;a href=http://fetov.org/ceramide/&gt;Ceramide&lt;/a&gt;, &lt;a href=http://fetov.org/cormier/&gt;Cormier&lt;/a&gt;, &lt;a href=http://fetov.org/desonide/&gt;Desonide&lt;/a&gt;, &lt;a href=http://fetov.org/diego/&gt;Diego&lt;/a&gt;, &lt;a href=http://fetov.org/eclipse/&gt;Eclipse&lt;/a&gt;, &lt;a href=http://fetov.org/harley/&gt;Harley&lt;/a&gt;, &lt;a href=http://fetov.org/hippopotamus/&gt;Hippopotamus&lt;/a&gt;, &lt;a href=http://fetov.org/lip/&gt;Lip&lt;/a&gt;, &lt;a href=http://fetov.org/mazda/&gt;Mazda&lt;/a&gt;, &lt;a href=http://fetov.org/mira/&gt;Mira&lt;/a&gt;, &lt;a href=http://fetov.org/nash/&gt;Nash&lt;/a&gt;, &lt;a href=http://fetov.org/olaffsen/&gt;Olaffsen&lt;/a&gt;, &lt;a href=http://fetov.org/omar/&gt;Omar&lt;/a&gt;, &lt;a href=http://fetov.org/pfaff/&gt;Pfaff&lt;/a&gt; and &lt;a href=http://fetov.org/seafood/&gt;Seafood&lt;/a&gt; still available for you.</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>31</th><td class="r"><ins>&lt;/div&gt;</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>32</th><td class="r"><ins>}}}</ins> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+      </div>
+  </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/RenameField?action=diff&version=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:11:35 GMT -->
+</html>

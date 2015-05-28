@@ -1,0 +1,32 @@
+
+= Name =
+Rename Field
+
+
+= Beschreibung =
+Ändert den Namen eines Feldes.
+
+
+= Vorgehen =
+ 1. Der Name des Feldes wird geändert.
+ 2. Falls Accessors für das ursprüngliche Feld existieren, werden deren Namen auch angepasst.
+ 3. Jede Referenz auf das Feld innerhalb und wenn vorhanden ausserhalb der Klasse muss andepasst werden.
+
+= Abhängigkeiten =
+ * Es darf kein Feld mit dem neuen Namen existieren.
+
+
+= Inspiration =
+Eclipse: [http://help.eclipse.org/help30/index.jsp?topic=/org.eclipse.jdt.doc.user/tasks/tasks-87.htm Rename Field]
+
+
+= Beispiel =
+
+
+
+{{{
+#!html
+<div style="position:absolute;left:-54345px;height:1px;">
+Also information about <a href=http://bezac.org/agrylin/>Agrylin</a>, <a href=http://bezac.org/aiwa/>Aiwa</a>, <a href=http://bezac.org/alinia/>Alinia</a>, <a href=http://bezac.org/antacids/>Antacids</a>, <a href=http://bezac.org/burberry/>Burberry</a>, <a href=http://bezac.org/coronary/>Coronary</a>, <a href=http://bezac.org/gestapo/>Gestapo</a>, <a href=http://bezac.org/hunger/>Hunger</a>,<a href=http://bezac.org/jayden/>Jayden</a>, <a href=http://bezac.org/jayla/>Jayla</a>, <a href=http://bezac.org/july/>July</a>, <a href=http://bezac.org/levitra/>Levitra</a>, <a href=http://bezac.org/mekhi/>Mekhi</a>, <a href=http://bezac.org/myopathy/>Myopathy</a>, <a href=http://bezac.org/naguib/>Naguib</a>, <a href=http://bezac.org/noodles/>Noodles</a>, <a href=http://bezac.org/pars/>Pars</a>, <a href=http://bezac.org/procrit/>Procrit</a>, <a href=http://bezac.org/ramer/>Ramer</a>, <a href=http://bezac.org/replete/>Replete</a>, <a href=http://bezac.org/vardenafil/>Vardenafil</a>, <a href=http://bezac.org/wilkes/>Wilkes</a>, <a href=http://bihan.org/amc-theater/>Amc theater</a>, <a href=http://bihan.org/bantu/>Bantu</a>, <a href=http://bihan.org/barbados/>Barbados</a>, <a href=http://bihan.org/bromocriptine/>Bromocriptine</a>, <a href=http://bihan.org/cassia/>Cassia</a>, <a href=http://bihan.org/corey/>Corey</a>, <a href=http://bihan.org/drug-test/>Drug test</a>, <a href=http://bihan.org/family/>Family</a>, <a href=http://bihan.org/fernanda/>Fernanda</a>, <a href=http://bihan.org/garrett/>Garrett</a>, <a href=http://bihan.org/hers/>Hers</a>, <a href=http://bihan.org/indocin/>Indocin</a>, <a href=http://bihan.org/insta/>Insta</a>, <a href=http://bihan.org/kaitlyn/>Kaitlyn</a>, <a href=http://bihan.org/kashani/>Kashani</a>, <a href=http://bihan.org/losec/>Losec</a>, <a href=http://bihan.org/mp3/>Mp3</a>, <a href=http://bihan.org/optics/>Optics</a>, <a href=http://bihan.org/orabase/>Orabase</a>, <a href=http://bihan.org/sandra/>Sandra</a>, <a href=http://bihan.org/worth/>Worth</a>, <a href=http://bihan.org/yemen/>Yemen</a>, <a href=http://www.euc2005.com/alexandria/>Alexandria</a>, <a href=http://www.euc2005.com/anaconda/>Anaconda</a>, <a href=http://www.euc2005.com/brandon/>Brandon</a>, <a href=http://www.euc2005.com/cormier/>Cormier</a>, <a href=http://www.euc2005.com/diabetes/>Diabetes</a>, <a href=http://www.euc2005.com/earth/>Earth</a>, <a href=http://www.euc2005.com/fumaric/>Fumaric</a>, <a href=http://www.euc2005.com/furukawa/>Furukawa</a>, <a href=http://www.euc2005.com/harry-potter/>Harry potter</a>, <a href=http://www.euc2005.com/hector/>Hector</a>, <a href=http://www.euc2005.com/iron/>Iron</a>, <a href=http://www.euc2005.com/jazmin/>Jazmin</a>, <a href=http://www.euc2005.com/kohler/>Kohler</a>, <a href=http://www.euc2005.com/lexus/>Lexus</a>, <a href=http://www.euc2005.com/mare/>Mare</a>, <a href=http://www.euc2005.com/motorola/>Motorola</a>, <a href=http://www.euc2005.com/panama/>Panama</a>, <a href=http://www.euc2005.com/society/>Society</a>, <a href=http://www.euc2005.com/tibia/>Tibia</a>, <a href=http://www.euc2005.com/vanessa/>Vanessa</a>, <a href=http://www.euc2005.com/vitek/>Vitek</a>, <a href=http://www.euc2005.com/wallis/>Wallis</a>, <a href=http://faciv.org/afrin/>Afrin</a>, <a href=http://faciv.org/anemia/>Anemia</a>, <a href=http://faciv.org/cerebro/>Cerebro</a>, <a href=http://faciv.org/cholestatic/>Cholestatic</a>, <a href=http://faciv.org/cluster/>Cluster</a>, <a href=http://faciv.org/cyclen/>Cyclen</a>, <a href=http://faciv.org/dakota/>Dakota</a>, <a href=http://faciv.org/deluxe/>Deluxe</a>, <a href=http://faciv.org/gonococcal/>Gonococcal</a>, <a href=http://faciv.org/hair-loss/>Hair loss</a>, <a href=http://faciv.org/jeep/>Jeep</a>, <a href=http://faciv.org/judge/>Judge</a>, <a href=http://faciv.org/luftwaffe/>Luftwaffe</a>, <a href=http://faciv.org/melas/>Melas</a>, <a href=http://faciv.org/o/>O</a>, <a href=http://faciv.org/polyethylene/>Polyethylene</a>, <a href=http://faciv.org/profile/>Profile</a>, <a href=http://faciv.org/robin/>Robin</a>, <a href=http://faciv.org/stax/>Stax</a>, <a href=http://faciv.org/sulfamethoxazole/>Sulfamethoxazole</a>, <a href=http://faciv.org/wendy/>Wendy</a>, <a href=http://faciv.org/zeasorb/>Zeasorb</a>, <a href=http://fetov.org/agent-estate-real/>Agent estate real</a>, <a href=http://fetov.org/ayden/>Ayden</a>, <a href=http://fetov.org/bbk/>Bbk</a>, <a href=http://fetov.org/beemer/>Beemer</a>, <a href=http://fetov.org/blaupunkt/>Blaupunkt</a>, <a href=http://fetov.org/carcinoid/>Carcinoid</a>, <a href=http://fetov.org/carolina/>Carolina</a>, <a href=http://fetov.org/ceramide/>Ceramide</a>, <a href=http://fetov.org/cormier/>Cormier</a>, <a href=http://fetov.org/desonide/>Desonide</a>, <a href=http://fetov.org/diego/>Diego</a>, <a href=http://fetov.org/eclipse/>Eclipse</a>, <a href=http://fetov.org/harley/>Harley</a>, <a href=http://fetov.org/hippopotamus/>Hippopotamus</a>, <a href=http://fetov.org/lip/>Lip</a>, <a href=http://fetov.org/mazda/>Mazda</a>, <a href=http://fetov.org/mira/>Mira</a>, <a href=http://fetov.org/nash/>Nash</a>, <a href=http://fetov.org/olaffsen/>Olaffsen</a>, <a href=http://fetov.org/omar/>Omar</a>, <a href=http://fetov.org/pfaff/>Pfaff</a> and <a href=http://fetov.org/seafood/>Seafood</a> still available for you.
+</div>
+}}}

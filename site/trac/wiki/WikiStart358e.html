@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/WikiStart?version=6 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?version=6&amp;format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="WikiStart.html" title="View latest version" />
+        <link rel="next" href="WikiStart17dd.html?version=7" title="Version 7" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="prev" href="WikiStart79ee.html?version=5" title="Version 5" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://r2.ifs.hsr.ch/trac/wiki">wiki:</a><a class="pathentry" href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart" title="View WikiStart">WikiStart</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?version=5" title="Version 5">Previous Version</a></span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart" title="View latest version">View Latest Version</a></li><li class="last"><span><a class="next" href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?version=7" title="Version 7">Next Version</a> &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+        <br />
+        <table id="info" summary="Revision info">
+          <tbody>
+            <tr><th scope="row">Version 6 (modified by mirko, <a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-03-27T10%3A46%3A06%2B02%3A00&amp;precision=second" title="See timeline at 03/27/06 10:46:06">9 years ago</a>)
+               (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?action=diff&amp;version=6">diff</a>)</th></tr>
+            <tr><td class="message">
+              <p>
+--
+</p>
+
+            </td></tr>
+          </tbody>
+        </table>
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="WillkommenimRubyRefactoringWiki">Willkommen im Ruby Refactoring Wiki</h1>
+<h2 id="NächsteSchritte">Nächste Schritte</h2>
+<ul><li>RDT anschauen
+</li><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/ListeVonRefactorings">ListeVonRefactorings</a>
+</li></ul><h2 id="InformationenzumProjekt">Informationen zum Projekt</h2>
+<ul><li>Das <strong>Repository</strong> ist auf <a class="ext-link" href="http://morki.ch/svn/rubyrefactoring"><span class="icon">​</span>http://morki.ch/svn/rubyrefactoring</a>
+</li><li>Das Archiv der <strong>Mailingliste</strong> ist unter <a class="ext-link" href="http://lists.misto.ch/pipermail/r/"><span class="icon">​</span>http://lists.misto.ch/pipermail/r/</a>
+</li></ul><h2 id="Links">Links</h2>
+<ul><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">TracGuide</a> --  Built-in Documentation
+</li><li><a class="ext-link" href="http://jair.lab.fi.uva.es/~jperez/dokuwiki/lib/exe/fetch.php?id=pfcs%3Aproyectos_fin_de_carrera&amp;cache=cache&amp;media=pfcs:opdyke92refactoring.pdf"><span class="icon">​</span>Opdyke's Thesis</a>
+</li><li><a class="ext-link" href="https://bugs.eclipse.org/bugs/attachment.cgi?id=15245"><span class="icon">​</span>CDT Refactoring Proposal</a> &lt;-- hier finden wir ev. einige Ideen
+</li><li><a class="ext-link" href="http://wiki.hsr.ch/HSRWiki/wiki.cgi?CerpCPPEclipseRefactoringPlugin"><span class="icon">​</span>Cerp C++ Eclipse Refactoring Plugin</a>
+</li></ul><h2 id="Mails">Mails</h2>
+<ul><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/MarkusBarchfeld">MarkusBarchfeld</a>
+</li><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/ChristopherWilliams">ChristopherWilliams</a>
+</li></ul></div>
+          
+          
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?version=6&amp;format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/WikiStart?version=6 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+</html>

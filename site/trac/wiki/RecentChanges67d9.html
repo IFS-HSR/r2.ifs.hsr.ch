@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/RecentChanges?version=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      RecentChanges – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://r2.ifs.hsr.ch/trac/wiki/RecentChanges?version=2&amp;format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="RecentChanges.html" title="View latest version" />
+        <link rel="next" href="RecentChanges7fb8.html?version=3" title="Version 3" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="prev" href="http://r2.ifs.hsr.ch/trac/wiki/RecentChanges?version=1" title="Version 1" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://r2.ifs.hsr.ch/trac/wiki">wiki:</a><a class="pathentry" href="http://r2.ifs.hsr.ch/trac/wiki/RecentChanges" title="View RecentChanges">RecentChanges</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/wiki/RecentChanges?version=1" title="Version 1">Previous Version</a></span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/RecentChanges" title="View latest version">View Latest Version</a></li><li class="last"><span><a class="next" href="http://r2.ifs.hsr.ch/trac/wiki/RecentChanges?version=3" title="Version 3">Next Version</a> &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+        <br />
+        <table id="info" summary="Revision info">
+          <tbody>
+            <tr><th scope="row">Version 2 (modified by anonymous, <a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-09-22T02%3A36%3A10%2B02%3A00&amp;precision=second" title="See timeline at 09/22/06 02:36:10">9 years ago</a>)
+               (<a href="http://r2.ifs.hsr.ch/trac/wiki/RecentChanges?action=diff&amp;version=2">diff</a>)</th></tr>
+            <tr><td class="message">
+              <p>
+--
+</p>
+
+            </td></tr>
+          </tbody>
+        </table>
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="RecentChanges">Recent Changes</h1>
+<p>
+</p><div><h3>03/14/11</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart">WikiStart</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?action=diff&amp;version=106">diff</a>)</small>
+</li></ul><h3>01/20/11</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracRepositoryAdmin">TracRepositoryAdmin</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracCgi">TracCgi</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracCgi?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/RecentChanges">RecentChanges</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/RecentChanges?action=diff&amp;version=5">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/InterMapTxt">InterMapTxt</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracIni">TracIni</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracIni?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracEnvironment">TracEnvironment</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracEnvironment?action=diff&amp;version=4">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracRss">TracRss</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracRss?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracSearch">TracSearch</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracSearch?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiNewPage">WikiNewPage</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiNewPage?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracBackup">TracBackup</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracBackup?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracRevisionLog">TracRevisionLog</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracPermissions">TracPermissions</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracPermissions?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiFormatting">WikiFormatting</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiFormatting?action=diff&amp;version=8">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/InterWiki">InterWiki</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiRestructuredTextLinks">WikiRestructuredTextLinks</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiRestructuredTextLinks?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracLinks">TracLinks</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracLinks?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracSyntaxColoring">TracSyntaxColoring</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracSyntaxColoring?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracFineGrainedPermissions">TracFineGrainedPermissions</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracChangeset">TracChangeset</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracChangeset?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracInstall">TracInstall</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracInstall?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiPageNames">WikiPageNames</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiPageNames?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracRoadmap">TracRoadmap</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracRoadmap?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/InterTrac">InterTrac</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TitleIndex">TitleIndex</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TitleIndex?action=diff&amp;version=28">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracBrowser">TracBrowser</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracBrowser?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/SandBox">SandBox</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/SandBox?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/PageTemplates">PageTemplates</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracNavigation">TracNavigation</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracReports">TracReports</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracReports?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracLogging">TracLogging</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracLogging?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">TracGuide</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracPlugins">TracPlugins</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracPlugins?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracSupport">TracSupport</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracSupport?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/CamelCase">CamelCase</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/CamelCase?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiRestructuredText">WikiRestructuredText</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiRestructuredText?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracWiki">TracWiki</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracWiki?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracAccessibility">TracAccessibility</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracAccessibility?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracFastCgi">TracFastCgi</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracFastCgi?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracImport">TracImport</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracImport?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracTicketsCustomFields">TracTicketsCustomFields</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracTicketsCustomFields?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiMacros">WikiMacros</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiMacros?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracInterfaceCustomization">TracInterfaceCustomization</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracInterfaceCustomization?action=diff&amp;version=4">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracNotification">TracNotification</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracNotification?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracTimeline">TracTimeline</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracTimeline?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracTickets">TracTickets</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracTickets?action=diff&amp;version=5">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracUpgrade">TracUpgrade</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracUpgrade?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracWorkflow">TracWorkflow</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracModPython">TracModPython</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracModPython?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiHtml">WikiHtml</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiHtml?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery">TracQuery</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracStandalone">TracStandalone</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracStandalone?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiDeletePage">WikiDeletePage</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiDeletePage?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiProcessors">WikiProcessors</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiProcessors?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracUnicode">TracUnicode</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracUnicode?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracAdmin">TracAdmin</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracAdmin?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracModWSGI">TracModWSGI</a>
+</li></ul><h3>10/14/08</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Screencasts">Screencasts</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Screencasts?action=diff&amp;version=6">diff</a>)</small>
+</li></ul><h3>10/31/07</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/HowToInstall">HowToInstall</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/HowToInstall?action=diff&amp;version=18">diff</a>)</small>
+</li></ul><h3>06/13/07</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Oopsla2007">Oopsla2007</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Oopsla2007?action=diff&amp;version=5">diff</a>)</small>
+</li></ul><h3>05/11/07</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/AptanaToDo">AptanaToDo</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/AptanaToDo?action=diff&amp;version=11">diff</a>)</small>
+</li></ul><h3>04/19/07</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Links">Links</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Links?action=diff&amp;version=8">diff</a>)</small>
+</li></ul><h3>02/15/07</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TPTPInstall">TPTPInstall</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TPTPInstall?action=diff&amp;version=14">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Internal">Internal</a>
+</li></ul><h3>01/09/07</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokolle">Protokolle</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokolle?action=diff&amp;version=6">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Wishlist">Wishlist</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Wishlist?action=diff&amp;version=6">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TheRefactoringList">TheRefactoringList</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/TheRefactoringList?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/ImplementierteRefactorings">ImplementierteRefactorings</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/ImplementierteRefactorings?action=diff&amp;version=22">diff</a>)</small>
+</li></ul><h3>12/06/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll061206">Protokoll061206</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll061206?action=diff&amp;version=2">diff</a>)</small>
+</li></ul><h3>12/05/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/ListeVonRefactorings">ListeVonRefactorings</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/ListeVonRefactorings?action=diff&amp;version=6">diff</a>)</small>
+</li></ul><h3>11/23/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll221106">Protokoll221106</a>
+</li></ul><h3>11/18/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/InlineMethod">InlineMethod</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/InlineMethod?action=diff&amp;version=4">diff</a>)</small>
+</li></ul><h3>11/15/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll151006">Protokoll151006</a>
+</li></ul><h3>11/10/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll081006">Protokoll081006</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll081006?action=diff&amp;version=2">diff</a>)</small>
+</li></ul><h3>10/30/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/MarkusBarchfeld">MarkusBarchfeld</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/MarkusBarchfeld?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll300506">Protokoll300506</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll300506?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/RenameLocalVariable">RenameLocalVariable</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/RenameLocalVariable?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406">Protokoll100406</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/EncapsulateField">EncapsulateField</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/EncapsulateField?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/GenerateAccessors">GenerateAccessors</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/GenerateAccessors?action=diff&amp;version=6">diff</a>)</small>
+</li></ul><h3>10/29/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/MergeClassParts">MergeClassParts</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/MergeClassParts?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll030506">Protokoll030506</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll030506?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll080506">Protokoll080506</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll080506?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter">GenerateGettersAndSetter</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/ChristopherWilliams">ChristopherWilliams</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/ChristopherWilliams?action=diff&amp;version=4">diff</a>)</small>
+</li></ul><h3>10/27/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll150506">Protokoll150506</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll150506?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/GenerateConstructorUsingField">GenerateConstructorUsingField</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/GenerateConstructorUsingField?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/ExtractClass">ExtractClass</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/ExtractClass?action=diff&amp;version=4">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll190606">Protokoll190606</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll190606?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/ReplaceTemporaryVariableWithQuery">ReplaceTemporaryVariableWithQuery</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/ReplaceTemporaryVariableWithQuery?action=diff&amp;version=8">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll260606">Protokoll260606</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll260606?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll220506">Protokoll220506</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll220506?action=diff&amp;version=3">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/RenameMethod">RenameMethod</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/RenameMethod?action=diff&amp;version=3">diff</a>)</small>
+</li></ul><h3>10/26/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/ConvertLocalVariableToField">ConvertLocalVariableToField</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/ConvertLocalVariableToField?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/InlineClass">InlineClass</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/InlineClass?action=diff&amp;version=3">diff</a>)</small>
+</li></ul><h3>10/23/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll161006">Protokoll161006</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll161006?action=diff&amp;version=2">diff</a>)</small>
+</li></ul><h3>10/22/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/AddConstructorFromSuperclass">AddConstructorFromSuperclass</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/AddConstructorFromSuperclass?action=diff&amp;version=2">diff</a>)</small>
+</li></ul><h3>10/21/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField">RenameField</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/RenameField?action=diff&amp;version=2">diff</a>)</small>
+</li></ul><h3>08/30/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/RenameIterVar">RenameIterVar</a>
+</li></ul><h3>07/04/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll030706">Protokoll030706</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll030706?action=diff&amp;version=2">diff</a>)</small>
+</li></ul><h3>06/19/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll120606">Protokoll120606</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll120606?action=diff&amp;version=4">diff</a>)</small>
+</li></ul><h3>06/08/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll070606">Protokoll070606</a>
+</li></ul><h3>05/05/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll240406">Protokoll240406</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll240406?action=diff&amp;version=3">diff</a>)</small>
+</li></ul><h3>04/23/06</h3><ul><li><a href="http://r2.ifs.hsr.ch/trac/wiki/OverrideImplementMethods">OverrideImplementMethods</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/SplitTemporaryVariable">SplitTemporaryVariable</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/RenameClass">RenameClass</a><small> (<a href="http://r2.ifs.hsr.ch/trac/wiki/RenameClass?action=diff&amp;version=2">diff</a>)</small>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/MoveMethod">MoveMethod</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/MoveField">MoveField</a>
+</li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/ExtractMethod">ExtractMethod</a>
+</li></ul></div><p>
+</p>
+<p style="display:        none">
+<a href="http://nicocure.olnevhost.net/"><b>nicocure</b></a> - help quit smoking.
+<a href="http://hoodia.olnevhost.net/"><b>hoodia gordonii plus</b></a> - weight loss.
+<a href="http://thyromine.olnevhost.net/"><b>thyroid health</b></a> - pills.
+<a href="http://breast-enlargement.olnevhost.net/"><b>Breast Gain plus</b></a> - pills.
+<a href="http://herbal-phentermine.olnevhost.net/"><b>phentermine</b></a> - cheap!
+<a href="http://hgh-pills.olnevhost.net/"><b>growth hormone pills</b></a> - that works!
+<a href="http://bowtrol.olnevhost.net/"><b>Irritable Bowel Syndrome diet</b></a>.
+</p>
+</div>
+          
+          
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://r2.ifs.hsr.ch/trac/wiki/RecentChanges?version=2&amp;format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/RecentChanges?version=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:44 GMT -->
+</html>

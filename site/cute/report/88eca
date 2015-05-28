@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>CUTE: {8} Active Tickets, Mine first</title>
+    <link>http://r2.ifs.hsr.ch/cute/report/8</link>
+    <description>Trac Report -
+ * List all active tickets by priority.
+ * Show all tickets owned by the logged in user in a group first.
+</description>
+    <language>en-us</language>
+    <image>
+      <title>CUTE</title>
+      <url>http://r2.ifs.hsr.ch/cute/chrome/site/logo.png</url>
+      <link>http://r2.ifs.hsr.ch/cute/report/8</link>
+    </image>
+    <generator>Trac v1.0.1dev-r11344</generator>
+  </channel>
+</rss>

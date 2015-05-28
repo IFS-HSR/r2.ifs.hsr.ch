@@ -1,0 +1,11 @@
+Within the AST almost all nodes refer to a source code position. 
+
+This position is almost always set using setOffsetAndLength(), sometimes using another ASTNote.
+
+I propose a Value Object for presenting such source locations and use that throughout. 
+
+May be an integration/substitution other "location" classes is feasable and those should be used instead.
+
+class Location might as an immutable class just be OK. It might even provide more functionality than access to the fields as of today.
+
+E.g. "arithmetic" on intervals to join or check for overlap.

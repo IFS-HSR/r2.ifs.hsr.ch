@@ -1,0 +1,22 @@
+The following specifically was mined from parser and ast code:
+ * UseConstructorParameters
+   * https://bugs.eclipse.org/bugs/show_bug.cgi?id=206952
+   * https://bugs.eclipse.org/bugs/show_bug.cgi?id=212128
+ * UnneededExtractedCreationMethod
+ * AbstractionForSourcePositions --> smell primitive obsession
+ * ArrayObsession
+
+ * ChunkDuplicatesByteBuffer functionality
+
+ * Dupplicated code in accept Methods
+   * https://bugs.eclipse.org/bugs/show_bug.cgi?id=200508
+
+ * Equals Methode for Node
+   * At the moment the == is used which results in a missmatch for  proxies
+
+ * XyzGnuSourceParser
+
+ * [wiki:CommentAssignment Comment Assignment Discussion]
+
+ * Internal Error on Multiline Comments
+   * http://r2.ifs.hsr.ch/cdtrefactoring/ticket/150

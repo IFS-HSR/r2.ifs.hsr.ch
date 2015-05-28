@@ -1,0 +1,47 @@
+In some classes of CPPAST* such as CPPASTVisibilityLabel there are no defined constructors. All fields are set after an "empty" object is created using set-methods. This results in code bloat at usage and promotes the danger of incorrectly initialized objects.
+The base reason for that seems to be the abstract and parameterless createXXX() methods in AbstractGNUSourceCodeParser. Those better use parameters that can then be passes as constructor parameters, instead of setting fields "by-hand" in all methods within the parsers that use those createXXX() methods.
+
+Example code of construction site:
+{{{
+ICPPASTVisiblityLabel label = createVisibilityLabel();
+                    ((ASTNode) label).setOffsetAndLength(key.getOffset(), l
+                            - key.getOffset());
+                    label.setVisibility(token2Visibility(key.getType()));
+                    astClassSpecifier.addMemberDeclaration(label);
+                    label.setParent(astClassSpecifier);
+                    label.setPropertyInParent(ICPPASTCompositeTypeSpecifier.VISIBILITY_LABEL);
+}}}
+
+----
+Other classes with the same problem:
+
+package org.eclipse.cdt.internal.core.dom.parser.cpp: 
+ * CPPASTBaseDeclSpecifier
+   * CPPASTSimpleDeclSpecifier
+ * CPPASTBaseSpecifier
+ * CPPASTPointer
+ * CPPASTPointerToMember (constructor available, but makes not much sense) Don't post in bugzilla
+ * CPPASTVisibilityLabel
+ * GPPASTExplicitTemplateInstantiation
+ * GPPASTPointer
+ * GPPASTPointerToMember
+
+By solving this... look also at the other creation methods in the GNUCPPSourceParser.java. There
+are several useless creation methods 
+
+
+//Noch nicht auf Bugzilla gepostet
+ * CPPASTName (Create better constructors)
+ * CPPASTNamedTypeSpecifier (Create better constructors)
+
+
+
+-----
+
+Another Idea:
+Should this public set Methods which are only used by the constructor not be protected?
+Sometimes the anonym constructor is still used in combination with the set methods which does not make sense.
+Needs further investigation see: 
+ * org.eclipse.cdt.internal.core.dom.parser.cpp.GNUCPPSourceParser (Line 3290 ff)
+   * Attention the constructor is concealed in a create method
+

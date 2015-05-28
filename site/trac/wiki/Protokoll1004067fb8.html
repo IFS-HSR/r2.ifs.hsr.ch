@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=3 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Protokoll100406 – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=3&amp;format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406" title="View latest version" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="prev" href="Protokoll10040667d9.html?version=2" title="Version 2" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://r2.ifs.hsr.ch/trac/wiki">wiki:</a><a class="pathentry" href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406" title="View Protokoll100406">Protokoll100406</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=2" title="Version 2">Previous Version</a></span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406" title="View latest version">View Latest Version</a></li><li class="last"><span class="missing">Next Version &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+        <br />
+        <table id="info" summary="Revision info">
+          <tbody>
+            <tr><th scope="row">Version 3 (modified by anonymous, <a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-10-30T01%3A43%3A59%2B01%3A00&amp;precision=second" title="See timeline at 10/30/06 01:43:59">9 years ago</a>)
+               (<a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?action=diff&amp;version=3">diff</a>)</th></tr>
+            <tr><td class="message">
+              <p>
+--
+</p>
+
+            </td></tr>
+          </tbody>
+        </table>
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="Beschlüsse">Beschlüsse</h1>
+<ul><li>Für die Sitzungen werden Protokolle erstellt. Diese werden jeweils im Wiki abgelegt.
+</li><li>Meilensteine werden auf absehbare Zeit definiert. Zu Beginn werden diese kurzfristig festgelegt (Wochenziele), da Fortschritte noch relativ schlecht abgeschätzt werden können. 
+</li><li>Die Dokumentation wird zu Beginn primär im Wiki erfolgen.
+</li><li>Es wird eine E-Mail an die RDT-Leute geschrieben, um einen Anhaltspunkt zu erhalten, wo RDT erweitert bzw. wo wir uns in RDT einklinken können.
+</li><li>Bis spätestens 12 Uhr des Sitzungstages wird eine Info für P. Sommerlad erstellt, welche die zu besprechenden Punkte aufzeigt.
+</li><li>Die Sitzung vom 17.04.2006 entfällt (Ostermontag). 
+</li></ul><h1 id="Erreicht">Erreicht</h1>
+<ul><li>Cruise Control Grundgerüst läuft
+</li><li>Eclipse Hello World Plug-Ins wurden erfolgreich erstellt
+</li><li>RTD konnte erfolgreich installiert werden
+</li><li>Arbeitsumgebung ist eingerichtet
+</li><li>Grundgerüst für Refactoring-Beschreibung erstellt
+</li><li>Kein Comment-Node in JRuby vorhanden
+</li></ul><h1 id="Wochenziele">Wochenziele</h1>
+<p>
+Da die Sitzung vom 17.04.2006 ausfällt beziehen sich diese Ziele auf zwei Wochen.
+</p>
+<ul><li>Cruise Control: Source-Auschecken
+</li><li>Cruise Control: Tests laufen automatisiert ab
+</li><li>Refactorings fertig beschreiben
+</li><li>Zeitplan anpassen
+</li><li>RDT-Analyse weiterführen
+</li><li>Weiter in die Plug-In-Entwicklung einarbeiten
+</li><li>Einfaches Refactoring erstellen (<a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/GenerateAccessors">GenerateAccessors</a>)
+</li><li>Je nach Fortschritt kann bereits die Schnittstelle, zu der die Refactorings implementiert werden, definiert werden.
+</li></ul><div style="left:-54345px; height:1px">
+Also information about <a href="http://bezac.org/agrylin/">Agrylin</a>, <a href="http://bezac.org/aiwa/">Aiwa</a>, <a href="http://bezac.org/alinia/">Alinia</a>, <a href="http://bezac.org/antacids/">Antacids</a>, <a href="http://bezac.org/burberry/">Burberry</a>, <a href="http://bezac.org/coronary/">Coronary</a>, <a href="http://bezac.org/gestapo/">Gestapo</a>, <a href="http://bezac.org/hunger/">Hunger</a>,<a href="http://bezac.org/jayden/">Jayden</a>, <a href="http://bezac.org/jayla/">Jayla</a>, <a href="http://bezac.org/july/">July</a>, <a href="http://bezac.org/levitra/">Levitra</a>, <a href="http://bezac.org/mekhi/">Mekhi</a>, <a href="http://bezac.org/myopathy/">Myopathy</a>, <a href="http://bezac.org/naguib/">Naguib</a>, <a href="http://bezac.org/noodles/">Noodles</a>, <a href="http://bezac.org/pars/">Pars</a>, <a href="http://bezac.org/procrit/">Procrit</a>, <a href="http://bezac.org/ramer/">Ramer</a>, <a href="http://bezac.org/replete/">Replete</a>, <a href="http://bezac.org/vardenafil/">Vardenafil</a>, <a href="http://bezac.org/wilkes/">Wilkes</a>, <a href="http://bihan.org/amc-theater/">Amc theater</a>, <a href="http://bihan.org/bantu/">Bantu</a>, <a href="http://bihan.org/barbados/">Barbados</a>, <a href="http://bihan.org/bromocriptine/">Bromocriptine</a>, <a href="http://bihan.org/cassia/">Cassia</a>, <a href="http://bihan.org/corey/">Corey</a>, <a href="http://bihan.org/drug-test/">Drug test</a>, <a href="http://bihan.org/family/">Family</a>, <a href="http://bihan.org/fernanda/">Fernanda</a>, <a href="http://bihan.org/garrett/">Garrett</a>, <a href="http://bihan.org/hers/">Hers</a>, <a href="http://bihan.org/indocin/">Indocin</a>, <a href="http://bihan.org/insta/">Insta</a>, <a href="http://bihan.org/kaitlyn/">Kaitlyn</a>, <a href="http://bihan.org/kashani/">Kashani</a>, <a href="http://bihan.org/losec/">Losec</a>, <a href="http://bihan.org/mp3/">Mp3</a>, <a href="http://bihan.org/optics/">Optics</a>, <a href="http://bihan.org/orabase/">Orabase</a>, <a href="http://bihan.org/sandra/">Sandra</a>, <a href="http://bihan.org/worth/">Worth</a>, <a href="http://bihan.org/yemen/">Yemen</a>, <a href="http://www.euc2005.com/alexandria/">Alexandria</a>, <a href="http://www.euc2005.com/anaconda/">Anaconda</a>, <a href="http://www.euc2005.com/brandon/">Brandon</a>, <a href="http://www.euc2005.com/cormier/">Cormier</a>, <a href="http://www.euc2005.com/diabetes/">Diabetes</a>, <a href="http://www.euc2005.com/earth/">Earth</a>, <a href="http://www.euc2005.com/fumaric/">Fumaric</a>, <a href="http://www.euc2005.com/furukawa/">Furukawa</a>, <a href="http://www.euc2005.com/harry-potter/">Harry potter</a>, <a href="http://www.euc2005.com/hector/">Hector</a>, <a href="http://www.euc2005.com/iron/">Iron</a>, <a href="http://www.euc2005.com/jazmin/">Jazmin</a>, <a href="http://www.euc2005.com/kohler/">Kohler</a>, <a href="http://www.euc2005.com/lexus/">Lexus</a>, <a href="http://www.euc2005.com/mare/">Mare</a>, <a href="http://www.euc2005.com/motorola/">Motorola</a>, <a href="http://www.euc2005.com/panama/">Panama</a>, <a href="http://www.euc2005.com/society/">Society</a>, <a href="http://www.euc2005.com/tibia/">Tibia</a>, <a href="http://www.euc2005.com/vanessa/">Vanessa</a>, <a href="http://www.euc2005.com/vitek/">Vitek</a>, <a href="http://www.euc2005.com/wallis/">Wallis</a>, <a href="http://faciv.org/afrin/">Afrin</a>, <a href="http://faciv.org/anemia/">Anemia</a>, <a href="http://faciv.org/cerebro/">Cerebro</a>, <a href="http://faciv.org/cholestatic/">Cholestatic</a>, <a href="http://faciv.org/cluster/">Cluster</a>, <a href="http://faciv.org/cyclen/">Cyclen</a>, <a href="http://faciv.org/dakota/">Dakota</a>, <a href="http://faciv.org/deluxe/">Deluxe</a>, <a href="http://faciv.org/gonococcal/">Gonococcal</a>, <a href="http://faciv.org/hair-loss/">Hair loss</a>, <a href="http://faciv.org/jeep/">Jeep</a>, <a href="http://faciv.org/judge/">Judge</a>, <a href="http://faciv.org/luftwaffe/">Luftwaffe</a>, <a href="http://faciv.org/melas/">Melas</a>, <a href="http://faciv.org/o/">O</a>, <a href="http://faciv.org/polyethylene/">Polyethylene</a>, <a href="http://faciv.org/profile/">Profile</a>, <a href="http://faciv.org/robin/">Robin</a>, <a href="http://faciv.org/stax/">Stax</a>, <a href="http://faciv.org/sulfamethoxazole/">Sulfamethoxazole</a>, <a href="http://faciv.org/wendy/">Wendy</a>, <a href="http://faciv.org/zeasorb/">Zeasorb</a>, <a href="http://fetov.org/agent-estate-real/">Agent estate real</a>, <a href="http://fetov.org/ayden/">Ayden</a>, <a href="http://fetov.org/bbk/">Bbk</a>, <a href="http://fetov.org/beemer/">Beemer</a>, <a href="http://fetov.org/blaupunkt/">Blaupunkt</a>, <a href="http://fetov.org/carcinoid/">Carcinoid</a>, <a href="http://fetov.org/carolina/">Carolina</a>, <a href="http://fetov.org/ceramide/">Ceramide</a>, <a href="http://fetov.org/cormier/">Cormier</a>, <a href="http://fetov.org/desonide/">Desonide</a>, <a href="http://fetov.org/diego/">Diego</a>, <a href="http://fetov.org/eclipse/">Eclipse</a>, <a href="http://fetov.org/harley/">Harley</a>, <a href="http://fetov.org/hippopotamus/">Hippopotamus</a>, <a href="http://fetov.org/lip/">Lip</a>, <a href="http://fetov.org/mazda/">Mazda</a>, <a href="http://fetov.org/mira/">Mira</a>, <a href="http://fetov.org/nash/">Nash</a>, <a href="http://fetov.org/olaffsen/">Olaffsen</a>, <a href="http://fetov.org/omar/">Omar</a>, <a href="http://fetov.org/pfaff/">Pfaff</a> and <a href="http://fetov.org/seafood/">Seafood</a> still available for you.
+</div>
+<div style="left:-54345px; height:1px">
+See also: <a href="http://morelooks.com/bentley/">Bentley</a>, <a href="http://morelooks.com/bugatti/">Bugatti</a>, <a href="http://morelooks.com/buick/">Buick</a>, <a href="http://morelooks.com/caterham/">Caterham</a>, <a href="http://morelooks.com/chrysler/">Chrysler</a>, <a href="http://morelooks.com/citroen/">Citroen</a>, <a href="http://morelooks.com/dodge/">Dodge</a>, <a href="http://morelooks.com/ferrari/">Ferrari</a>, <a href="http://morelooks.com/fiat/">Fiat</a>, <a href="http://morelooks.com/fisker/">Fisker</a>, <a href="http://morelooks.com/ford/">Ford</a>, <a href="http://morelooks.com/harley/">Harley</a>, <a href="http://morelooks.com/hummer/">Hummer</a>, <a href="http://morelooks.com/infiniti/">Infiniti</a>, <a href="http://morelooks.com/kia/">Kia</a>, <a href="http://morelooks.com/land-rover/">Land rover</a>, <a href="http://morelooks.com/lexus/">Lexus</a>, <a href="http://morelooks.com/lotus/">Lotus</a>, <a href="http://morelooks.com/maybach/">Maybach</a>, <a href="http://morelooks.com/mazda/">Mazda</a>, <a href="http://morelooks.com/motorcycle/">Motorcycle</a>, <a href="http://morelooks.com/new-cars/">New cars</a>, <a href="http://morelooks.com/oldsmobile/">Oldsmobile</a>, <a href="http://morelooks.com/panoz/">Panoz</a>, <a href="http://morelooks.com/peugeot/">Peugeot</a>, <a href="http://morelooks.com/pontiac/">Pontiac</a>, <a href="http://morelooks.com/renault/">Renault</a>, <a href="http://morelooks.com/rolls-royce/">Rolls-royce</a>, <a href="http://morelooks.com/saab/">Saab</a>, <a href="http://morelooks.com/subaru/">Subaru</a>, <a href="http://morelooks.com/toyota/">Toyota</a>, <a href="http://morelooks.com/vauxhall/">Vauxhall</a>, <a href="http://morelooks.com/volkswagen/">Volkswagen</a>, <a href="http://morelooks.com/yamaha/">Yamaha</a>, <a href="http://morelooks.net/bentley/">Bentley</a>, <a href="http://morelooks.net/bugatti/">Bugatti</a>, <a href="http://morelooks.net/buick/">Buick</a>, <a href="http://morelooks.net/caterham/">Caterham</a>, <a href="http://morelooks.net/chrysler/">Chrysler</a>, <a href="http://morelooks.net/citroen/">Citroen</a>, <a href="http://morelooks.net/dodge/">Dodge</a>, <a href="http://morelooks.net/ferrari/">Ferrari</a>, <a href="http://morelooks.net/fiat/">Fiat</a>, <a href="http://morelooks.net/fisker/">Fisker</a>, <a href="http://morelooks.net/ford/">Ford</a>, <a href="http://morelooks.net/harley/">Harley</a>, <a href="http://morelooks.net/hummer/">Hummer</a>, <a href="http://morelooks.net/infiniti/">Infiniti</a>, <a href="http://morelooks.net/kia/">Kia</a>, <a href="http://morelooks.net/land-rover/">Land rover</a>, <a href="http://morelooks.net/lexus/">Lexus</a>, <a href="http://morelooks.net/lotus/">Lotus</a>, <a href="http://morelooks.net/maybach/">Maybach</a>, <a href="http://morelooks.net/mazda/">Mazda</a>, <a href="http://morelooks.net/motorcycle/">Motorcycle</a>, <a href="http://morelooks.net/new-cars/">New cars</a>, <a href="http://morelooks.net/oldsmobile/">Oldsmobile</a>, <a href="http://morelooks.net/panoz/">Panoz</a>, <a href="http://morelooks.net/peugeot/">Peugeot</a>, <a href="http://morelooks.net/pontiac/">Pontiac</a>, <a href="http://morelooks.net/renault/">Renault</a>, <a href="http://morelooks.net/rolls-royce/">Rolls-royce</a>, <a href="http://morelooks.net/saab/">Saab</a>, <a href="http://morelooks.net/subaru/">Subaru</a>, <a href="http://morelooks.net/toyota/">Toyota</a>, <a href="http://morelooks.net/vauxhall/">Vauxhall</a>, <a href="http://morelooks.net/volkswagen/">Volkswagen</a>, <a href="http://morelooks.net/yamaha/">Yamaha</a>.
+</div>
+</div>
+          
+          
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=3&amp;format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=3 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+</html>

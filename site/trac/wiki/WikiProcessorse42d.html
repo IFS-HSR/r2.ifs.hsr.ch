@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/WikiProcessors?version=1 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:24:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      WikiProcessors – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://r2.ifs.hsr.ch/trac/wiki/WikiProcessors?version=1&amp;format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="WikiProcessors.html" title="View latest version" />
+        <link rel="next" href="WikiProcessors67d9.html?version=2" title="Version 2" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://r2.ifs.hsr.ch/trac/wiki">wiki:</a><a class="pathentry" href="http://r2.ifs.hsr.ch/trac/wiki/WikiProcessors" title="View WikiProcessors">WikiProcessors</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span class="missing">&larr; Previous Version</span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiProcessors" title="View latest version">View Latest Version</a></li><li class="last"><span><a class="next" href="http://r2.ifs.hsr.ch/trac/wiki/WikiProcessors?version=2" title="Version 2">Next Version</a> &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+        <br />
+        <table id="info" summary="Revision info">
+          <tbody>
+            <tr><th scope="row">Version 1 (modified by trac, <a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-03-17T01%3A11%3A38%2B01%3A00&amp;precision=second" title="See timeline at 03/17/06 01:11:38">9 years ago</a>)
+               (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiProcessors?action=diff&amp;version=1">diff</a>)</th></tr>
+            <tr><td class="message">
+              <p>
+--
+</p>
+
+            </td></tr>
+          </tbody>
+        </table>
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="WikiProcessors">Wiki Processors</h1>
+<p>
+Processors are <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiMacros">WikiMacros</a> designed to provide alternative markup formats for the Trac Wiki engine. Processors can be thought of as <em>macro functions to process user-edited text</em>. 
+</p>
+<p>
+The wiki engine uses processors to allow using <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiRestructuredText">Restructured Text</a> and <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiHtml">raw HTML</a> in any wiki text throughout Trac.
+</p>
+<h2 id="UsingProcessors">Using Processors</h2>
+<p>
+To use a processor on a block of text, use a wiki blockquote, selecting a processor by name using <em>shebang notation</em> (#!), familiar to most UNIX users from scripts.
+</p>
+<p>
+<strong>Example 1</strong> (<em>inserting raw HTML in a wiki text</em>):
+</p>
+<pre class="wiki">{{{
+#!html
+&lt;h1 style="color: orange"&gt;This is raw HTML&lt;/h1&gt;
+}}}</pre>
+<p>
+<strong>Results in:</strong>
+</p>
+<h1 style="color: orange">This is raw HTML</h1>
+<hr />
+<p>
+<strong>Example 2</strong> (<em>inserting Restructured Text in wiki text</em>):
+</p>
+<pre class="wiki">{{{
+#!rst
+A header
+--------
+This is some **text** with a footnote [*]_.
+
+.. [*] This is the footnote.
+}}}</pre>
+<p>
+<strong>Results in:</strong>
+</p>
+<div class="code"><pre>A header
+--------
+This is some **text** with a footnote [*]_.
+
+.. [*] This is the footnote.
+</pre></div><hr />
+<p>
+<strong>Example 3</strong> (<em>inserting a block of C source code in wiki text</em>):
+</p>
+<pre class="wiki">{{{
+#!c
+int main(int argc, char *argv[])
+{
+  printf("Hello World\n");
+  return 0;
+}
+}}}</pre>
+<p>
+<strong>Results in:</strong>
+</p>
+<div class="code"><pre>int main(int argc, char *argv[])
+{
+  printf("Hello World\n");
+  return 0;
+}
+</pre></div><hr />
+<h2 id="AvailableProcessors">Available Processors</h2>
+<p>
+The following processors are included in the Trac distribution:
+</p>
+<ul><li><strong>html</strong> -- Insert custom HTML in a wiki page. See <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiHtml">WikiHtml</a>.
+</li><li><strong>rst</strong> -- Trac support for Restructured Text. See <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiRestructuredText">WikiRestructuredText</a>.
+</li><li><strong>textile</strong> -- Supported if  <a class="ext-link" href="http://dealmeida.net/projects/textile/"><span class="icon">​</span>Textile</a> is installed.
+</li></ul><h3 id="CodeHighlightingSupport">Code Highlighting Support</h3>
+<p>
+Trac includes processors to provide inline <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracSyntaxColoring">syntax highlighting</a> for the following languages:
+</p>
+<ul><li><strong>c</strong> -- C
+</li><li><strong>cpp</strong> -- C++
+</li><li><strong>python</strong> -- Python
+</li><li><strong>perl</strong> -- Perl
+</li><li><strong>ruby</strong> -- Ruby
+</li><li><strong>php</strong> -- PHP
+</li><li><strong>asp</strong> --- ASP
+</li><li><strong>sql</strong> -- SQL
+</li><li><strong>xml</strong> -- XML
+</li></ul><p>
+<strong>Note:</strong> <em>Trac relies on external software packages for syntax coloring. See <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracSyntaxColoring">TracSyntaxColoring</a> for more info.</em>
+</p>
+<p>
+By using the MIME type as processor, it is possible to syntax-highlight the same languages that are supported when browsing source code. For example, you can write:
+</p>
+<pre class="wiki">{{{
+#!text/html
+&lt;h1&gt;text&lt;/h1&gt;
+}}}
+</pre><p>
+The result will be syntax highlighted HTML code. The same is valid for all other mime types supported.
+</p>
+<p>
+For more processor macros developed and/or contributed by users, visit: 
+</p>
+<ul><li><a class="ext-link" href="http://projects.edgewall.com/trac/wiki/ProcessorBazaar"><span class="icon">​</span>ProcessorBazaar</a>
+</li><li><a class="ext-link" href="http://projects.edgewall.com/trac/wiki/MacroBazaar"><span class="icon">​</span>MacroBazaar</a>
+</li></ul><h2 id="AdvancedTopics:DevelopingProcessorMacros">Advanced Topics: Developing Processor Macros</h2>
+<p>
+Developing processors is no different than <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiMacros">WikiMacros</a>. In fact they work the same way, only the usage syntax differs. See <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiMacros">WikiMacros</a> for more information.
+</p>
+<p>
+<strong>Example:</strong> (<em>Restructured Text Processor</em>):
+</p>
+<pre class="wiki">from docutils.core import publish_string
+
+def execute(hdf, text, env):
+    html = publish_string(text, writer_name = 'html')
+    return html[html.find('&lt;body&gt;')+6:html.find('&lt;/body&gt;')].strip()
+</pre><hr />
+<p>
+See also: <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiMacros">WikiMacros</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiHtml">WikiHtml</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiRestructuredText">WikiRestructuredText</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracSyntaxColoring">TracSyntaxColoring</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiFormatting">WikiFormatting</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">TracGuide</a>
+</p>
+</div>
+          
+          
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://r2.ifs.hsr.ch/trac/wiki/WikiProcessors?version=1&amp;format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/WikiProcessors?version=1 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:24:05 GMT -->
+</html>

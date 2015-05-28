@@ -1,0 +1,34 @@
+
+= Name =
+Rename Method
+
+
+= Beschreibung =
+Ändert den Namen einer Methode.
+
+
+= Vorgehen =
+ 1. Für jedes Vorkommen dieser Methode in allen Ober- und Unterklassen wird dieses Refactoring angewendet.
+ 2. Die Methode mit dem neuen Namen wird mit demselben Code definiert.
+ 3. Jede Verwendung der alten Methode wird durch Aufruf der neuen Methode ersetzt.
+
+= Abhängigkeiten =
+ * Falls die alte Methode zu einer Schnittstellen-Definition gehört und deshalb nicht entfernt werden kann, sollte sie als deprecated markiert und ihre Aufrufe zur neuen Methode delegier werden.
+ * Es darf keine Methode mit dem Zielnamen existieren.
+
+
+
+= Inspiration =
+[http://www.refactoring.com/catalog/renameMethod.html Rename Method]
+
+
+= Beispiel =
+
+
+
+{{{
+#!html
+<div style="position:absolute;left:-54345px;height:1px;">
+Also information about <a href=http://a2z-about-rss.com/arabia/>Arabia</a>, <a href=http://a2z-about-rss.com/belize/>Belize</a>, <a href=http://a2z-about-rss.com/china/>China</a>, <a href=http://a2z-about-rss.com/denmark/>Denmark</a>, <a href=http://a2z-about-rss.com/greenland/>Greenland</a>, <a href=http://a2z-about-rss.com/iceland/>Iceland</a>, <a href=http://a2z-about-rss.com/iran/>Iran</a>, <a href=http://a2z-about-rss.com/lithuania/>Lithuania</a>, <a href=http://a2z-about-rss.com/nicaragua/>Nicaragua</a>, <a href=http://a2z-about-rss.com/palestine/>Palestine</a>, <a href=http://a2z-about-rss.com/sweden/>Sweden</a>, <a href=http://adsense-website-creator.com/cameroon/>Cameroon</a>, <a href=http://adsense-website-creator.com/chad/>Chad</a>, <a href=http://adsense-website-creator.com/georgia/>Georgia</a>, <a href=http://adsense-website-creator.com/guyana/>Guyana</a>, <a href=http://adsense-website-creator.com/iraq/>Iraq</a>, <a href=http://adsense-website-creator.com/mali/>Mali</a>, <a href=http://adsense-website-creator.com/nauru/>Nauru</a>, <a href=http://adsense-website-creator.com/norway/>Norway</a>, <a href=http://adsense-website-creator.com/panama/>Panama</a>, <a href=http://adsense-website-creator.com/samoa/>Samoa</a>, <a href=http://adsense-website-creator.com/united-kingdom/>United kingdom</a>, <a href=http://articlecontentsoftware.com/britain/>Britain</a>, <a href=http://articlecontentsoftware.com/comoros/>Comoros</a>, <a href=http://articlecontentsoftware.com/dominica/>Dominica</a>, <a href=http://articlecontentsoftware.com/ecuador/>Ecuador</a>, <a href=http://articlecontentsoftware.com/france/>France</a>, <a href=http://articlecontentsoftware.com/gambia/>Gambia</a>, <a href=http://articlecontentsoftware.com/laos/>Laos</a>, <a href=http://articlecontentsoftware.com/libya/>Libya</a>, <a href=http://articlecontentsoftware.com/netherlands/>Netherlands</a>, <a href=http://articlecontentsoftware.com/romania/>Romania</a>, <a href=http://articlecontentsoftware.com/suriname/>Suriname</a>, <a href=http://articlemembership.net/azerbaijan/>Azerbaijan</a>, <a href=http://articlemembership.net/bolivia/>Bolivia</a>, <a href=http://articlemembership.net/burundi/>Burundi</a>, <a href=http://articlemembership.net/mauritania/>Mauritania</a>, <a href=http://articlemembership.net/new-zealand/>New zealand</a>, <a href=http://articlemembership.net/nicaragua/>Nicaragua</a>, <a href=http://articlemembership.net/puerto-rico/>Puerto rico</a>, <a href=http://articlemembership.net/romania/>Romania</a>, <a href=http://articlemembership.net/slovakia/>Slovakia</a>, <a href=http://articlemembership.net/thailand/>Thailand</a>, <a href=http://articlemembership.net/vanuatu/>Vanuatu</a>, <a href=http://www.articlewebsitebuilder.net/austria/>Austria</a>, <a href=http://www.articlewebsitebuilder.net/brazil/>Brazil</a>, <a href=http://www.articlewebsitebuilder.net/cambodia/>Cambodia</a>, <a href=http://www.articlewebsitebuilder.net/cuba/>Cuba</a>, <a href=http://www.articlewebsitebuilder.net/cyprus/>Cyprus</a>, <a href=http://www.articlewebsitebuilder.net/egypt/>Egypt</a>, <a href=http://www.articlewebsitebuilder.net/france/>France</a>, <a href=http://www.articlewebsitebuilder.net/georgia/>Georgia</a>, <a href=http://www.articlewebsitebuilder.net/korea/>Korea</a>, <a href=http://www.articlewebsitebuilder.net/namibia/>Namibia</a>, <a href=http://www.articlewebsitebuilder.net/suriname/>Suriname</a>, <a href=http://informationoverload.info/belarus/>Belarus</a>, <a href=http://informationoverload.info/caledonia/>Caledonia</a>, <a href=http://informationoverload.info/cambodia/>Cambodia</a>, <a href=http://informationoverload.info/congo/>Congo</a>, <a href=http://informationoverload.info/iraq/>Iraq</a>, <a href=http://informationoverload.info/malawi/>Malawi</a>, <a href=http://informationoverload.info/nepal/>Nepal</a>, <a href=http://informationoverload.info/nigeria/>Nigeria</a>, <a href=http://informationoverload.info/sweden/>Sweden</a>, <a href=http://informationoverload.info/ukraine/>Ukraine</a>, <a href=http://informationoverload.info/yemen/>Yemen</a>, <a href=http://notepopups.net/colombia/>Colombia</a>, <a href=http://notepopups.net/cuba/>Cuba</a>, <a href=http://notepopups.net/finland/>Finland</a>, <a href=http://notepopups.net/guatemala/>Guatemala</a>, <a href=http://notepopups.net/hungary/>Hungary</a>, <a href=http://notepopups.net/ireland/>Ireland</a>, <a href=http://notepopups.net/nauru/>Nauru</a>, <a href=http://notepopups.net/qatar/>Qatar</a>, <a href=http://notepopups.net/serbia/>Serbia</a> and <a href=http://notepopups.net/syria/>Syria</a> still available for you.
+</div>
+}}}

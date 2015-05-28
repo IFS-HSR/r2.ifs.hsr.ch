@@ -1,0 +1,18 @@
+Implemented Refactorings:
+ * [wiki:MergeClassParts Merge Class Parts]
+ * [wiki:ConvertLocalVariableToField Convert Local Variable to Field]
+ * [wiki:EncapsulateField Encapsulate Field]
+ * [wiki:ExtractMethod Extract Method]
+ * [wiki:InlineClass Inline Class]
+ * [wiki:InlineMethod Inline Method]
+ * [wiki:MoveField Move Field]
+ * [wiki:MoveMethod Move Method]
+ * [wiki:RenameClass Rename Class]
+ * [wiki:RenameField Rename Field]
+ * [wiki:RenameLocalVariable Rename Local Variable]
+ * [wiki:RenameMethod Rename Method]
+ * [wiki:ReplaceTemporaryVariableWithQuery Replace Temporary Variable with Query]
+ * [wiki:SplitTemporaryVariable Split Temporary Variable]
+
+Not Yet:
+ * [wiki:ExtractClass Extract Class]

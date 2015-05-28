@@ -1,0 +1,12 @@
+=== Extract Method ===
+http://r2.ifs.hsr.ch/screencasts/extract_method.htm
+
+=== Inline Local Variable ===
+http://r2.ifs.hsr.ch/screencasts/inline_local.htm
+
+=== Rename Method ===
+http://r2.ifs.hsr.ch/screencasts/rename_method.htm
+
+=== Rename Class ===
+http://r2.ifs.hsr.ch/screencasts/rename_class.htm
+

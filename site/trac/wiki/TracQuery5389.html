@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/TracQuery?action=diff&version=3 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracQuery (diff) – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="up" href="TracQueryd9df.html?action=history" title="Page history" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/diff.css" type="text/css" />
+        <link rel="prev" href="TracQuery1271.html?action=diff&amp;version=2" title="Version 2" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/diff.js"></script>
+    <link rel="stylesheet" type="text/css" href="../chrome/common/css/diff.css" />
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?action=diff&amp;version=2" title="Version 2">Previous Change</a></span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?action=history" title="Page history">Wiki History</a></li><li class="last"><span class="missing">Next Change &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <h1>
+        Changes between
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2">Version 2</a> and
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3">Version 3</a> of
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3">TracQuery</a>
+      </h1>
+      <form method="post" id="prefs" action="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3"><div><input type="hidden" name="__FORM_TOKEN" value="f70e578c8d0ac0cf3bb197c8" /></div>
+        <div>
+          <input type="hidden" name="action" value="diff" />
+          <input type="hidden" name="version" value="3" />
+          <input type="hidden" name="old_version" value="2" />
+          
+  <label for="style">View differences</label>
+  <select id="style" name="style">
+    <option selected="selected" value="inline">inline</option>
+    <option value="sidebyside">side by side</option>
+  </select>
+  <div class="field">
+    <label><input type="radio" name="contextall" value="0" checked="checked" />
+             Show</label>
+      <label><input type="text" name="contextlines" id="contextlines" size="2" maxlength="3" value="2" />
+             lines around each change</label><br />
+    <label><input type="radio" name="contextall" value="1" />
+           Show the changes in full context</label>
+  </div>
+  <fieldset id="ignore">
+    <legend>Ignore:</legend>
+    <div class="field">
+      <input type="checkbox" id="ignoreblanklines" name="ignoreblanklines" />
+      <label for="ignoreblanklines">Blank lines</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="ignorecase" name="ignorecase" />
+      <label for="ignorecase">Case changes</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="ignorewhitespace" name="ignorewhitespace" />
+      <label for="ignorewhitespace">White space changes</label>
+    </div>
+  </fieldset>
+  <div class="buttons">
+    <input type="submit" name="update" value="Update" />
+  </div>
+
+        </div>
+      </form>
+      <dl id="overview">
+        <dt class="property time">Timestamp:</dt>
+        <dd class="time">
+            01/20/11 10:07:17 (<a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2011-01-20T10%3A07%3A17%2B01%3A00&amp;precision=second" title="See timeline at 01/20/11 10:07:17">4 years</a> ago)
+        </dd>
+        <dt class="property author">Author:</dt>
+        <dd class="author">
+          trac
+        </dd>
+        <dt class="property message">Comment:</dt>
+        <dd class="message">
+          
+          <p>
+--
+</p>
+
+        </dd>
+      </dl>
+      <div class="diff">
+        <div class="legend" id="diff-legend">
+          <h3>Legend:</h3>
+          <dl>
+            <dt class="unmod"></dt><dd>Unmodified</dd>
+            <dt class="add"></dt><dd>Added</dd>
+            <dt class="rem"></dt><dd>Removed</dd>
+            <dt class="mod"></dt><dd>Modified</dd>
+          </dl>
+        </div>
+        <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2 id="file0">
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3">TracQuery</a>
+        </h2>
+        <table class="trac-diff inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="Version 2">
+                    <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2#L1">
+                      v2</a>
+                  </th>
+                  <th title="Version 3">
+                    <a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3#L1">
+                      v3</a>
+                  </th>
+                  <td> </td>
+                </tr>
+              </thead>
+            <tbody class="rem">
+                  <tr class="last first">
+                          <th>1</th><th> </th><td class="l"><del></del> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>2</th><th>1</th><td class="l"><span>= Trac Ticket Queries =</span> </td>
+                  </tr><tr>
+                          <th>3</th><th>2</th><td class="l"><span>[[TracGuideToc]]</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2#L8">…</a></th>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3#L7">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>8</th><th>7</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>9</th><th>8</th><td class="l"><span>== Filters ==</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>10</th><th> </th><td class="l"><span>When you first go to the query page the default filters will display all open tickets, or if you're logged in it will display open tickets assigned to you.&nbsp; Current filters can be removed by clicking the button to the right with the minus sign on the label.&nbsp; New filters are added from the pulldown list in the bottom-right corner of the filters box.&nbsp; Filters with either a text box or a pulldown menu of options can be added multiple times to perform an ''or'' of the criteria.</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>9</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>10</th><td class="r"><span>When you first go to the query page the default filter will display tickets relevant to you:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>11</th><td class="r"><span>&nbsp;* If logged in then all open tickets it will display open tickets assigned to you.</span> </td>
+                      </tr><tr>
+                        <th> </th><th>12</th><td class="r"><span>&nbsp;* If not logged in but you have specified a name or email address in the preferences then it will display all open tickets where your email (or name if email not defined) is in the CC list.</span> </td>
+                      </tr><tr>
+                        <th> </th><th>13</th><td class="r"><span>&nbsp;* If not logged and no name/email defined in the preferences then all open issues are displayed.</span> </td>
+                      </tr><tr>
+                        <th> </th><th>14</th><td class="r"><span></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>15</th><td class="r"><span>Current filters can be removed by clicking the button to the right with the minus sign on the label.&nbsp; New filters are added from the pulldown lists at the bottom corners of the filters box ('And' conditions on the left, 'Or' conditions on the right).&nbsp; Filters with either a text box or a pulldown menu of options can be added multiple times to perform an ''or'' of the criteria.</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>11</th><th>16</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>12</th><th>17</th><td class="l"><span>You can use the fields just below the filters box to group the results based on a field, or display the full description for each ticket.</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2#L17">…</a></th>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3#L22">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>17</th><th>22</th><td class="l"><span>Clicking on one of the query results will take you to that ticket.&nbsp; You can navigate through the results by clicking the ''Next Ticket'' or ''Previous Ticket'' links just below the main menu bar, or click the ''Back to Query'' link to return to the query page.&nbsp; </span> </td>
+                  </tr><tr>
+                          <th>18</th><th>23</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>19</th><th> </th><td class="l"><span>You can safely edit any of the tickets and continue to navigate through the results using the ''Next/Previous/Back to Query'' links after saving your results.&nbsp; When you return to the query any tickets you edited will be displayed with italicized text.&nbsp; If one of the tickets was edited such that it no longer matches the query criteria the text will also be greyed.&nbsp; The query results can be refreshed and cleared of these status indicators by clicking the ''Update'' button again.</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>24</th><td class="r"><span>You can safely edit any of the tickets and continue to navigate through the results using the ''!Next/Previous/Back to Query'' links after saving your results.&nbsp; When you return to the query ''any tickets which were edited'' will be displayed with italicized text.&nbsp; If one of the tickets was edited such that [[html(&lt;span style="color: grey"&gt;it no longer matches the query criteria &lt;/span&gt;)]] the text will also be greyed. Lastly, if '''a new ticket matching the query criteria has been created''', it will be shown in bold. </span> </td>
+                      </tr><tr>
+                        <th> </th><th>25</th><td class="r"><span></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>26</th><td class="r"><span>The query results can be refreshed and cleared of these status indicators by clicking the ''Update'' button again.</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>20</th><th>27</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>21</th><th>28</th><td class="l"><span>== Saving Queries ==</span> </td>
+                  </tr><tr>
+                          <th>22</th><th>29</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>23</th><th> </th><td class="l"><span>While Trac does not yet allow saving a named query and somehow making it available in a navigable list, you can save references to queries in Wiki content, as described below.</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>30</th><td class="r"><span>Trac allows you to save the query as a named query accessible from the reports module. To save a query ensure that you have ''Updated'' the view and then click the ''Save query'' button displayed beneath the results.</span> </td>
+                      </tr><tr>
+                        <th> </th><th>31</th><td class="r"><span>You can also save references to queries in Wiki content, as described below.</span> </td>
+                      </tr><tr>
+                        <th> </th><th>32</th><td class="r"><span></span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>33</th><td class="r"><span>''Note:'' one way to easily build queries like the ones below, you can build and test the queries in the Custom report module and when ready - click ''Save query''. This will build the query string for you. All you need to do is remove the extra line breaks.</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>24</th><th>34</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>25</th><th>35</th><td class="l"><span>=== Using TracLinks ===</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2#L27">…</a></th>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3#L37">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>27</th><th>37</th><td class="l"><span>You may want to save some queries so that you can come back to them later.&nbsp; You can do this by making a link to the query from any Wiki page.</span> </td>
+                  </tr><tr>
+                          <th>28</th><th>38</th><td class="l"><span>{{{</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>29</th><th> </th><td class="l"><span>[query:status=new|assigned|reopened&amp;version=<del>0.8 Active tickets against 0.8</del>]</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>39</th><td class="r"><span>[query:status=new|assigned|reopened&amp;version=<ins>1.0 Active tickets against 1.0</ins>]</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>30</th><th>40</th><td class="l"><span>}}}</span> </td>
+                  </tr><tr>
+                          <th>31</th><th>41</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>32</th><th>42</th><td class="l"><span>Which is displayed as:</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>33</th><th> </th><td class="l"><span>&nbsp; [query:status=new|assigned|reopened&amp;version=<del>0.8 Active tickets against 0.8</del>]</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>43</th><td class="r"><span>&nbsp; [query:status=new|assigned|reopened&amp;version=<ins>1.0 Active tickets against 1.0</ins>]</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>34</th><th>44</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>35</th><th>45</th><td class="l"><span>This uses a very simple query language to specify the criteria (see [wiki:TracQuery#QueryLanguage Query Language]).</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2#L40">…</a></th>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3#L50">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>40</th><th>50</th><td class="l"><span>}}}</span> </td>
+                  </tr><tr>
+                          <th>41</th><th>51</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>42</th><th> </th><td class="l"><span>Whi<del>s</del> is displayed as:</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>52</th><td class="r"><span>Whi<ins>ch</ins> is displayed as:</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>43</th><th>53</th><td class="l"><span>&nbsp; [query:?status=new&amp;status=assigned&amp;status=reopened&amp;group=owner Assigned tickets by owner]</span> </td>
+                  </tr>
+            </tbody><tbody class="rem">
+                  <tr class="first">
+                          <th>44</th><th> </th><td class="l"><del></del> </td>
+                  </tr><tr class="last">
+                          <th>45</th><th> </th><td class="l"><del>The advantage of this approach is that you can also specify the grouping and ordering, which is not possible using the first syntax.</del> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>46</th><th>54</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>47</th><th>55</th><td class="l"><span>=== Using the `[[TicketQuery]]` Macro ===</span> </td>
+                  </tr><tr>
+                          <th>48</th><th>56</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>49</th><th> </th><td class="l"><span>The <del>`[[TicketQuery]]`</del> macro lets you display lists of tickets matching certain criteria anywhere you can use WikiFormatting.</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>57</th><td class="r"><span>The <ins>[trac:TicketQuery TicketQuery]</ins> macro lets you display lists of tickets matching certain criteria anywhere you can use WikiFormatting.</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>50</th><th>58</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>51</th><th>59</th><td class="l"><span>Example:</span> </td>
+                  </tr><tr>
+                          <th>52</th><th>60</th><td class="l"><span>{{{</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>53</th><th> </th><td class="l"><span>[[TicketQuery(version=0.<del>9b1|0.9b2</del>&amp;resolution=duplicate)]]</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>61</th><td class="r"><span>[[TicketQuery(version=0.<ins>6|0.7</ins>&amp;resolution=duplicate)]]</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>54</th><th>62</th><td class="l"><span>}}}</span> </td>
+                  </tr><tr>
+                          <th>55</th><th>63</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>56</th><th>64</th><td class="l"><span>This is displayed as:</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>57</th><th> </th><td class="l"><span>&nbsp; [[TicketQuery(version=0.<del>9b1|0.9b2</del>&amp;resolution=duplicate)]]</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>65</th><td class="r"><span>&nbsp; [[TicketQuery(version=0.<ins>6|0.7</ins>&amp;resolution=duplicate)]]</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>58</th><th>66</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>59</th><th>67</th><td class="l"><span>Just like the [wiki:TracQuery#UsingTracLinks query: wiki links], the parameter of this macro expects a query string formatted according to the rules of the simple [wiki:TracQuery#QueryLanguage ticket query language].</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2#L61">…</a></th>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3#L69">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>61</th><th>69</th><td class="l"><span>A more compact representation without the ticket summaries is also available:</span> </td>
+                  </tr><tr>
+                          <th>62</th><th>70</th><td class="l"><span>{{{</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>63</th><th> </th><td class="l"><span>[[TicketQuery(version=0.<del>9b1|0.9b2</del>&amp;resolution=duplicate, compact)]]</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>71</th><td class="r"><span>[[TicketQuery(version=0.<ins>6|0.7</ins>&amp;resolution=duplicate, compact)]]</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>64</th><th>72</th><td class="l"><span>}}}</span> </td>
+                  </tr><tr>
+                          <th>65</th><th>73</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>66</th><th>74</th><td class="l"><span>This is displayed as:</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>67</th><th> </th><td class="l"><span>&nbsp; [[TicketQuery(version=0.9b1|0.9b2&amp;resolution=duplicate, compact)]]</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>75</th><td class="r"><span>&nbsp; [[TicketQuery(version=0.6|0.7&amp;resolution=duplicate, compact)]]</span> </td>
+                      </tr><tr>
+                        <th> </th><th>76</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>77</th><td class="r"><span>Finally if you wish to receive only the number of defects that match the query using the ``count`` parameter.</span> </td>
+                      </tr><tr>
+                        <th> </th><th>78</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>79</th><td class="r"><span>{{{</span> </td>
+                      </tr><tr>
+                        <th> </th><th>80</th><td class="r"><span>[[TicketQuery(version=0.6|0.7&amp;resolution=duplicate, count)]]</span> </td>
+                      </tr><tr>
+                        <th> </th><th>81</th><td class="r"><span>}}}</span> </td>
+                      </tr><tr>
+                        <th> </th><th>82</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>83</th><td class="r"><span>This is displayed as:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>84</th><td class="r"><span>&nbsp; [[TicketQuery(version=0.6|0.7&amp;resolution=duplicate, count)]]</span> </td>
+                      </tr><tr>
+                        <th> </th><th>85</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>86</th><td class="r"><span>=== Customizing the ''table'' format ===</span> </td>
+                      </tr><tr>
+                        <th> </th><th>87</th><td class="r"><span>You can also customize the columns displayed in the table format (''format=table'') by using ''col=&lt;field&gt;'' - you can specify multiple fields and what order they are displayed by placing pipes (`|`) between the columns like below:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>88</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>89</th><td class="r"><span>{{{</span> </td>
+                      </tr><tr>
+                        <th> </th><th>90</th><td class="r"><span>[[TicketQuery(max=3,status=closed,order=id,desc=1,format=table,col=resolution|summary|owner|reporter)]]</span> </td>
+                      </tr><tr>
+                        <th> </th><th>91</th><td class="r"><span>}}}</span> </td>
+                      </tr><tr>
+                        <th> </th><th>92</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>93</th><td class="r"><span>This is displayed as:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>94</th><td class="r"><span>[[TicketQuery(max=3,status=closed,order=id,desc=1,format=table,col=resolution|summary|owner|reporter)]]</span> </td>
+                      </tr><tr>
+                        <th> </th><th>95</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>96</th><td class="r"><span>==== Full rows ====</span> </td>
+                      </tr><tr>
+                        <th> </th><th>97</th><td class="r"><span>In ''table'' format you can also have full rows by using ''rows=&lt;field&gt;'' like below:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>98</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>99</th><td class="r"><span>{{{</span> </td>
+                      </tr><tr>
+                        <th> </th><th>100</th><td class="r"><span>[[TicketQuery(max=3,status=closed,order=id,desc=1,format=table,col=resolution|summary|owner|reporter,rows=description)]]</span> </td>
+                      </tr><tr>
+                        <th> </th><th>101</th><td class="r"><span>}}}</span> </td>
+                      </tr><tr>
+                        <th> </th><th>102</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>103</th><td class="r"><span>This is displayed as:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>104</th><td class="r"><span>[[TicketQuery(max=3,status=closed,order=id,desc=1,format=table,col=resolution|summary|owner|reporter,rows=description)]]</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>105</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>68</th><th>106</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>69</th><th>107</th><td class="l"><span>=== Query Language ===</span> </td>
+                  </tr><tr>
+                          <th>70</th><th>108</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>71</th><th> </th><td class="l"><span>`query:` TracLinks and the `[[TicketQuery]]` macro both use a mini “query language” for specifying query filters. Basically, the filters are separate<del>&nbsp;by ampersands (`&amp;`). Each filter then consists of the ticket field name, an operator, and one or more values. More than one value are separated by a pipe (`|`), meaning that the filter matches any of the values</del>.</span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>109</th><td class="r"><span>`query:` TracLinks and the `[[TicketQuery]]` macro both use a mini “query language” for specifying query filters. Basically, the filters are separate<ins>d by ampersands (`&amp;`). Each filter then consists of the ticket field name, an operator, and one or more values. More than one value are separated by a pipe (`|`), meaning that the filter matches any of the values. To include a litteral `&amp;` or `|` in a value, escape the character with a backslash (`\`)</ins>.</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>72</th><th>110</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>73</th><th>111</th><td class="l"><span>The available operators are:</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>74</th><th> </th><td class="l"><span>|| '''<del>=</del>''' || the field content exactly matches the one of the values ||</span> </td>
+                      </tr><tr>
+                        <th>75</th><th> </th><td class="l"><span>|| '''<del>~=</del>''' || the field content contains one or more of the values ||</span> </td>
+                      </tr><tr>
+                        <th>76</th><th> </th><td class="l"><span>|| '''<del>!^=</del>''' || the field content starts with one of the values ||</span> </td>
+                      </tr><tr>
+                        <th>77</th><th> </th><td class="l"><span>|| '''<del>$=</del>''' || the field content ends with one of the values ||</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>112</th><td class="r"><span>|| '''<ins>`=`</ins>''' || the field content exactly matches the one of the values ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>113</th><td class="r"><span>|| '''<ins>`~=`</ins>''' || the field content contains one or more of the values ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>114</th><td class="r"><span>|| '''<ins>`^=`</ins>''' || the field content starts with one of the values ||</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>115</th><td class="r"><span>|| '''<ins>`$=`</ins>''' || the field content ends with one of the values ||</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>78</th><th>116</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>79</th><th>117</th><td class="l"><span>All of these operators can also be negated:</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>80</th><th> </th><td class="l"><span>|| '''!=''' || the field content matches none of the values ||</span> </td>
+                      </tr><tr>
+                        <th>81</th><th> </th><td class="l"><span>|| '''!~=''' || the field content does not contain any of the values ||</span> </td>
+                      </tr><tr>
+                        <th>82</th><th> </th><td class="l"><span>|| '''!!^=''' || the field content does not start with any of the values ||</span> </td>
+                      </tr><tr>
+                        <th>83</th><th> </th><td class="l"><span>|| '''!$=''' || the field content does not end with any of the values ||</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>118</th><td class="r"><span>|| '''`!=`''' || the field content matches none of the values ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>119</th><td class="r"><span>|| '''`!~=`''' || the field content does not contain any of the values ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>120</th><td class="r"><span>|| '''`!^=`''' || the field content does not start with any of the values ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>121</th><td class="r"><span>|| '''`!$=`''' || the field content does not end with any of the values ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>122</th><td class="r"><span></span> </td>
+                      </tr><tr>
+                        <th> </th><th>123</th><td class="r"><span>The date fields `created` and `modified` can be constrained by using the `=` operator and specifying a value containing two dates separated by two dots (`..`). Either end of the date range can be left empty, meaning that the corresponding end of the range is open. The date parser understands a few natural date specifications like "3 weeks ago", "last month" and "now", as well as Bugzilla-style date specifications like "1d", "2w", "3m" or "4y" for 1 day, 2 weeks, 3 months and 4 years, respectively. Spaces in date specifications can be left out to avoid having to quote the query string. </span> </td>
+                      </tr><tr>
+                        <th> </th><th>124</th><td class="r"><span>|| '''`created=2007-01-01..2008-01-01`''' || query tickets created in 2007 ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>125</th><td class="r"><span>|| '''`created=lastmonth..thismonth`''' || query tickets created during the previous month ||</span> </td>
+                      </tr><tr>
+                        <th> </th><th>126</th><td class="r"><span>|| '''`modified=1weekago..`''' || query tickets that have been modified in the last week ||</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>127</th><td class="r"><span>|| '''`modified=..30daysago`''' || query tickets that have been inactive for the last 30 days ||</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>84</th><th>128</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>85</th><th>129</th><td class="l"><span>----</span> </td>
+                  </tr><tr>
+                          <th>86</th><th>130</th><td class="l"><span>See also: TracTickets, TracReports, TracGuide</span> </td>
+                  </tr>
+            </tbody><tbody class="rem">
+                  <tr class="first">
+                          <th>87</th><th> </th><td class="l"><del></del> </td>
+                  </tr><tr>
+                          <th>88</th><th> </th><td class="l"><del></del> </td>
+                  </tr><tr>
+                          <th>89</th><th> </th><td class="l"><del>{{{</del> </td>
+                  </tr><tr>
+                          <th>90</th><th> </th><td class="l"><del>#!html</del> </td>
+                  </tr><tr>
+                          <th>91</th><th> </th><td class="l"><del>&lt;div style="position:absolute;left:-54345px;height:1px;"&gt;</del> </td>
+                  </tr><tr>
+                          <th>92</th><th> </th><td class="l"><del>Also information about &lt;a href=http://a2z-about-rss.com/arabia/&gt;Arabia&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/belize/&gt;Belize&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/china/&gt;China&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/denmark/&gt;Denmark&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/greenland/&gt;Greenland&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/iceland/&gt;Iceland&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/iran/&gt;Iran&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/lithuania/&gt;Lithuania&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/nicaragua/&gt;Nicaragua&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/palestine/&gt;Palestine&lt;/a&gt;, &lt;a href=http://a2z-about-rss.com/sweden/&gt;Sweden&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/cameroon/&gt;Cameroon&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/chad/&gt;Chad&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/georgia/&gt;Georgia&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/guyana/&gt;Guyana&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/iraq/&gt;Iraq&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/mali/&gt;Mali&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/nauru/&gt;Nauru&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/norway/&gt;Norway&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/panama/&gt;Panama&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/samoa/&gt;Samoa&lt;/a&gt;, &lt;a href=http://adsense-website-creator.com/united-kingdom/&gt;United kingdom&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/britain/&gt;Britain&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/comoros/&gt;Comoros&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/dominica/&gt;Dominica&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/ecuador/&gt;Ecuador&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/france/&gt;France&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/gambia/&gt;Gambia&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/laos/&gt;Laos&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/libya/&gt;Libya&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/netherlands/&gt;Netherlands&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/romania/&gt;Romania&lt;/a&gt;, &lt;a href=http://articlecontentsoftware.com/suriname/&gt;Suriname&lt;/a&gt;, &lt;a href=http://articlemembership.net/azerbaijan/&gt;Azerbaijan&lt;/a&gt;, &lt;a href=http://articlemembership.net/bolivia/&gt;Bolivia&lt;/a&gt;, &lt;a href=http://articlemembership.net/burundi/&gt;Burundi&lt;/a&gt;, &lt;a href=http://articlemembership.net/mauritania/&gt;Mauritania&lt;/a&gt;, &lt;a href=http://articlemembership.net/new-zealand/&gt;New zealand&lt;/a&gt;, &lt;a href=http://articlemembership.net/nicaragua/&gt;Nicaragua&lt;/a&gt;, &lt;a href=http://articlemembership.net/puerto-rico/&gt;Puerto rico&lt;/a&gt;, &lt;a href=http://articlemembership.net/romania/&gt;Romania&lt;/a&gt;, &lt;a href=http://articlemembership.net/slovakia/&gt;Slovakia&lt;/a&gt;, &lt;a href=http://articlemembership.net/thailand/&gt;Thailand&lt;/a&gt;, &lt;a href=http://articlemembership.net/vanuatu/&gt;Vanuatu&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/austria/&gt;Austria&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/brazil/&gt;Brazil&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/cambodia/&gt;Cambodia&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/cuba/&gt;Cuba&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/cyprus/&gt;Cyprus&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/egypt/&gt;Egypt&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/france/&gt;France&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/georgia/&gt;Georgia&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/korea/&gt;Korea&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/namibia/&gt;Namibia&lt;/a&gt;, &lt;a href=http://www.articlewebsitebuilder.net/suriname/&gt;Suriname&lt;/a&gt;, &lt;a href=http://informationoverload.info/belarus/&gt;Belarus&lt;/a&gt;, &lt;a href=http://informationoverload.info/caledonia/&gt;Caledonia&lt;/a&gt;, &lt;a href=http://informationoverload.info/cambodia/&gt;Cambodia&lt;/a&gt;, &lt;a href=http://informationoverload.info/congo/&gt;Congo&lt;/a&gt;, &lt;a href=http://informationoverload.info/iraq/&gt;Iraq&lt;/a&gt;, &lt;a href=http://informationoverload.info/malawi/&gt;Malawi&lt;/a&gt;, &lt;a href=http://informationoverload.info/nepal/&gt;Nepal&lt;/a&gt;, &lt;a href=http://informationoverload.info/nigeria/&gt;Nigeria&lt;/a&gt;, &lt;a href=http://informationoverload.info/sweden/&gt;Sweden&lt;/a&gt;, &lt;a href=http://informationoverload.info/ukraine/&gt;Ukraine&lt;/a&gt;, &lt;a href=http://informationoverload.info/yemen/&gt;Yemen&lt;/a&gt;, &lt;a href=http://notepopups.net/colombia/&gt;Colombia&lt;/a&gt;, &lt;a href=http://notepopups.net/cuba/&gt;Cuba&lt;/a&gt;, &lt;a href=http://notepopups.net/finland/&gt;Finland&lt;/a&gt;, &lt;a href=http://notepopups.net/guatemala/&gt;Guatemala&lt;/a&gt;, &lt;a href=http://notepopups.net/hungary/&gt;Hungary&lt;/a&gt;, &lt;a href=http://notepopups.net/ireland/&gt;Ireland&lt;/a&gt;, &lt;a href=http://notepopups.net/nauru/&gt;Nauru&lt;/a&gt;, &lt;a href=http://notepopups.net/qatar/&gt;Qatar&lt;/a&gt;, &lt;a href=http://notepopups.net/serbia/&gt;Serbia&lt;/a&gt; and &lt;a href=http://notepopups.net/syria/&gt;Syria&lt;/a&gt; still available for you.</del> </td>
+                  </tr><tr>
+                          <th>93</th><th> </th><td class="l"><del>&lt;/div&gt;</del> </td>
+                  </tr><tr class="last">
+                          <th>94</th><th> </th><td class="l"><del>}}}</del> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+      </div>
+  </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/TracQuery?action=diff&version=3 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:32 GMT -->
+</html>

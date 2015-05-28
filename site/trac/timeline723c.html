@@ -1,0 +1,953 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/timeline?from=2006-11-21&daysback=30&authors= by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Timeline – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="search.html" />
+        <link rel="help" href="wiki/TracGuide.html" />
+        <link rel="alternate" href="timeline145d?wiki=on&amp;max=50&amp;authors=&amp;daysback=90&amp;format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-12-22&amp;daysback=30&amp;authors=" title="Next Period" />
+        <link rel="start" href="wiki.html" />
+        <link rel="stylesheet" href="chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="chrome/common/css/timeline.css" type="text/css" /><link rel="stylesheet" href="chrome/common/css/jquery-ui/jquery-ui.css" type="text/css" /><link rel="stylesheet" href="chrome/common/css/jquery-ui-addons.css" type="text/css" />
+        <link rel="prev" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-10-21&amp;daysback=30&amp;authors=" title="Previous Period" />
+        <link rel="shortcut icon" href="chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="search/opensearch" title="Search Ruby Refactoring" />
+    <script type="text/javascript">
+      var jquery_ui={"ampm":false,"date_format":"mm/dd/y","day_names":{"abbreviated":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"narrow":["Su","Mo","Tu","We","Th","Fr","Sa"],"wide":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]},"first_week_day":0,"month_names":{"abbreviated":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wide":["January","February","March","April","May","June","July","August","September","October","November","December"]},"show_timezone":false,"time_format":"hh:mm:ss","timepicker_separator":" ","timezone_iso8601":false,"timezone_list":[]};
+    </script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/jquery-ui.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/jquery-ui-addons.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/jquery-ui-i18n.js"></script>
+    <script type="text/javascript">/*<![CDATA[*/
+      jQuery(document).ready(function($) {
+        $("#fromdate").datepicker();
+      });
+    /*]]>*/</script>
+    <link rel="stylesheet" type="text/css" href="chrome/site/style.html" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="../cdtrefactoring.html">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="../trac.html">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="../cute.html">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../trac.html"><img src="chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="login.html">Login</a></li><li><a href="wiki/TracGuide.html">Help/Guide</a></li><li><a href="about.html">About Trac</a></li><li class="last"><a href="prefs.html">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="wiki.html">Wiki</a></li><li class="active"><a href="timeline.html">Timeline</a></li><li><a href="browser.html">Browse Source</a></li><li class="last"><a href="search.html">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-10-21&amp;daysback=30&amp;authors=" title="Previous Period">Previous Period</a></span></li><li class="last"><span><a class="next" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-12-22&amp;daysback=30&amp;authors=" title="Next Period">Next Period</a> &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="timeline">
+      <h1>Timeline</h1>
+      <form id="prefs" method="get" action="#">
+       <div><label>View changes from <input type="text" id="fromdate" size="10" name="from" value="11/21/06" /></label> <br />
+        and <label><input type="text" size="3" name="daysback" value="30" /> days back</label><br />
+        <label>done by <input type="text" size="16" name="authors" value="" /></label></div>
+       <fieldset>
+        <label>
+          <input type="checkbox" name="wiki" checked="checked" /> Wiki changes
+        </label>
+       </fieldset>
+       <div class="buttons">
+         <input type="submit" name="update" value="Update" />
+       </div>
+      </form>
+        <h2>11/18/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/InlineMethodad21.html?version=4">
+                <span class="time">11:18</span> <em>InlineMethod</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/InlineMethod491c.html?action=diff&amp;version=4">diff</a>)
+            </dd>
+        </dl>
+        <h2>11/16/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/WikiStart918d.html?version=72">
+                <span class="time">15:47</span> <em>WikiStart</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStart60ce.html?action=diff&amp;version=72">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiStart2bcc.html?version=71">
+                <span class="time">15:36</span> <em>WikiStart</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+              added link to bug (<a href="wiki/WikiStart3658.html?action=diff&amp;version=71">diff</a>)
+            </dd>
+        </dl>
+        <h2>11/15/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/Protokoll151006e42d.html?version=1">
+                <span class="time">16:12</span> <em>Protokoll151006</em> created
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiStart92aa.html?version=70">
+                <span class="time">16:07</span> <em>WikiStart</em> edited
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStart7f9f.html?action=diff&amp;version=70">diff</a>)
+            </dd>
+        </dl>
+        <h2>11/10/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/Protokoll08100667d9.html?version=2">
+                <span class="time">10:15</span> <em>Protokoll081006</em> edited
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll0810061271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll081006e42d.html?version=1">
+                <span class="time">10:14</span> <em>Protokoll081006</em> created
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiStart8f95.html?version=69">
+                <span class="time">10:09</span> <em>WikiStart</em> edited
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStartb5f3.html?action=diff&amp;version=69">diff</a>)
+            </dd>
+        </dl>
+        <h2>11/08/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/WikiStart6408.html?version=68">
+                <span class="time">22:34</span> <em>WikiStart</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStart7f7a.html?action=diff&amp;version=68">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/30/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/WikiStartd4dd.html?version=67">
+                <span class="time">10:44</span> <em>WikiStart</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStartcc4c.html?action=diff&amp;version=67">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiStart6040.html?version=66">
+                <span class="time">10:43</span> <em>WikiStart</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStart4795.html?action=diff&amp;version=66">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiStart675d.html?version=65">
+                <span class="time">10:40</span> <em>WikiStart</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+              added link (<a href="wiki/WikiStart7d92.html?action=diff&amp;version=65">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/RecentChangesad21.html?version=4">
+                <span class="time">04:56</span> <em>RecentChanges</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/RecentChanges491c.html?action=diff&amp;version=4">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/MarkusBarchfeld67d9.html?version=2">
+                <span class="time">02:23</span> <em>MarkusBarchfeld</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/MarkusBarchfeld1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracUpgrade67d9.html?version=2">
+                <span class="time">02:05</span> <em>TracUpgrade</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracUpgrade1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll3005067fb8.html?version=3">
+                <span class="time">02:05</span> <em>Protokoll300506</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll3005065389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/RenameLocalVariable67d9.html?version=2">
+                <span class="time">01:59</span> <em>RenameLocalVariable</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/RenameLocalVariable1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll1004067fb8.html?version=3">
+                <span class="time">01:43</span> <em>Protokoll100406</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll1004065389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracReports67d9.html?version=2">
+                <span class="time">01:29</span> <em>TracReports</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracReports1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/EncapsulateField67d9.html?version=2">
+                <span class="time">01:29</span> <em>EncapsulateField</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/EncapsulateField1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracCgi67d9.html?version=2">
+                <span class="time">01:21</span> <em>TracCgi</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracCgi1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracTicketsad21.html?version=4">
+                <span class="time">01:12</span> <em>TracTickets</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracTickets491c.html?action=diff&amp;version=4">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/GenerateAccessors358e.html?version=6">
+                <span class="time">00:12</span> <em>GenerateAccessors</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/GenerateAccessors4534.html?action=diff&amp;version=6">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/29/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/MergeClassParts7fb8.html?version=3">
+                <span class="time">23:59</span> <em>MergeClassParts</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/MergeClassParts5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiRestructuredTextLinks67d9.html?version=2">
+                <span class="time">23:45</span> <em>WikiRestructuredTextLinks</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiRestructuredTextLinks1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracNotification67d9.html?version=2">
+                <span class="time">23:37</span> <em>TracNotification</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracNotification1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll03050667d9.html?version=2">
+                <span class="time">23:22</span> <em>Protokoll030506</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll0305061271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll0805067fb8.html?version=3">
+                <span class="time">23:03</span> <em>Protokoll080506</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll0805065389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracAdmin67d9.html?version=2">
+                <span class="time">22:34</span> <em>TracAdmin</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracAdmin1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ListeVonRefactorings79ee.html?version=5">
+                <span class="time">21:54</span> <em>ListeVonRefactorings</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ListeVonRefactoringsc5e7.html?action=diff&amp;version=5">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracPermissions67d9.html?version=2">
+                <span class="time">21:47</span> <em>TracPermissions</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracPermissions1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokolle79ee.html?version=5">
+                <span class="time">21:34</span> <em>Protokolle</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokollec5e7.html?action=diff&amp;version=5">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracSearch67d9.html?version=2">
+                <span class="time">20:55</span> <em>TracSearch</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracSearch1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/GenerateGettersAndSetter67d9.html?version=2">
+                <span class="time">20:50</span> <em>GenerateGettersAndSetter</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/GenerateGettersAndSetter1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracRss67d9.html?version=2">
+                <span class="time">20:25</span> <em>TracRss</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracRss1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracBackup67d9.html?version=2">
+                <span class="time">20:24</span> <em>TracBackup</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracBackup1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ChristopherWilliamsad21.html?version=4">
+                <span class="time">20:17</span> <em>ChristopherWilliams</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ChristopherWilliams491c.html?action=diff&amp;version=4">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracUnicode67d9.html?version=2">
+                <span class="time">20:04</span> <em>TracUnicode</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracUnicode1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/27/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TracTickets7fb8.html?version=3">
+                <span class="time">19:52</span> <em>TracTickets</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracTickets5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll15050667d9.html?version=2">
+                <span class="time">19:10</span> <em>Protokoll150506</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll1505061271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/GenerateConstructorUsingField7fb8.html?version=3">
+                <span class="time">18:50</span> <em>GenerateConstructorUsingField</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/GenerateConstructorUsingField5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracStandalone67d9.html?version=2">
+                <span class="time">18:48</span> <em>TracStandalone</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracStandalone1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracQuery67d9.html?version=2">
+                <span class="time">18:46</span> <em>TracQuery</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracQuery1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ExtractClassad21.html?version=4">
+                <span class="time">18:40</span> <em>ExtractClass</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ExtractClass491c.html?action=diff&amp;version=4">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracIni67d9.html?version=2">
+                <span class="time">18:29</span> <em>TracIni</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracIni1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/CamelCase67d9.html?version=2">
+                <span class="time">18:21</span> <em>CamelCase</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/CamelCase1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracEnvironment7fb8.html?version=3">
+                <span class="time">18:20</span> <em>TracEnvironment</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracEnvironment5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokollead21.html?version=4">
+                <span class="time">18:13</span> <em>Protokolle</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokolle491c.html?action=diff&amp;version=4">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll19060667d9.html?version=2">
+                <span class="time">18:03</span> <em>Protokoll190606</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll1906061271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracInterfaceCustomization7fb8.html?version=3">
+                <span class="time">17:43</span> <em>TracInterfaceCustomization</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracInterfaceCustomization5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll08050667d9.html?version=2">
+                <span class="time">17:43</span> <em>Protokoll080506</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll0805061271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ReplaceTemporaryVariableWithQueryded1.html?version=8">
+                <span class="time">17:41</span> <em>ReplaceTemporaryVariableWithQuery</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ReplaceTemporaryVariableWithQuery0599.html?action=diff&amp;version=8">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/InlineMethod7fb8.html?version=3">
+                <span class="time">17:00</span> <em>InlineMethod</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/InlineMethod5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ChristopherWilliams7fb8.html?version=3">
+                <span class="time">16:58</span> <em>ChristopherWilliams</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ChristopherWilliams5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracWiki67d9.html?version=2">
+                <span class="time">16:52</span> <em>TracWiki</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracWiki1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracSyntaxColoring67d9.html?version=2">
+                <span class="time">16:11</span> <em>TracSyntaxColoring</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracSyntaxColoring1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Wishlist79ee.html?version=5">
+                <span class="time">16:09</span> <em>Wishlist</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Wishlistc5e7.html?action=diff&amp;version=5">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracInstall67d9.html?version=2">
+                <span class="time">16:08</span> <em>TracInstall</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracInstall1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll2606067fb8.html?version=3">
+                <span class="time">16:06</span> <em>Protokoll260606</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll2606065389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll2205067fb8.html?version=3">
+                <span class="time">11:40</span> <em>Protokoll220506</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll2205065389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokolle7fb8.html?version=3">
+                <span class="time">11:33</span> <em>Protokolle</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokolle5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ReplaceTemporaryVariableWithQuery17dd.html?version=7">
+                <span class="time">11:06</span> <em>ReplaceTemporaryVariableWithQuery</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ReplaceTemporaryVariableWithQueryfae3.html?action=diff&amp;version=7">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ChristopherWilliams67d9.html?version=2">
+                <span class="time">10:58</span> <em>ChristopherWilliams</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ChristopherWilliams1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/RenameMethod7fb8.html?version=3">
+                <span class="time">10:39</span> <em>RenameMethod</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/RenameMethod5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracAccessibility67d9.html?version=2">
+                <span class="time">10:29</span> <em>TracAccessibility</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracAccessibility1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracInterfaceCustomization67d9.html?version=2">
+                <span class="time">10:29</span> <em>TracInterfaceCustomization</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracInterfaceCustomization1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiMacros67d9.html?version=2">
+                <span class="time">10:07</span> <em>WikiMacros</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiMacros1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TitleIndex3ba5.html?version=26">
+                <span class="time">10:02</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex216a.html?action=diff&amp;version=26">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ListeVonRefactoringsad21.html?version=4">
+                <span class="time">08:34</span> <em>ListeVonRefactorings</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ListeVonRefactorings491c.html?action=diff&amp;version=4">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracTicketsCustomFields67d9.html?version=2">
+                <span class="time">07:50</span> <em>TracTicketsCustomFields</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracTicketsCustomFields1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/MergeClassParts67d9.html?version=2">
+                <span class="time">07:33</span> <em>MergeClassParts</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/MergeClassParts1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TitleIndex0354.html?version=25">
+                <span class="time">00:00</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndexe636.html?action=diff&amp;version=25">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/26/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/ConvertLocalVariableToField67d9.html?version=2">
+                <span class="time">07:07</span> <em>ConvertLocalVariableToField</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ConvertLocalVariableToField1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/InlineClass7fb8.html?version=3">
+                <span class="time">07:00</span> <em>InlineClass</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/InlineClass5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/25/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TitleIndex014b.html?version=24">
+                <span class="time">23:52</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex0da2.html?action=diff&amp;version=24">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TitleIndex58ca.html?version=23">
+                <span class="time">00:14</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex1d23.html?action=diff&amp;version=23">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/23/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TitleIndexa254.html?version=22">
+                <span class="time">23:09</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex6064.html?action=diff&amp;version=22">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll16100667d9.html?version=2">
+                <span class="time">08:59</span> <em>Protokoll161006</em> edited
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll1610061271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll161006e42d.html?version=1">
+                <span class="time">08:59</span> <em>Protokoll161006</em> created
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiStart12f8.html?version=64">
+                <span class="time">08:48</span> <em>WikiStart</em> edited
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStart1daf.html?action=diff&amp;version=64">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/22/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TracTickets67d9.html?version=2">
+                <span class="time">01:11</span> <em>TracTickets</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracTickets1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracEnvironment67d9.html?version=2">
+                <span class="time">01:09</span> <em>TracEnvironment</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracEnvironment1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/GenerateConstructorUsingField67d9.html?version=2">
+                <span class="time">01:05</span> <em>GenerateConstructorUsingField</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/GenerateConstructorUsingField1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokolle67d9.html?version=2">
+                <span class="time">01:05</span> <em>Protokolle</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokolle1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/AddConstructorFromSuperclass67d9.html?version=2">
+                <span class="time">00:40</span> <em>AddConstructorFromSuperclass</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/AddConstructorFromSuperclass1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/InlineMethod67d9.html?version=2">
+                <span class="time">00:24</span> <em>InlineMethod</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/InlineMethod1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll10040667d9.html?version=2">
+                <span class="time">00:15</span> <em>Protokoll100406</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll1004061271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ExtractClass7fb8.html?version=3">
+                <span class="time">00:05</span> <em>ExtractClass</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ExtractClass5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+        </dl>
+      <div id="help"><strong>Note:</strong> See <a href="wiki/TracTimeline.html">TracTimeline</a>
+        for information about the timeline view.</div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="timeline145d?wiki=on&amp;max=50&amp;authors=&amp;daysback=90&amp;format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="about.html"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/timeline?from=2006-11-21&daysback=30&authors= by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:44 GMT -->
+</html>

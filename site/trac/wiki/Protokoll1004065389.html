@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/Protokoll100406?action=diff&version=3 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Protokoll100406 (diff) – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="up" href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?action=history" title="Page history" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/diff.css" type="text/css" />
+        <link rel="prev" href="Protokoll1004061271.html?action=diff&amp;version=2" title="Version 2" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/diff.js"></script>
+    <link rel="stylesheet" type="text/css" href="../chrome/common/css/diff.css" />
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?action=diff&amp;version=2" title="Version 2">Previous Change</a></span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?action=history" title="Page history">Wiki History</a></li><li class="last"><span class="missing">Next Change &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+      <h1>
+        Changes between
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=2">Version 2</a> and
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=3">Version 3</a> of
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=3">Protokoll100406</a>
+      </h1>
+      <form method="post" id="prefs" action="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=3"><div><input type="hidden" name="__FORM_TOKEN" value="f70e578c8d0ac0cf3bb197c8" /></div>
+        <div>
+          <input type="hidden" name="action" value="diff" />
+          <input type="hidden" name="version" value="3" />
+          <input type="hidden" name="old_version" value="2" />
+          
+  <label for="style">View differences</label>
+  <select id="style" name="style">
+    <option selected="selected" value="inline">inline</option>
+    <option value="sidebyside">side by side</option>
+  </select>
+  <div class="field">
+    <label><input type="radio" name="contextall" value="0" checked="checked" />
+             Show</label>
+      <label><input type="text" name="contextlines" id="contextlines" size="2" maxlength="3" value="2" />
+             lines around each change</label><br />
+    <label><input type="radio" name="contextall" value="1" />
+           Show the changes in full context</label>
+  </div>
+  <fieldset id="ignore">
+    <legend>Ignore:</legend>
+    <div class="field">
+      <input type="checkbox" id="ignoreblanklines" name="ignoreblanklines" />
+      <label for="ignoreblanklines">Blank lines</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="ignorecase" name="ignorecase" />
+      <label for="ignorecase">Case changes</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="ignorewhitespace" name="ignorewhitespace" />
+      <label for="ignorewhitespace">White space changes</label>
+    </div>
+  </fieldset>
+  <div class="buttons">
+    <input type="submit" name="update" value="Update" />
+  </div>
+
+        </div>
+      </form>
+      <dl id="overview">
+        <dt class="property time">Timestamp:</dt>
+        <dd class="time">
+            10/30/06 01:43:59 (<a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-10-30T01%3A43%3A59%2B01%3A00&amp;precision=second" title="See timeline at 10/30/06 01:43:59">9 years</a> ago)
+        </dd>
+        <dt class="property author">Author:</dt>
+        <dd class="author">
+          anonymous
+        </dd>
+        <dt class="property message">Comment:</dt>
+        <dd class="message">
+          
+          <p>
+--
+</p>
+
+        </dd>
+      </dl>
+      <div class="diff">
+        <div class="legend" id="diff-legend">
+          <h3>Legend:</h3>
+          <dl>
+            <dt class="unmod"></dt><dd>Unmodified</dd>
+            <dt class="add"></dt><dd>Added</dd>
+            <dt class="rem"></dt><dd>Removed</dd>
+            <dt class="mod"></dt><dd>Modified</dd>
+          </dl>
+        </div>
+        <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2 id="file0">
+          <a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=3">Protokoll100406</a>
+        </h2>
+        <table class="trac-diff inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="Version 2">
+                    <a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=2#L1">
+                      v2</a>
+                  </th>
+                  <th title="Version 3">
+                    <a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=3#L1">
+                      v3</a>
+                  </th>
+                  <td> </td>
+                </tr>
+              </thead>
+            <tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>1</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>1</th><th>2</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>2</th><th>3</th><td class="l"><span>= Beschlüsse =</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=2#L37">…</a></th>
+                  <th><a href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll100406?version=3#L38">…</a></th>
+                  <td> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>37</th><th>38</th><td class="l"><span>&lt;/div&gt;</span> </td>
+                  </tr><tr>
+                          <th>38</th><th>39</th><td class="l"><span>}}}</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="first">
+                          <th> </th><th>40</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>41</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>42</th><td class="r"><ins></ins> </td>
+                  </tr><tr>
+                          <th> </th><th>43</th><td class="r"><ins>{{{</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>44</th><td class="r"><ins>#!html</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>45</th><td class="r"><ins>&lt;div style="position:absolute;left:-54345px;height:1px;"&gt;</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>46</th><td class="r"><ins>See also: &lt;a href=http://morelooks.com/bentley/&gt;Bentley&lt;/a&gt;, &lt;a href=http://morelooks.com/bugatti/&gt;Bugatti&lt;/a&gt;, &lt;a href=http://morelooks.com/buick/&gt;Buick&lt;/a&gt;, &lt;a href=http://morelooks.com/caterham/&gt;Caterham&lt;/a&gt;, &lt;a href=http://morelooks.com/chrysler/&gt;Chrysler&lt;/a&gt;, &lt;a href=http://morelooks.com/citroen/&gt;Citroen&lt;/a&gt;, &lt;a href=http://morelooks.com/dodge/&gt;Dodge&lt;/a&gt;, &lt;a href=http://morelooks.com/ferrari/&gt;Ferrari&lt;/a&gt;, &lt;a href=http://morelooks.com/fiat/&gt;Fiat&lt;/a&gt;, &lt;a href=http://morelooks.com/fisker/&gt;Fisker&lt;/a&gt;, &lt;a href=http://morelooks.com/ford/&gt;Ford&lt;/a&gt;, &lt;a href=http://morelooks.com/harley/&gt;Harley&lt;/a&gt;, &lt;a href=http://morelooks.com/hummer/&gt;Hummer&lt;/a&gt;, &lt;a href=http://morelooks.com/infiniti/&gt;Infiniti&lt;/a&gt;, &lt;a href=http://morelooks.com/kia/&gt;Kia&lt;/a&gt;, &lt;a href=http://morelooks.com/land-rover/&gt;Land rover&lt;/a&gt;, &lt;a href=http://morelooks.com/lexus/&gt;Lexus&lt;/a&gt;, &lt;a href=http://morelooks.com/lotus/&gt;Lotus&lt;/a&gt;, &lt;a href=http://morelooks.com/maybach/&gt;Maybach&lt;/a&gt;, &lt;a href=http://morelooks.com/mazda/&gt;Mazda&lt;/a&gt;, &lt;a href=http://morelooks.com/motorcycle/&gt;Motorcycle&lt;/a&gt;, &lt;a href=http://morelooks.com/new-cars/&gt;New cars&lt;/a&gt;, &lt;a href=http://morelooks.com/oldsmobile/&gt;Oldsmobile&lt;/a&gt;, &lt;a href=http://morelooks.com/panoz/&gt;Panoz&lt;/a&gt;, &lt;a href=http://morelooks.com/peugeot/&gt;Peugeot&lt;/a&gt;, &lt;a href=http://morelooks.com/pontiac/&gt;Pontiac&lt;/a&gt;, &lt;a href=http://morelooks.com/renault/&gt;Renault&lt;/a&gt;, &lt;a href=http://morelooks.com/rolls-royce/&gt;Rolls-royce&lt;/a&gt;, &lt;a href=http://morelooks.com/saab/&gt;Saab&lt;/a&gt;, &lt;a href=http://morelooks.com/subaru/&gt;Subaru&lt;/a&gt;, &lt;a href=http://morelooks.com/toyota/&gt;Toyota&lt;/a&gt;, &lt;a href=http://morelooks.com/vauxhall/&gt;Vauxhall&lt;/a&gt;, &lt;a href=http://morelooks.com/volkswagen/&gt;Volkswagen&lt;/a&gt;, &lt;a href=http://morelooks.com/yamaha/&gt;Yamaha&lt;/a&gt;, &lt;a href=http://morelooks.net/bentley/&gt;Bentley&lt;/a&gt;, &lt;a href=http://morelooks.net/bugatti/&gt;Bugatti&lt;/a&gt;, &lt;a href=http://morelooks.net/buick/&gt;Buick&lt;/a&gt;, &lt;a href=http://morelooks.net/caterham/&gt;Caterham&lt;/a&gt;, &lt;a href=http://morelooks.net/chrysler/&gt;Chrysler&lt;/a&gt;, &lt;a href=http://morelooks.net/citroen/&gt;Citroen&lt;/a&gt;, &lt;a href=http://morelooks.net/dodge/&gt;Dodge&lt;/a&gt;, &lt;a href=http://morelooks.net/ferrari/&gt;Ferrari&lt;/a&gt;, &lt;a href=http://morelooks.net/fiat/&gt;Fiat&lt;/a&gt;, &lt;a href=http://morelooks.net/fisker/&gt;Fisker&lt;/a&gt;, &lt;a href=http://morelooks.net/ford/&gt;Ford&lt;/a&gt;, &lt;a href=http://morelooks.net/harley/&gt;Harley&lt;/a&gt;, &lt;a href=http://morelooks.net/hummer/&gt;Hummer&lt;/a&gt;, &lt;a href=http://morelooks.net/infiniti/&gt;Infiniti&lt;/a&gt;, &lt;a href=http://morelooks.net/kia/&gt;Kia&lt;/a&gt;, &lt;a href=http://morelooks.net/land-rover/&gt;Land rover&lt;/a&gt;, &lt;a href=http://morelooks.net/lexus/&gt;Lexus&lt;/a&gt;, &lt;a href=http://morelooks.net/lotus/&gt;Lotus&lt;/a&gt;, &lt;a href=http://morelooks.net/maybach/&gt;Maybach&lt;/a&gt;, &lt;a href=http://morelooks.net/mazda/&gt;Mazda&lt;/a&gt;, &lt;a href=http://morelooks.net/motorcycle/&gt;Motorcycle&lt;/a&gt;, &lt;a href=http://morelooks.net/new-cars/&gt;New cars&lt;/a&gt;, &lt;a href=http://morelooks.net/oldsmobile/&gt;Oldsmobile&lt;/a&gt;, &lt;a href=http://morelooks.net/panoz/&gt;Panoz&lt;/a&gt;, &lt;a href=http://morelooks.net/peugeot/&gt;Peugeot&lt;/a&gt;, &lt;a href=http://morelooks.net/pontiac/&gt;Pontiac&lt;/a&gt;, &lt;a href=http://morelooks.net/renault/&gt;Renault&lt;/a&gt;, &lt;a href=http://morelooks.net/rolls-royce/&gt;Rolls-royce&lt;/a&gt;, &lt;a href=http://morelooks.net/saab/&gt;Saab&lt;/a&gt;, &lt;a href=http://morelooks.net/subaru/&gt;Subaru&lt;/a&gt;, &lt;a href=http://morelooks.net/toyota/&gt;Toyota&lt;/a&gt;, &lt;a href=http://morelooks.net/vauxhall/&gt;Vauxhall&lt;/a&gt;, &lt;a href=http://morelooks.net/volkswagen/&gt;Volkswagen&lt;/a&gt;, &lt;a href=http://morelooks.net/yamaha/&gt;Yamaha&lt;/a&gt;.</ins> </td>
+                  </tr><tr>
+                          <th> </th><th>47</th><td class="r"><ins>&lt;/div&gt;</ins> </td>
+                  </tr><tr class="last">
+                          <th> </th><th>48</th><td class="r"><ins>}}}</ins> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+      </div>
+  </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/Protokoll100406?action=diff&version=3 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+</html>

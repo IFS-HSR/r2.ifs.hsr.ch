@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/WikiStart?version=72 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?version=72&amp;format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="WikiStart.html" title="View latest version" />
+        <link rel="next" href="WikiStartea92.html?version=73" title="Version 73" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="prev" href="WikiStart2bcc.html?version=71" title="Version 71" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://r2.ifs.hsr.ch/trac/wiki">wiki:</a><a class="pathentry" href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart" title="View WikiStart">WikiStart</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?version=71" title="Version 71">Previous Version</a></span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart" title="View latest version">View Latest Version</a></li><li class="last"><span><a class="next" href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?version=73" title="Version 73">Next Version</a> &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+        <br />
+        <table id="info" summary="Revision info">
+          <tbody>
+            <tr><th scope="row">Version 72 (modified by mirko, <a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-11-16T15%3A47%3A24%2B01%3A00&amp;precision=second" title="See timeline at 11/16/06 15:47:24">9 years ago</a>)
+               (<a href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?action=diff&amp;version=72">diff</a>)</th></tr>
+            <tr><td class="message">
+              <p>
+--
+</p>
+
+            </td></tr>
+          </tbody>
+        </table>
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="WelcometotheRubyRefactoringWiki">Welcome to the Ruby Refactoring Wiki</h1>
+<p>
+This is the website of our project to bring refactoring support to RDT. The first phase of the project has been completed, we recommend to read our <a class="ext-link" href="http://morki.ch/res/rubyrefactoring.pdf"><span class="icon">​</span>report</a> (1.8MB PDF) to get an overview to the things we did. If you have any feedback, please drop an email! Due to a lot of spam, we had to make the wiki read-only, but you can still create tickets anonymously.
+</p>
+<p>
+You can download a complete RDT with our <strong><a class="ext-link" href="http://morki.ch/res/rdt-with-refactorings.zip"><span class="icon">​</span>refactoring plugins</a></strong> (4MB ZIP), just unzip it in your Eclipse 3.2 folder. If you are interested in the latest available version, you should go to our <strong><a class="ext-link" href="http://r2.ifsoftware.ch:8080/cruisecontrol/buildresults/RDT"><span class="icon">​</span>CruiseControl site</a></strong>. 
+</p>
+<p>
+We also have some <strong><a class="ext-link" href="http://r2.ifsoftware.ch/cgi-bin/awstats.pl"><span class="icon">​</span>statistics</a></strong> for the webserver.
+</p>
+<p>
+Our progress can be followed by looking at <a class="ext-link" href="http://r2.ifsoftware.ch/trac/report/6"><span class="icon">​</span>this report</a>, which shows you our milestoned, including closed ones. 
+</p>
+<ul><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TheRefactoringList">TheRefactoringList</a>
+</li><li><a class="missing wiki">Plugin Grundlagen und Beispiele?</a>
+</li><li><a class="missing wiki">JRubyPatches?</a>
+</li><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/Wishlist">Wishlist</a>
+</li><li><a class="missing wiki">Documentation?</a>
+</li><li><a class="ext-link" href="http://r2.ifs.hsr.ch/coveragereport/"><span class="icon">​</span>Test Coverage</a>
+</li></ul><h2 id="Links"><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/Links">Links</a></h2>
+<ul><li><a class="ext-link" href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=164120"><span class="icon">​</span>Bugzilla Bug 164120 StyledText can open out of sync with scrollbar</a>
+</li><li><a class="ext-link" href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=164822"><span class="icon">​</span>Bugzilla Bug 164822 clicking behind selected text in Text widget misplaces the cursor</a>
+</li></ul><h2 id="Mails">Mails</h2>
+<ul><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/MarkusBarchfeld">MarkusBarchfeld</a>
+</li><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/ChristopherWilliams">ChristopherWilliams</a>
+</li><li><a class="ext-link" href="http://news.gmane.org/gmane.comp.lang.jruby.devel"><span class="icon">​</span>JRuby-Devel on Gmane</a>
+</li><li><a class="ext-link" href="http://news.gmane.org/gmane.comp.ide.eclipse.plugins.rdt.devel"><span class="icon">​</span>RDT-Devel on Gmane</a>
+</li><li><a class="missing wiki">OurMailsToTheJRubyList?</a>
+</li></ul><h2 id="ProjectManagement">Project Management</h2>
+<h3 id="InformationabouttheProject">Information about the Project</h3>
+<ul><li>The <strong>repository</strong> is on <a class="ext-link" href="http://r2.ifs.hsr.ch/svn/rubyrefactoring"><span class="icon">​</span>http://r2.ifs.hsr.ch/svn/rubyrefactoring</a>
+</li><li>The archive of the <strong>mailingliste</strong> is here <a class="ext-link" href="http://lists.misto.ch/pipermail/r/"><span class="icon">​</span>http://lists.misto.ch/pipermail/r/</a>
+</li></ul><h3 id="Protokolle"><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/Protokolle">Protokolle</a></h3>
+<ul><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll161006">Protokoll vom 16.10.2006</a>
+</li><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll081006">Protokoll vom 08.11.2006</a>
+</li><li><a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/Protokoll151006">Protokoll vom 15.11.2006</a>
+</li></ul><h3 id="TimeManagement">Time Management</h3>
+<ul><li><a class="ext-link" href="http://reporter.rwf.ch/"><span class="icon">​</span>Georg Kunz's Reporter</a>
+</li><li><a class="ext-link" href="http://morki.ch/svn/morki/reporterclient/"><span class="icon">​</span>Mirko's Linux Client</a>
+</li><li><a class="missing wiki">ZeiterfassungsAuswertung?</a>
+</li></ul></div>
+          
+          
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://r2.ifs.hsr.ch/trac/wiki/WikiStart?version=72&amp;format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/WikiStart?version=72 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+</html>

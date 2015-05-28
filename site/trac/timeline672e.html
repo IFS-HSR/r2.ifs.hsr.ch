@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/timeline?from=2006-10-26T07%3A00%3A42%2B02%3A00&precision=second by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:11:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      Timeline – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="search.html" />
+        <link rel="help" href="wiki/TracGuide.html" />
+        <link rel="alternate" href="timeline145d?wiki=on&amp;max=50&amp;authors=&amp;daysback=90&amp;format=rss" type="application/rss+xml" class="rss" title="RSS Feed" />
+        <link rel="next" href="timeline9e0c.html?from=2006-11-26&amp;daysback=30&amp;authors=" title="Next Period" />
+        <link rel="start" href="wiki.html" />
+        <link rel="stylesheet" href="chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="chrome/common/css/timeline.css" type="text/css" /><link rel="stylesheet" href="chrome/common/css/jquery-ui/jquery-ui.css" type="text/css" /><link rel="stylesheet" href="chrome/common/css/jquery-ui-addons.css" type="text/css" />
+        <link rel="prev" href="timeline1cfa.html?from=2006-09-25&amp;daysback=30&amp;authors=" title="Previous Period" />
+        <link rel="shortcut icon" href="chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="search/opensearch" title="Search Ruby Refactoring" />
+    <script type="text/javascript">
+      var jquery_ui={"ampm":false,"date_format":"mm/dd/y","day_names":{"abbreviated":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"narrow":["Su","Mo","Tu","We","Th","Fr","Sa"],"wide":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]},"first_week_day":0,"month_names":{"abbreviated":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wide":["January","February","March","April","May","June","July","August","September","October","November","December"]},"show_timezone":false,"time_format":"hh:mm:ss","timepicker_separator":" ","timezone_iso8601":false,"timezone_list":[]};
+    </script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/jquery-ui.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/jquery-ui-addons.js"></script>
+      <script type="text/javascript" charset="utf-8" src="chrome/common/js/jquery-ui-i18n.js"></script>
+    <script type="text/javascript">/*<![CDATA[*/
+      jQuery(document).ready(function($) {
+        $("#fromdate").datepicker();
+      });
+    /*]]>*/</script>
+    <link rel="stylesheet" type="text/css" href="chrome/site/style.html" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="../cdtrefactoring.html">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="../trac.html">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="../cute.html">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="../trac.html"><img src="chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="login.html">Login</a></li><li><a href="wiki/TracGuide.html">Help/Guide</a></li><li><a href="about.html">About Trac</a></li><li class="last"><a href="prefs.html">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="wiki.html">Wiki</a></li><li class="active"><a href="timeline.html">Timeline</a></li><li><a href="browser.html">Browse Source</a></li><li class="last"><a href="search.html">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="timeline1cfa.html?from=2006-09-25&amp;daysback=30&amp;authors=" title="Previous Period">Previous Period</a></span></li><li class="last"><span><a class="next" href="timeline9e0c.html?from=2006-11-26&amp;daysback=30&amp;authors=" title="Next Period">Next Period</a> &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="timeline">
+      <h1>Timeline</h1>
+      <form id="prefs" method="get" action="#">
+       <div><label>View changes from <input type="text" id="fromdate" size="10" name="from" value="10/26/06" /></label> <br />
+        and <label><input type="text" size="3" name="daysback" value="30" /> days back</label><br />
+        <label>done by <input type="text" size="16" name="authors" value="" /></label></div>
+       <fieldset>
+        <label>
+          <input type="checkbox" name="wiki" checked="checked" /> Wiki changes
+        </label>
+       </fieldset>
+       <div class="buttons">
+         <input type="submit" name="update" value="Update" />
+       </div>
+      </form>
+        <h2>10/26/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/ConvertLocalVariableToField67d9.html?version=2">
+                <span class="time">07:07</span> <em>ConvertLocalVariableToField</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ConvertLocalVariableToField1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki highlight">
+              <a href="wiki/InlineClass7fb8.html?version=3">
+                <span class="time">07:00</span> <em>InlineClass</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki highlight">
+               (<a href="wiki/InlineClass5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/25/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TitleIndex014b.html?version=24">
+                <span class="time">23:52</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex0da2.html?action=diff&amp;version=24">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TitleIndex58ca.html?version=23">
+                <span class="time">00:14</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex1d23.html?action=diff&amp;version=23">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/23/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TitleIndexa254.html?version=22">
+                <span class="time">23:09</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex6064.html?action=diff&amp;version=22">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll16100667d9.html?version=2">
+                <span class="time">08:59</span> <em>Protokoll161006</em> edited
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll1610061271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll161006e42d.html?version=1">
+                <span class="time">08:59</span> <em>Protokoll161006</em> created
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiStart12f8.html?version=64">
+                <span class="time">08:48</span> <em>WikiStart</em> edited
+                  by <span class="author">thomas</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStart1daf.html?action=diff&amp;version=64">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/22/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TracTickets67d9.html?version=2">
+                <span class="time">01:11</span> <em>TracTickets</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracTickets1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TracEnvironment67d9.html?version=2">
+                <span class="time">01:09</span> <em>TracEnvironment</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracEnvironment1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/GenerateConstructorUsingField67d9.html?version=2">
+                <span class="time">01:05</span> <em>GenerateConstructorUsingField</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/GenerateConstructorUsingField1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokolle67d9.html?version=2">
+                <span class="time">01:05</span> <em>Protokolle</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokolle1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/AddConstructorFromSuperclass67d9.html?version=2">
+                <span class="time">00:40</span> <em>AddConstructorFromSuperclass</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/AddConstructorFromSuperclass1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/InlineMethod67d9.html?version=2">
+                <span class="time">00:24</span> <em>InlineMethod</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/InlineMethod1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/Protokoll10040667d9.html?version=2">
+                <span class="time">00:15</span> <em>Protokoll100406</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/Protokoll1004061271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ExtractClass7fb8.html?version=3">
+                <span class="time">00:05</span> <em>ExtractClass</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ExtractClass5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/21/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TracFastCgi67d9.html?version=2">
+                <span class="time">22:55</span> <em>TracFastCgi</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TracFastCgi1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/RecentChanges7fb8.html?version=3">
+                <span class="time">22:34</span> <em>RecentChanges</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/RecentChanges5389.html?action=diff&amp;version=3">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/ReplaceTemporaryVariableWithQuery358e.html?version=6">
+                <span class="time">21:59</span> <em>ReplaceTemporaryVariableWithQuery</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ReplaceTemporaryVariableWithQuery4534.html?action=diff&amp;version=6">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiPageNames67d9.html?version=2">
+                <span class="time">21:48</span> <em>WikiPageNames</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiPageNames1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/RenameField67d9.html?version=2">
+                <span class="time">21:39</span> <em>RenameField</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/RenameField1271.html?action=diff&amp;version=2">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TitleIndex60cd.html?version=21">
+                <span class="time">21:14</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex68a5.html?action=diff&amp;version=21">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/19/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/WikiFormatting17dd.html?version=7">
+                <span class="time">02:24</span> <em>WikiFormatting</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiFormattingfae3.html?action=diff&amp;version=7">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiFormatting358e.html?version=6">
+                <span class="time">02:15</span> <em>WikiFormatting</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiFormatting4534.html?action=diff&amp;version=6">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/18/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/WikiStarta961.html?version=63">
+                <span class="time">16:58</span> <em>WikiStart</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStart769c.html?action=diff&amp;version=63">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiStart8050.html?version=62">
+                <span class="time">16:57</span> <em>WikiStart</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStart1fb4.html?action=diff&amp;version=62">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiFormatting79ee.html?version=5">
+                <span class="time">13:46</span> <em>WikiFormatting</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiFormattingc5e7.html?action=diff&amp;version=5">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/TitleIndexdb1a.html?version=20">
+                <span class="time">13:45</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex8b17.html?action=diff&amp;version=20">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiStart5885.html?version=61">
+                <span class="time">13:36</span> <em>WikiStart</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStartd615.html?action=diff&amp;version=61">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiFormattingad21.html?version=4">
+                <span class="time">11:07</span> <em>WikiFormatting</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiFormatting491c.html?action=diff&amp;version=4">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/17/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TitleIndexac5f.html?version=19">
+                <span class="time">23:34</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex4e16.html?action=diff&amp;version=19">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/16/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TitleIndex7ed0.html?version=18">
+                <span class="time">11:28</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndexcafb.html?action=diff&amp;version=18">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/15/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/WikiStart9d11.html?version=60">
+                <span class="time">13:16</span> <em>WikiStart</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStartdf10.html?action=diff&amp;version=60">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/13/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/WikiStart076d.html?version=59">
+                <span class="time">16:55</span> <em>WikiStart</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStart9209.html?action=diff&amp;version=59">diff</a>)
+            </dd>
+            <dt class="wiki">
+              <a href="wiki/WikiStartdb43.html?version=58">
+                <span class="time">15:53</span> <em>WikiStart</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/WikiStartc064.html?action=diff&amp;version=58">diff</a>)
+            </dd>
+        </dl>
+        <h2>10/11/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/ImplementierteRefactorings60cd.html?version=21">
+                <span class="time">14:14</span> <em>ImplementierteRefactorings</em> edited
+                  by <span class="author">mirko</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/ImplementierteRefactorings68a5.html?action=diff&amp;version=21">diff</a>)
+            </dd>
+        </dl>
+        <h2>09/30/06: </h2>
+        <dl>
+            <dt class="wiki">
+              <a href="wiki/TitleIndexce1a.html?version=17">
+                <span class="time">14:56</span> <em>TitleIndex</em> edited
+                  by <span class="author">anonymous</span>
+              </a>
+            </dt>
+            <dd class="wiki">
+               (<a href="wiki/TitleIndex21e0.html?action=diff&amp;version=17">diff</a>)
+            </dd>
+        </dl>
+      <div id="help"><strong>Note:</strong> See <a href="wiki/TracTimeline.html">TracTimeline</a>
+        for information about the timeline view.</div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="timeline145d?wiki=on&amp;max=50&amp;authors=&amp;daysback=90&amp;format=rss" class="rss">RSS Feed</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="about.html"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/timeline?from=2006-10-26T07%3A00%3A42%2B02%3A00&precision=second by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:11:27 GMT -->
+</html>

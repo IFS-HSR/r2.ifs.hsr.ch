@@ -1,0 +1,5 @@
+Features for a later version:
+
+ * code beautifier (e.g. to remove superfluous parenthesis)
+ * improved code formatter
+ * testunit wizzard

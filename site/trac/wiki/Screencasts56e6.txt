@@ -1,0 +1,9 @@
+
+ * [/../screencasts/extract_method.htm Extract Method]
+
+ * [/../screencasts/inline_local.htm Inline Local Variable]
+
+ * [/../screencasts/rename_method.htm Rename Method]
+
+ * [/../screencasts/rename_class.htm Rename Class]
+

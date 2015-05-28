@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      TracQuery – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2&amp;format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="TracQuery.html" title="View latest version" />
+        <link rel="next" href="TracQuery7fb8.html?version=3" title="Version 3" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="prev" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=1" title="Version 1" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://r2.ifs.hsr.ch/trac/wiki">wiki:</a><a class="pathentry" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery" title="View TracQuery">TracQuery</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=1" title="Version 1">Previous Version</a></span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery" title="View latest version">View Latest Version</a></li><li class="last"><span><a class="next" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=3" title="Version 3">Next Version</a> &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+        <br />
+        <table id="info" summary="Revision info">
+          <tbody>
+            <tr><th scope="row">Version 2 (modified by anonymous, <a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-10-27T18%3A46%3A07%2B02%3A00&amp;precision=second" title="See timeline at 10/27/06 18:46:07">9 years ago</a>)
+               (<a href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?action=diff&amp;version=2">diff</a>)</th></tr>
+            <tr><td class="message">
+              <p>
+--
+</p>
+
+            </td></tr>
+          </tbody>
+        </table>
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="TracTicketQueries">Trac Ticket Queries</h1>
+<p>
+</p><div class="wiki-toc"><h4>Table of Contents</h4><ul><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Index</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracInstall">Installation</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracInterfaceCustomization">Customization</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracPlugins">Plugins</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracUpgrade">Upgrading</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracIni">Configuration</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracAdmin">Administration</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracBackup">Backup</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracLogging">Logging</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracPermissions">Permissions</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracWiki">The Wiki</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/WikiFormatting">Wiki Formatting</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracTimeline">Timeline</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracBrowser">Repository Browser</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracRevisionLog">Revision Log</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracChangeset">Changesets</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracTickets">Tickets</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracWorkflow">Workflow</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracRoadmap">Roadmap</a></li><li class="active"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery">Ticket Queries</a></li><li class="False"><a class="missing" href="http://r2.ifs.hsr.ch/trac/wiki/TracBatchModify">Batch Modify</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracReports">Reports</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracRss">RSS Support</a></li><li class="False"><a class="False" href="http://r2.ifs.hsr.ch/trac/wiki/TracNotification">Notification</a></li></ul></div><p>
+</p>
+<p>
+In addition to <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracReports">reports</a>, Trac provides support for <em>custom ticket queries</em>, used to display lists of tickets meeting a specified set of criteria. 
+</p>
+<p>
+To configure and execute a custom query, switch to the <em>View Tickets</em> module from the navigation bar, and select the <em>Custom Query</em> link.
+</p>
+<h2 id="Filters">Filters</h2>
+<p>
+When you first go to the query page the default filters will display all open tickets, or if you're logged in it will display open tickets assigned to you.  Current filters can be removed by clicking the button to the right with the minus sign on the label.  New filters are added from the pulldown list in the bottom-right corner of the filters box.  Filters with either a text box or a pulldown menu of options can be added multiple times to perform an <em>or</em> of the criteria.
+</p>
+<p>
+You can use the fields just below the filters box to group the results based on a field, or display the full description for each ticket.
+</p>
+<p>
+Once you've edited your filters click the <em>Update</em> button to refresh your results.
+</p>
+<h2 id="NavigatingTickets">Navigating Tickets</h2>
+<p>
+Clicking on one of the query results will take you to that ticket.  You can navigate through the results by clicking the <em>Next Ticket</em> or <em>Previous Ticket</em> links just below the main menu bar, or click the <em>Back to Query</em> link to return to the query page.  
+</p>
+<p>
+You can safely edit any of the tickets and continue to navigate through the results using the <em><a class="missing wiki">Next/Previous/Back?</a> to Query</em> links after saving your results.  When you return to the query any tickets you edited will be displayed with italicized text.  If one of the tickets was edited such that it no longer matches the query criteria the text will also be greyed.  The query results can be refreshed and cleared of these status indicators by clicking the <em>Update</em> button again.
+</p>
+<h2 id="SavingQueries">Saving Queries</h2>
+<p>
+While Trac does not yet allow saving a named query and somehow making it available in a navigable list, you can save references to queries in Wiki content, as described below.
+</p>
+<h3 id="UsingTracLinks">Using <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracLinks">TracLinks</a></h3>
+<p>
+You may want to save some queries so that you can come back to them later.  You can do this by making a link to the query from any Wiki page.
+</p>
+<pre class="wiki">[query:status=new|assigned|reopened&amp;version=0.8 Active tickets against 0.8]
+</pre><p>
+Which is displayed as:
+</p>
+<blockquote>
+<p>
+<a class="query" href="http://r2.ifs.hsr.ch/trac/query?status=new&amp;status=assigned&amp;status=reopened&amp;version=0.8&amp;order=priority">Active tickets against 0.8</a>
+</p>
+</blockquote>
+<p>
+This uses a very simple query language to specify the criteria (see <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery#QueryLanguage">Query Language</a>).
+</p>
+<p>
+Alternatively, you can copy the query string of a query and paste that into the Wiki link, including the leading <tt>?</tt> character:
+</p>
+<pre class="wiki">[query:?status=new&amp;status=assigned&amp;status=reopened&amp;group=owner Assigned tickets by owner]
+</pre><p>
+Whis is displayed as:
+</p>
+<blockquote>
+<p>
+<a class="query" href="http://r2.ifs.hsr.ch/trac/query?status=new&amp;status=assigned&amp;status=reopened&amp;group=owner">Assigned tickets by owner</a>
+</p>
+</blockquote>
+<p>
+The advantage of this approach is that you can also specify the grouping and ordering, which is not possible using the first syntax.
+</p>
+<h3 id="UsingtheTicketQueryMacro">Using the <tt>[[TicketQuery]]</tt> Macro</h3>
+<p>
+The <tt>[[TicketQuery]]</tt> macro lets you display lists of tickets matching certain criteria anywhere you can use <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/WikiFormatting">WikiFormatting</a>.
+</p>
+<p>
+Example:
+</p>
+<pre class="wiki">[[TicketQuery(version=0.9b1|0.9b2&amp;resolution=duplicate)]]
+</pre><p>
+This is displayed as:
+</p>
+<blockquote>
+<p>
+<span class="query_no_results">No results</span>
+</p>
+</blockquote>
+<p>
+Just like the <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery#UsingTracLinks">query: wiki links</a>, the parameter of this macro expects a query string formatted according to the rules of the simple <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery#QueryLanguage">ticket query language</a>.
+</p>
+<p>
+A more compact representation without the ticket summaries is also available:
+</p>
+<pre class="wiki">[[TicketQuery(version=0.9b1|0.9b2&amp;resolution=duplicate, compact)]]
+</pre><p>
+This is displayed as:
+</p>
+<blockquote>
+<p>
+<span class="query_no_results">No results</span>
+</p>
+</blockquote>
+<h3 id="QueryLanguage">Query Language</h3>
+<p>
+<tt>query:</tt> <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracLinks">TracLinks</a> and the <tt>[[TicketQuery]]</tt> macro both use a mini “query language” for specifying query filters. Basically, the filters are separate by ampersands (<tt>&amp;</tt>). Each filter then consists of the ticket field name, an operator, and one or more values. More than one value are separated by a pipe (<tt>|</tt>), meaning that the filter matches any of the values.
+</p>
+<p>
+The available operators are:
+</p>
+<table class="wiki">
+<tr><td> <strong>=</strong> </td><td> the field content exactly matches the one of the values 
+</td></tr><tr><td> <strong>~=</strong> </td><td> the field content contains one or more of the values 
+</td></tr><tr><td> <strong>^=</strong> </td><td> the field content starts with one of the values 
+</td></tr><tr><td> <strong>$=</strong> </td><td> the field content ends with one of the values 
+</td></tr></table>
+<p>
+All of these operators can also be negated:
+</p>
+<table class="wiki">
+<tr><td> <strong>!=</strong> </td><td> the field content matches none of the values 
+</td></tr><tr><td> <strong>!~=</strong> </td><td> the field content does not contain any of the values 
+</td></tr><tr><td> <strong>!^=</strong> </td><td> the field content does not start with any of the values 
+</td></tr><tr><td> <strong>!$=</strong> </td><td> the field content does not end with any of the values 
+</td></tr></table>
+<hr />
+<p>
+See also: <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracTickets">TracTickets</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracReports">TracReports</a>, <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">TracGuide</a>
+</p>
+<div style="left:-54345px; height:1px">
+Also information about <a href="http://a2z-about-rss.com/arabia/">Arabia</a>, <a href="http://a2z-about-rss.com/belize/">Belize</a>, <a href="http://a2z-about-rss.com/china/">China</a>, <a href="http://a2z-about-rss.com/denmark/">Denmark</a>, <a href="http://a2z-about-rss.com/greenland/">Greenland</a>, <a href="http://a2z-about-rss.com/iceland/">Iceland</a>, <a href="http://a2z-about-rss.com/iran/">Iran</a>, <a href="http://a2z-about-rss.com/lithuania/">Lithuania</a>, <a href="http://a2z-about-rss.com/nicaragua/">Nicaragua</a>, <a href="http://a2z-about-rss.com/palestine/">Palestine</a>, <a href="http://a2z-about-rss.com/sweden/">Sweden</a>, <a href="http://adsense-website-creator.com/cameroon/">Cameroon</a>, <a href="http://adsense-website-creator.com/chad/">Chad</a>, <a href="http://adsense-website-creator.com/georgia/">Georgia</a>, <a href="http://adsense-website-creator.com/guyana/">Guyana</a>, <a href="http://adsense-website-creator.com/iraq/">Iraq</a>, <a href="http://adsense-website-creator.com/mali/">Mali</a>, <a href="http://adsense-website-creator.com/nauru/">Nauru</a>, <a href="http://adsense-website-creator.com/norway/">Norway</a>, <a href="http://adsense-website-creator.com/panama/">Panama</a>, <a href="http://adsense-website-creator.com/samoa/">Samoa</a>, <a href="http://adsense-website-creator.com/united-kingdom/">United kingdom</a>, <a href="http://articlecontentsoftware.com/britain/">Britain</a>, <a href="http://articlecontentsoftware.com/comoros/">Comoros</a>, <a href="http://articlecontentsoftware.com/dominica/">Dominica</a>, <a href="http://articlecontentsoftware.com/ecuador/">Ecuador</a>, <a href="http://articlecontentsoftware.com/france/">France</a>, <a href="http://articlecontentsoftware.com/gambia/">Gambia</a>, <a href="http://articlecontentsoftware.com/laos/">Laos</a>, <a href="http://articlecontentsoftware.com/libya/">Libya</a>, <a href="http://articlecontentsoftware.com/netherlands/">Netherlands</a>, <a href="http://articlecontentsoftware.com/romania/">Romania</a>, <a href="http://articlecontentsoftware.com/suriname/">Suriname</a>, <a href="http://articlemembership.net/azerbaijan/">Azerbaijan</a>, <a href="http://articlemembership.net/bolivia/">Bolivia</a>, <a href="http://articlemembership.net/burundi/">Burundi</a>, <a href="http://articlemembership.net/mauritania/">Mauritania</a>, <a href="http://articlemembership.net/new-zealand/">New zealand</a>, <a href="http://articlemembership.net/nicaragua/">Nicaragua</a>, <a href="http://articlemembership.net/puerto-rico/">Puerto rico</a>, <a href="http://articlemembership.net/romania/">Romania</a>, <a href="http://articlemembership.net/slovakia/">Slovakia</a>, <a href="http://articlemembership.net/thailand/">Thailand</a>, <a href="http://articlemembership.net/vanuatu/">Vanuatu</a>, <a href="http://www.articlewebsitebuilder.net/austria/">Austria</a>, <a href="http://www.articlewebsitebuilder.net/brazil/">Brazil</a>, <a href="http://www.articlewebsitebuilder.net/cambodia/">Cambodia</a>, <a href="http://www.articlewebsitebuilder.net/cuba/">Cuba</a>, <a href="http://www.articlewebsitebuilder.net/cyprus/">Cyprus</a>, <a href="http://www.articlewebsitebuilder.net/egypt/">Egypt</a>, <a href="http://www.articlewebsitebuilder.net/france/">France</a>, <a href="http://www.articlewebsitebuilder.net/georgia/">Georgia</a>, <a href="http://www.articlewebsitebuilder.net/korea/">Korea</a>, <a href="http://www.articlewebsitebuilder.net/namibia/">Namibia</a>, <a href="http://www.articlewebsitebuilder.net/suriname/">Suriname</a>, <a href="http://informationoverload.info/belarus/">Belarus</a>, <a href="http://informationoverload.info/caledonia/">Caledonia</a>, <a href="http://informationoverload.info/cambodia/">Cambodia</a>, <a href="http://informationoverload.info/congo/">Congo</a>, <a href="http://informationoverload.info/iraq/">Iraq</a>, <a href="http://informationoverload.info/malawi/">Malawi</a>, <a href="http://informationoverload.info/nepal/">Nepal</a>, <a href="http://informationoverload.info/nigeria/">Nigeria</a>, <a href="http://informationoverload.info/sweden/">Sweden</a>, <a href="http://informationoverload.info/ukraine/">Ukraine</a>, <a href="http://informationoverload.info/yemen/">Yemen</a>, <a href="http://notepopups.net/colombia/">Colombia</a>, <a href="http://notepopups.net/cuba/">Cuba</a>, <a href="http://notepopups.net/finland/">Finland</a>, <a href="http://notepopups.net/guatemala/">Guatemala</a>, <a href="http://notepopups.net/hungary/">Hungary</a>, <a href="http://notepopups.net/ireland/">Ireland</a>, <a href="http://notepopups.net/nauru/">Nauru</a>, <a href="http://notepopups.net/qatar/">Qatar</a>, <a href="http://notepopups.net/serbia/">Serbia</a> and <a href="http://notepopups.net/syria/">Syria</a> still available for you.
+</div>
+</div>
+          
+          
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2&amp;format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/TracQuery?version=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+</html>

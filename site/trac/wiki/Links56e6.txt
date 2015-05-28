@@ -1,0 +1,21 @@
+ * TracGuide --  Built-in Documentation
+ * [http://jair.lab.fi.uva.es/~jperez/dokuwiki/lib/exe/fetch.php?id=pfcs%3Aproyectos_fin_de_carrera&cache=cache&media=pfcs:opdyke92refactoring.pdf Opdyke's Thesis]
+ * [http://st-www.cs.uiuc.edu/~droberts/thesis.pdf Donald Roberts Thesis]
+ * [https://bugs.eclipse.org/bugs/attachment.cgi?id=15245 CDT Refactoring Proposal] <-- hier finden wir ev. einige Ideen
+ * [http://wiki.hsr.ch/HSRWiki/wiki.cgi?CerpCPPEclipseRefactoringPlugin Cerp C++ Eclipse Refactoring Plugin]
+ * [http://www.rubyquiz.com/ RubyQuiz]
+ * [http://rubyeclipse.mktec.com/cgi-bin/trac.py/wiki RDTTrac]
+ * [http://www.eclipse-magazin.de/itr/online_artikel/psecom,id,778,nodeid,230.html Eclipse Refactoring]
+ * [http://freeride.rubyforge.org/wiki/wiki.pl?RefactoringProject Refactorings von Freeride]
+
+== Blogs about (or with links to) us ==
+ * http://epistemologic.com/2007/02/03/using-emacs-for-ruby-development/
+ * http://jroller.com/page/ghettoJedi?entry=ruby_refactoring_is_coming
+ * http://jutopia.tirsen.com/articles/2007/01/30/and-you-didnt-think-it-could-be-done
+ * http://d.hatena.ne.jp/textfile/20070207/rdt
+ * http://diningtablecoder.blogspot.com/2007/02/ruby-refactoring-plugin-throws-errors.html
+ * http://cwilliams.textdriven.com/articles/2007/02/06/rdt-gets-refactoring-support
+ * http://www.refactoring.com/tools.html !!
+ * http://digg.com/programming/Refactoring_for_Ruby
+ * http://www.infoq.com/news/2007/02/ruby-ide-offerings
+ * http://jroller.com/page/murphee?entry=ruby_let_s_get_an

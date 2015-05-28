@@ -1,0 +1,4 @@
+The refactorings from Aptana's RDT distribution are not up to date. You can install them from our [http://ifs.hsr.ch/rubyrefactoring/updatesite/ updatesite] (ours have a higher version number and will replace Aptana's).
+
+
+If you encounter any bugs (which I'm sure exist) or have feature requests, do not hesitate to [http://r2.ifs.hsr.ch/trac/newticket create a ticket] or drop [mailto:me@misto.ch me] an email.

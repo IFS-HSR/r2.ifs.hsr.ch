@@ -1,0 +1,27 @@
+= Name =
+Move Method
+
+
+= Beschreibung =
+Verschiebt eine Methode ganz in eine andere Klasse oder ersetzt eine Methode durch eine Delegation zu einer neuen Methode mit selber Funktionalität.
+
+
+= Vorgehen =
+ 1. Es werden Elemente gesucht, die nur von dieser Methode verwendet werden. Diese können gleich mitverschoben werden.
+ 2. Es werden weitere Deklarationen der Methode in Ober- und Unterklassen gesucht. Falls der Polymorphismus in der Zielklasse nicht nachgebildet werden kann, ist die Verschiebung nicht durchführbar.
+ 3. Die Methode wird in der Zielklasse deklariert.
+ 4. Der Code der Ziel-Methode muss an die neue Umgebung angepasst werden. Falls auf bestimmte Ressourcen nicht zugegriffen werden kann, müssen diese als Parameter übergeben werden.
+ 5. Es muss bestimmt werden, wie das richtige Zielobjekt von Ausgangsobjekt zu referenzieren ist.
+ 6. Die Ausgangsmethode wird zu einer delegierenden Methode umgewandelt, sofern dies gewünscht wird.
+ 7. Falls die Ausgangsmethode entfernt wird, müssen alle Referenzen auf die neue Methode geändert werden.
+
+
+
+= Abhängigkeiten =
+ * Der Polymorphismus einer zu verschiebenden Methode muss in den Zielklassen nachgebildet werden können.
+
+= Inspiration =
+[http://www.refactoring.com/catalog/moveMethod.html Move Method]
+
+
+= Beispiel =

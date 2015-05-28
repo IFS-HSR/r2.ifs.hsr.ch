@@ -1,0 +1,22 @@
+= Name =
+Rename Class
+
+
+= Beschreibung =
+Ändert den Namen einer Klasse
+
+
+= Vorgehen =
+ 1. Eine Klasse mit dem neuen Namen wird mit demselben Code definiert, beziehungsweise der Name der Klasse wird geändert.
+ 2. Jede Verwendung der alten Klasse wird durch den Namen der neuen Klasse ersetzt.
+ 3. Die alte Klasse kann nun entfernt werden.
+
+= Abhängigkeiten =
+ * Es darf keine Klasse mit dem Zielnamen existieren.
+
+
+= Inspiration =
+Eclipse: [http://help.eclipse.org/help30/index.jsp?topic=/org.eclipse.jdt.doc.user/tasks/tasks-87.htm Rename Class]
+
+
+= Beispiel =

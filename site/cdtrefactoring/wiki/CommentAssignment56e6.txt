@@ -1,0 +1,34 @@
+= Comment Handling Ideas =
+
+== Proxies ==
+ * (Visitor) Own traversal mechanism
+ * Creation of a new AST
+ * Each node gets a clone with comment capabilities
+ * Indirection when accessing
+ * Own Visitor Strategy
+
+
+== JIT Comment Assignment ==
+ * For every node where a comment would be interesting the comment list is searched for matching comments
+ * Visitor for assignment
+ * Bad Scaling
+
+
+== Node Factory for AST Generation ==
+ * Change in CDT - Factory for Nodes while AST generation
+ * Node Factory for Commented Nodes
+  * Extention of ASTNode
+  * Implementation of own structure
+ * Direct assignment and access to comments in nodes
+
+
+== Comment Hash Map ==
+ * Map with nodes as key and a list of comments as value
+ * Created by a visitor before refactoring
+ * Dynamic comment determination when needed
+
+== Build Our Own Code Model ==
+ * Visit the AST and create a separate model of the code, which we could then augment with more information, like comments
+  * - lots of duplication and rewriting :(
+  * + we can do whatever we want with it, like moving functionality from the countless helper classes into the model. :)
+

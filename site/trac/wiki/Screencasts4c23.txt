@@ -1,0 +1,12 @@
+=== Extract Method ===
+[/screencasts/extract_method.htm]
+
+=== Inline Local Variable ===
+[/screencasts/inline_local.htm]
+
+=== Rename Method ===
+[/screencasts/rename_method.htm]
+
+=== Rename Class ===
+[/screencasts/rename_class.htm]
+

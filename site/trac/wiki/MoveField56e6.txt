@@ -1,0 +1,24 @@
+= Name =
+Move Field
+
+
+= Beschreibung =
+Ein Feld wird in eine andere Klasse verschoben, in welcher es stärker verwendet wird.
+
+
+= Vorgehen =
+ 1. Falls das Feld öffentlich ist, d.h. es Accessors besitzt, muss es mit [wiki:EncapsulateField Encapsulate Field] gekapselt werden.
+ 2. In der Zielklasse wird das Feld mit Accessors erstellt.
+ 3. In der Ausgangsklasse muss jede Verwendung des Feldes auf das neue Feld in der Zielklasse umgeleitet werden.
+ 4. Das ursprüngliche Feld wird entfernt.
+
+= Abhängigkeiten =
+ * Öffentliche Felder müssen erst mit [wiki:EncapsulateField Encapsulate Field] gekapselt werden.
+ 
+ * Bei der Überprüfung der Verwendung von nicht-privaten Feldern muss vorallem auch auf die Verwendung in abgeleiteten Klassen rücksicht genommen werden.
+
+= Inspiration =
+[http://www.refactoring.com/catalog/moveField.html Move Field]
+
+
+= Beispiel =

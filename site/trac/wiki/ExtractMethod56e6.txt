@@ -1,0 +1,26 @@
+= Name =
+Extract Method
+
+
+= Beschreibung =
+Fasst einen Block von zusammengehörigen Befehlen in einer Methode zusammen.
+
+
+= Vorgehen =
+ 1. Der Benutzer benennt die neue Methode.
+ 2. Der zu extrahierende Code-Block wird in die neue Methode kopiert.
+ 3. Lokale Vriablen der Ausgangs-Methode werden zu Parametern der neuen Methode.
+ 4. Temporäre Variablen, die nur in diesem Code-Block verwendet werden, werden in der neuen Methode zu temporären Variablen.
+ 5. Wenn eine Variable verändert wird, so wird ein Rückgabeparameter erstellt, der dieser Variablen zugewiesen wird. Bei mehr als einer veränderten Variablen, müssen diese auf eine reduziert werden. Falls die Reduktion nicht möglich ist, wird ein Hinweis angezeigt, wie in Eclipse, dass der Code-Block so nicht extrahiert werden kann.
+ 6. Lokal gültige und benötigte Variablen werden der neuen Methode als Parameter übergeben.
+ 7. Der Code-Block wird durch Aufruf der Methode und möglicherweise einer Zuweisung an die veränderte Variable ersetzt.
+
+= Abhängigkeiten =
+ * Bei der Exrtahierung eines Code-Blocks in welchem mehrere lokale Variablen verändert werden, die anschlissen wieder verwendet werden, können einige davon möglicherweise mit [wiki:ReplaceTemporaryVariableWithQuery Replace Temporary Variable with Query] oder [wiki:SplitTemporaryVariable Split Temporary Variable] eliminiert werden.
+
+
+= Inspiration =
+[http://www.refactoring.com/catalog/extractMethod.html Extract Method]
+
+
+= Beispiel =

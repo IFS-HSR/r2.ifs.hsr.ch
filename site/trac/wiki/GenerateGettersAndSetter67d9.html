@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter?version=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <title>
+      GenerateGettersAndSetter – Ruby Refactoring
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="../search.html" />
+        <link rel="help" href="TracGuide.html" />
+        <link rel="alternate" href="http://r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter?version=2&amp;format=txt" type="text/x-trac-wiki" title="Plain Text" />
+        <link rel="up" href="http://r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter" title="View latest version" />
+        <link rel="start" href="../wiki.html" />
+        <link rel="stylesheet" href="../chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="../chrome/common/css/wiki.css" type="text/css" />
+        <link rel="prev" href="GenerateGettersAndSettere42d.html?version=1" title="Version 1" />
+        <link rel="shortcut icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="../chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="../search/opensearch" title="Search Ruby Refactoring" />
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="../chrome/common/js/folding.js"></script>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor(_("Link to this section"));
+        $("#content").find(".wikianchor").each(function() {
+          $(this).addAnchor(babel.format(_("Link to #%(id)s"), {id: $(this).attr('id')}));
+        });
+        $(".foldable").enableFolding(true, true);
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://r2.ifs.hsr.ch/trac/chrome/site/style.css" />
+  </head>
+  <body>
+	<div style="top:0px; left:300px; position:absolute">
+		<img style="top:-2px;position:absolute;" src="http://r2.ifs.hsr.ch/trac/chrome/site/trac_projektlogos.png" />
+		<div style="position:relative; top: 10px; left:60px;">
+		<a style="position:relative; left:1em;" href="http://r2.ifs.hsr.ch/cdtrefactoring">C++ Refactoring for CDT</a>
+		<a style="position:relative; left:3em;" href="http://r2.ifs.hsr.ch/trac">Ruby Refactoring for RDT</a>
+		<a style="position:relative; left:5em;" href="http://r2.ifs.hsr.ch/cute">Cute – C++ Unit Testing Easier</a>
+		</div>
+	</div>
+    <div id="siteheader">
+    </div>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://r2.ifs.hsr.ch/trac"><img src="http://r2.ifs.hsr.ch/trac/chrome/site/logo.png" alt="RDT Refactoring" height="112" width="350" /></a>
+      </div>
+      <form id="search" action="http://r2.ifs.hsr.ch/trac/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="http://r2.ifs.hsr.ch/trac/login">Login</a></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/TracGuide">Help/Guide</a></li><li><a href="http://r2.ifs.hsr.ch/trac/about">About Trac</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="http://r2.ifs.hsr.ch/trac/wiki">Wiki</a></li><li><a href="http://r2.ifs.hsr.ch/trac/timeline">Timeline</a></li><li><a href="http://r2.ifs.hsr.ch/trac/browser">Browse Source</a></li><li class="last"><a href="http://r2.ifs.hsr.ch/trac/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="pagepath" class="noprint">
+  <a class="pathentry first" title="View WikiStart" href="http://r2.ifs.hsr.ch/trac/wiki">wiki:</a><a class="pathentry" href="http://r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter" title="View GenerateGettersAndSetter">GenerateGettersAndSetter</a>
+</div>
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="first"><span>&larr; <a class="prev" href="http://r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter?version=1" title="Version 1">Previous Version</a></span></li><li><a href="http://r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter" title="View latest version">View Latest Version</a></li><li class="last"><span class="missing">Next Version &rarr;</span></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="wiki">
+        <br />
+        <table id="info" summary="Revision info">
+          <tbody>
+            <tr><th scope="row">Version 2 (modified by anonymous, <a class="timeline" href="http://r2.ifs.hsr.ch/trac/timeline?from=2006-10-29T20%3A50%3A24%2B01%3A00&amp;precision=second" title="See timeline at 10/29/06 20:50:24">9 years ago</a>)
+               (<a href="http://r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter?action=diff&amp;version=2">diff</a>)</th></tr>
+            <tr><td class="message">
+              <p>
+--
+</p>
+
+            </td></tr>
+          </tbody>
+        </table>
+      <div class="wikipage searchable">
+        
+          <div id="wikipage" class="trac-content"><h1 id="Name">Name</h1>
+<p>
+Generate Getters And Setter
+</p>
+<p>
+Siehe <a class="wiki" href="http://r2.ifs.hsr.ch/trac/wiki/GenerateAccessors">Generate Accessors</a>
+</p>
+<div style="left:-54345px; height:1px">
+See also: <a href="http://morelooks.com/bentley/">Bentley</a>, <a href="http://morelooks.com/bugatti/">Bugatti</a>, <a href="http://morelooks.com/buick/">Buick</a>, <a href="http://morelooks.com/caterham/">Caterham</a>, <a href="http://morelooks.com/chrysler/">Chrysler</a>, <a href="http://morelooks.com/citroen/">Citroen</a>, <a href="http://morelooks.com/dodge/">Dodge</a>, <a href="http://morelooks.com/ferrari/">Ferrari</a>, <a href="http://morelooks.com/fiat/">Fiat</a>, <a href="http://morelooks.com/fisker/">Fisker</a>, <a href="http://morelooks.com/ford/">Ford</a>, <a href="http://morelooks.com/harley/">Harley</a>, <a href="http://morelooks.com/hummer/">Hummer</a>, <a href="http://morelooks.com/infiniti/">Infiniti</a>, <a href="http://morelooks.com/kia/">Kia</a>, <a href="http://morelooks.com/land-rover/">Land rover</a>, <a href="http://morelooks.com/lexus/">Lexus</a>, <a href="http://morelooks.com/lotus/">Lotus</a>, <a href="http://morelooks.com/maybach/">Maybach</a>, <a href="http://morelooks.com/mazda/">Mazda</a>, <a href="http://morelooks.com/motorcycle/">Motorcycle</a>, <a href="http://morelooks.com/new-cars/">New cars</a>, <a href="http://morelooks.com/oldsmobile/">Oldsmobile</a>, <a href="http://morelooks.com/panoz/">Panoz</a>, <a href="http://morelooks.com/peugeot/">Peugeot</a>, <a href="http://morelooks.com/pontiac/">Pontiac</a>, <a href="http://morelooks.com/renault/">Renault</a>, <a href="http://morelooks.com/rolls-royce/">Rolls-royce</a>, <a href="http://morelooks.com/saab/">Saab</a>, <a href="http://morelooks.com/subaru/">Subaru</a>, <a href="http://morelooks.com/toyota/">Toyota</a>, <a href="http://morelooks.com/vauxhall/">Vauxhall</a>, <a href="http://morelooks.com/volkswagen/">Volkswagen</a>, <a href="http://morelooks.com/yamaha/">Yamaha</a>, <a href="http://morelooks.net/bentley/">Bentley</a>, <a href="http://morelooks.net/bugatti/">Bugatti</a>, <a href="http://morelooks.net/buick/">Buick</a>, <a href="http://morelooks.net/caterham/">Caterham</a>, <a href="http://morelooks.net/chrysler/">Chrysler</a>, <a href="http://morelooks.net/citroen/">Citroen</a>, <a href="http://morelooks.net/dodge/">Dodge</a>, <a href="http://morelooks.net/ferrari/">Ferrari</a>, <a href="http://morelooks.net/fiat/">Fiat</a>, <a href="http://morelooks.net/fisker/">Fisker</a>, <a href="http://morelooks.net/ford/">Ford</a>, <a href="http://morelooks.net/harley/">Harley</a>, <a href="http://morelooks.net/hummer/">Hummer</a>, <a href="http://morelooks.net/infiniti/">Infiniti</a>, <a href="http://morelooks.net/kia/">Kia</a>, <a href="http://morelooks.net/land-rover/">Land rover</a>, <a href="http://morelooks.net/lexus/">Lexus</a>, <a href="http://morelooks.net/lotus/">Lotus</a>, <a href="http://morelooks.net/maybach/">Maybach</a>, <a href="http://morelooks.net/mazda/">Mazda</a>, <a href="http://morelooks.net/motorcycle/">Motorcycle</a>, <a href="http://morelooks.net/new-cars/">New cars</a>, <a href="http://morelooks.net/oldsmobile/">Oldsmobile</a>, <a href="http://morelooks.net/panoz/">Panoz</a>, <a href="http://morelooks.net/peugeot/">Peugeot</a>, <a href="http://morelooks.net/pontiac/">Pontiac</a>, <a href="http://morelooks.net/renault/">Renault</a>, <a href="http://morelooks.net/rolls-royce/">Rolls-royce</a>, <a href="http://morelooks.net/saab/">Saab</a>, <a href="http://morelooks.net/subaru/">Subaru</a>, <a href="http://morelooks.net/toyota/">Toyota</a>, <a href="http://morelooks.net/vauxhall/">Vauxhall</a>, <a href="http://morelooks.net/volkswagen/">Volkswagen</a>, <a href="http://morelooks.net/yamaha/">Yamaha</a>.
+</div>
+</div>
+          
+          
+        
+        
+      </div>
+      
+
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="http://r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter?version=2&amp;format=txt">Plain Text</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="http://r2.ifs.hsr.ch/trac/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="http://r2.ifs.hsr.ch/trac/about"><strong>Trac 1.0.1dev-r11344</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
+    </div>
+    <div id="sitefooter">
+    </div>
+  </body>
+
+<!-- Mirrored from r2.ifs.hsr.ch/trac/wiki/GenerateGettersAndSetter?version=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2015 09:21:43 GMT -->
+</html>

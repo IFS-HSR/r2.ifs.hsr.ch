@@ -1,0 +1,11 @@
+Example:
+
+{{{
+protected IASTFunctionDefinition createFunctionDefinition() {
+        return new CPPASTFunctionDefinition();
+    }
+}}}
+
+
+----
+The createXXX methods are defined in the AbstractGNUSourceCodeParser and implemented in the GNUCPPSourceParser and GNUCSourceParser. The method returns a CPPXXX node in the CPP parser and a CXXX node in the C parser. OK, but only those from the abstract class need to be implemented like this. createFunctionDefinition() is only defined and used within GNUCPPSourceParser!

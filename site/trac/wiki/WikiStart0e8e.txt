@@ -1,0 +1,35 @@
+= Welcome to the Ruby Refactoring Wiki =
+
+This is the website of our project to bring refactoring support to RDT. 
+
+We recommend to read our [http://r2.ifs.hsr.ch/rubyrefactoring.pdf report] (~3MB PDF) to get an overview to the things we did. If you have any feedback, please drop an email! Due to a lot of spam, we had to make the wiki read-only, but you can still create tickets anonymously.
+If you are interested in the latest available version, you should go to our '''[http://r2.ifsoftware.ch:8080/cruisecontrol/buildresults/RDT CruiseControl site]'''. 
+
+We also have some '''[http://r2.ifsoftware.ch/cgi-bin/awstats.pl statistics]''' for the webserver.
+
+Our progress can be followed by looking at [http://r2.ifsoftware.ch/trac/report/6 this report], which shows you our milestoned, including closed ones. 
+
+
+ * TheRefactoringList
+ * [wiki:Wishlist Wishlist]
+ * [http://r2.ifs.hsr.ch/coveragereport/ Test Coverage]
+
+== [wiki:Links] ==
+ * [https://bugs.eclipse.org/bugs/show_bug.cgi?id=164120 Bugzilla Bug 164120 StyledText can open out of sync with scrollbar]
+ * [https://bugs.eclipse.org/bugs/show_bug.cgi?id=164822 Bugzilla Bug 164822 clicking behind selected text in Text widget misplaces the cursor]
+
+== Mails ==
+ * [http://news.gmane.org/gmane.comp.lang.jruby.devel JRuby-Devel on Gmane]
+ * [http://news.gmane.org/gmane.comp.ide.eclipse.plugins.rdt.devel RDT-Devel on Gmane]
+
+== Project Management == 
+
+ * The '''repository''' is on http://r2.ifs.hsr.ch/svn/rubyrefactoring
+ * The archive of the '''mailinglist''' is here http://lists.misto.ch/pipermail/r/
+
+=== [wiki:Protokolle] ===
+
+=== Time Management ===
+ * [http://reporter.rwf.ch Georg Kunz's Reporter]
+ * [http://morki.ch/svn/morki/reporterclient/ Mirko's Linux Client]
+ * ZeiterfassungsAuswertung
